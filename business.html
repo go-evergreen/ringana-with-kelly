@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- CLIENT:START head -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Business — Ringana with Kelly</title>
+<meta name="description" content="Ringana enters the U.S. in 2026. Learn how the Fresh Partner model works — no inventory, no start capital — and why founding-team timing matters.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Business — Ringana with Kelly">
+<meta property="og:description" content="Ringana enters the U.S. in 2026. Learn how the Fresh Partner model works and why founding-team timing matters.">
+<meta property="og:image" content="og-image.jpg?v=6">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Business — Ringana with Kelly">
+<meta name="twitter:description" content="Ringana enters the U.S. in 2026. Learn how the Fresh Partner model works and why founding-team timing matters.">
+<meta name="twitter:image" content="og-image.jpg?v=6">
+<meta name="theme-color" content="#1c3227">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- CLIENT:END head -->
+<style>
+/* CLIENT:START theme */
+:root{
+  --pine:#1c3227;
+  --pine-deep:#142519;
+  --linen:#f6f2ea;
+  --linen-warm:#efe8db;
+  --brass:#b3893c;
+  --brass-light:#cfa95e;
+  --sage:#8ea38f;
+  --ink:#22301f;
+  --white:#fdfcf9;
+  --header-expanded:7.5rem;
+  --header-offset:7.5rem;
+}
+/* CLIENT:END theme */
+/* CORE:START css */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Work Sans',sans-serif;font-weight:300;color:var(--ink);background:var(--linen);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;}
+h1,h2,h3,h4,.serif{font-family:'Fraunces',serif;font-weight:400;line-height:1.15;}
+a{color:inherit;}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--brass-light);outline-offset:3px;}
+
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(28,50,39,0.95);
+  padding:1.35rem 2rem 1rem;
+  transition:padding .35s ease,background .35s ease,box-shadow .35s ease;
+}
+.site-header.is-scrolled{
+  padding:.8rem 2rem;
+  background:rgba(20,37,25,.98);
+  box-shadow:0 4px 24px rgba(0,0,0,.18);
+}
+.site-header-inner{
+  max-width:1060px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:.9rem;
+  transition:gap .35s ease;
+}
+.site-header.is-scrolled .site-header-inner{
+  flex-direction:row;justify-content:space-between;align-items:center;gap:1.25rem;
+}
+.site-brand{
+  font-family:'Fraunces',serif;
+  color:var(--linen);
+  font-size:clamp(1.15rem,3vw,1.6rem);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+  line-height:1.2;
+  transition:font-size .35s ease,letter-spacing .35s ease;
+}
+.site-brand span{color:var(--brass-light);}
+.site-header.is-scrolled .site-brand{
+  font-size:clamp(.82rem,2.2vw,1rem);
+  letter-spacing:.14em;
+}
+.site-nav{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:1.2rem 2rem;
+  transition:gap .35s ease;
+}
+.site-header.is-scrolled .site-nav{justify-content:flex-end;gap:.85rem 1.15rem;}
+.site-nav .nav-about{margin-left:0;transition:margin-left .35s ease;}
+.site-header.is-scrolled .site-nav .nav-about{margin-left:.85rem;}
+.site-nav a{color:var(--linen);text-decoration:none;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:400;opacity:.85;transition:opacity .2s,color .2s;}
+.site-nav a:hover{opacity:1;color:var(--brass-light);}
+.site-nav a.active{opacity:1;color:var(--brass-light);}
+.nav-cta{border:1px solid var(--brass-light);padding:.45rem 1.15rem;border-radius:2px;color:var(--brass-light) !important;opacity:1 !important;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:background .2s,color .2s,opacity .35s ease,max-width .35s ease,padding .35s ease,margin .35s ease,border-color .35s ease,visibility 0s;}
+.nav-cta:hover{background:var(--brass-light);color:var(--pine) !important;}
+.nav-cta-scroll{max-width:0;padding-left:0;padding-right:0;margin-left:0;border-color:transparent;opacity:0;visibility:hidden;overflow:hidden;pointer-events:none;}
+.site-header.is-scrolled .nav-cta-scroll{max-width:11rem;padding:.45rem 1.15rem;margin-left:1rem;border-color:var(--brass-light);opacity:1;visibility:visible;pointer-events:auto;}
+body.nav-open{overflow:hidden;}
+
+.page-hero{background:linear-gradient(168deg,var(--pine-deep) 0%,var(--pine) 60%,#24402f 100%);color:var(--linen);padding:calc(var(--header-expanded) + 3rem) 2rem 5rem;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;right:-14vw;top:-16vh;width:52vw;height:52vw;max-width:700px;max-height:700px;border:1px solid rgba(207,169,94,.16);border-radius:50%;pointer-events:none;}
+.page-hero-inner{max-width:1060px;margin:0 auto;position:relative;z-index:2;}
+.hero-eyebrow{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-light);font-weight:500;margin-bottom:1.4rem;display:flex;align-items:center;gap:.9rem;}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--brass-light);}
+.page-hero h1{font-size:clamp(2.4rem,5.4vw,4rem);font-weight:300;margin-bottom:1.4rem;max-width:15ch;}
+.page-hero h1 em{font-style:italic;color:var(--brass-light);}
+.page-hero p{font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:56ch;opacity:.88;}
+
+section{padding:5.5rem 2rem;}
+.container{max-width:1060px;margin:0 auto;}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:1rem;}
+.section-title{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:400;margin-bottom:1.3rem;max-width:24ch;}
+.lede{font-size:1.12rem;max-width:62ch;margin-bottom:1.6rem;}
+.btn{display:inline-block;padding:.95rem 2.4rem;font-family:'Work Sans',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;cursor:pointer;border:1px solid transparent;}
+.btn-brass{background:linear-gradient(160deg,#c49a4a 0%,var(--brass) 50%,#9a7530 100%);color:var(--white);box-shadow:0 2px 0 rgba(0,0,0,.14),0 6px 20px rgba(179,137,60,.3);}
+.btn-brass:hover{background:linear-gradient(160deg,#d4ad5e 0%,var(--brass-light) 55%,var(--brass) 100%);transform:translateY(-2px);box-shadow:0 3px 0 rgba(0,0,0,.1),0 10px 28px rgba(179,137,60,.38);}
+.btn-pine{background:var(--pine);color:var(--linen);box-shadow:0 4px 16px rgba(28,50,39,.2);}
+.btn-pine:hover{background:var(--pine-deep);transform:translateY(-2px);}
+
+/* Standards band — mirrors homepage */
+.standards{background:var(--pine);color:var(--linen);padding:3.2rem 2rem;}
+.standards .container{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+.standard-item{border-left:1px solid rgba(207,169,94,.3);padding:0 1rem;}
+.standard-item:first-child{border-left:none;}
+.standard-icon{display:block;width:2rem;height:2rem;margin:0 auto .55rem;color:var(--brass-light);opacity:.8;}
+.standard-item .num{font-family:'Fraunces',serif;font-size:clamp(1.5rem,2.4vw,1.9rem);color:var(--brass-light);display:block;margin-bottom:.35rem;line-height:1.1;}
+.standard-item .label{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.82;line-height:1.45;white-space:normal;}
+
+/* Why now band */
+.whynow{background:var(--linen);}
+.whynow .standards{margin-top:3rem;}
+.moment-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin-top:2.4rem;}
+.moment-card{background:var(--white);border-radius:3px;padding:2rem 1.8rem;border-top:3px solid var(--brass);}
+.moment-card h3{font-size:1.2rem;margin-bottom:.6rem;}
+.moment-card p{font-size:.95rem;opacity:.9;}
+.moment-card .stat{font-family:'Fraunces',serif;font-size:2rem;color:var(--brass);display:block;margin-bottom:.3rem;}
+
+/* How it works */
+.how{background:var(--linen-warm);}
+.steps{margin-top:2.6rem;}
+.step{display:grid;grid-template-columns:88px 1fr;gap:1.8rem;padding:1.9rem 0;border-top:1px solid #ddd5c5;align-items:start;}
+.step:first-child{border-top:none;}
+.step-num{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--brass);line-height:1;padding-top:.2rem;}
+.step h3{font-size:1.25rem;margin-bottom:.4rem;}
+.step p{max-width:62ch;font-size:.98rem;}
+
+/* The Opportunity */
+.opportunity{background:var(--white);}
+.opportunity-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:1rem;
+  margin-top:2.4rem;
+  align-items:stretch;
+}
+.opportunity-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  min-height:9.5rem;
+  padding:1.75rem 1rem;
+  border:1px solid #e3d9c8;
+  border-radius:3px;
+  background:var(--linen);
+  border-top:3px solid var(--brass);
+}
+.opportunity-card .num{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.35rem,2.2vw,1.95rem);
+  color:var(--brass);
+  display:block;
+  margin-bottom:.45rem;
+  line-height:1.15;
+}
+.opportunity-card .num.long{font-size:clamp(1rem,1.6vw,1.4rem);}
+.opportunity-card .label{
+  font-size:.74rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  opacity:.88;
+  line-height:1.45;
+  max-width:14ch;
+}
+.opportunity-card .threshold-note{
+  display:block;
+  margin-top:.35rem;
+  font-size:.68rem;
+  font-style:italic;
+  line-height:1.35;
+  opacity:.7;
+}
+.opportunity-card--featured{
+  background:linear-gradient(175deg,#fffdf8 0%,var(--linen) 100%);
+  border-color:rgba(179,137,60,.45);
+  box-shadow:0 8px 24px rgba(179,137,60,.12);
+}
+.opportunity-card--featured .num{font-size:clamp(1.55rem,2.4vw,2.1rem);}
+.opportunity-note{
+  font-size:.88rem;
+  opacity:.72;
+  margin:1.4rem auto 0;
+  max-width:62ch;
+  text-align:center;
+}
+
+/* You do / Ringana does */
+.split{background:var(--pine);color:var(--linen);position:relative;overflow:hidden;}
+.split::after{content:'';position:absolute;left:-12vw;bottom:-24vh;width:48vw;height:48vw;border:1px solid rgba(207,169,94,.14);border-radius:50%;pointer-events:none;}
+.split .eyebrow{color:var(--brass-light);}
+.split .section-title{color:var(--linen);}
+.split .lede{opacity:.9;}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.6rem;position:relative;z-index:2;}
+.split-col{border:1px solid rgba(207,169,94,.3);border-radius:3px;padding:2rem 1.8rem;background:rgba(20,37,25,.35);}
+.split-col h3{color:var(--brass-light);font-size:1.25rem;margin-bottom:1.1rem;}
+.split-col ul{list-style:none;}
+.split-col li{padding:.55rem 0 .55rem 1.6rem;position:relative;font-size:.96rem;opacity:.92;border-top:1px solid rgba(246,242,234,.08);}
+.split-col li:first-child{border-top:none;}
+.split-col li::before{content:'—';position:absolute;left:0;color:var(--brass-light);}
+
+/* Fit check */
+.fit{background:var(--linen);}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.4rem;}
+.fit-col h3{font-size:1.25rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid var(--brass);display:inline-block;}
+.fit-col ul{list-style:none;}
+.fit-col li{padding:.6rem 0 .6rem 1.7rem;position:relative;font-size:.97rem;}
+.fit-yes li::before{content:'✓';position:absolute;left:0;color:var(--pine);font-weight:600;}
+.fit-no li::before{content:'✕';position:absolute;left:0;color:var(--brass);font-weight:600;}
+
+/* Founding team */
+.founding-spread{
+  padding:0 0 clamp(4rem,7vw,6rem);
+  background:var(--linen-warm);
+}
+.founding-banner{
+  position:relative;
+  min-height:min(38vh,360px);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.founding-banner-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.founding-banner-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  display:block;
+}
+.founding-banner-bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 0%,rgba(246,242,234,.12) 70%,rgba(246,242,234,.35) 100%);
+  pointer-events:none;
+}
+.founding-banner-overlay{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1060px;
+  margin:0 auto;
+  padding:clamp(2.4rem,4.5vw,3.5rem) 2rem 1.4rem;
+}
+.founding-banner-box{
+  display:inline-block;
+  background:rgba(253,252,249,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-radius:2px;
+  padding:1.25rem 1.5rem 1.4rem;
+  max-width:min(100%,42ch);
+  box-shadow:0 8px 24px rgba(28,50,39,.08);
+}
+.founding-banner-box .eyebrow{margin-bottom:.75rem;}
+.founding-banner-box .section-title{margin:0;max-width:16ch;}
+.founding-content{
+  max-width:1060px;
+  margin:0 auto;
+  padding:0 2rem;
+}
+.founding-panel{
+  position:relative;
+  z-index:3;
+  margin-top:-.5rem;
+  background:var(--white);
+  padding:2.35rem 2.1rem;
+  border-radius:2px;
+  box-shadow:0 14px 44px rgba(28,50,39,.09);
+}
+.founding-panel p{margin-bottom:1.1rem;max-width:none;}
+.founding-panel .pull{margin:1.4rem 0;}
+.founding-panel .why-partner{
+  margin:1.6rem 0 0;
+  padding:1.5rem 0 0;
+  background:transparent;
+  border:none;
+  border-top:1px solid rgba(179,137,60,.28);
+  border-radius:0;
+}
+.founding-panel .why-partner h3{font-size:1.12rem;margin-bottom:.7rem;}
+.founding-panel .why-partner p{font-size:.96rem;margin-bottom:.75rem;}
+.founding-panel .cta-row{margin-top:1.8rem;}
+.pull{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--pine);border-left:2px solid var(--brass);padding-left:1.2rem;line-height:1.45;}
+.why-partner .highlight{font-family:'Fraunces',serif;color:var(--brass);font-weight:500;}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
+.why-partner{
+  margin:2.4rem 0;
+  padding:2rem 1.8rem;
+  background:var(--white);
+  border-left:3px solid var(--brass);
+  border-radius:3px;
+}
+.why-partner h3{font-size:1.25rem;margin-bottom:.9rem;}
+.why-partner p{max-width:62ch;margin-bottom:.9rem;}
+.why-partner p:last-child{margin-bottom:0;}
+
+/* FAQ */
+.faq{background:var(--linen);}
+.faq-list{margin-top:2.2rem;max-width:800px;}
+.faq details{border-top:1px solid #ddd5c5;padding:1.2rem 0;}
+.faq details:last-child{border-bottom:1px solid #ddd5c5;}
+.faq summary{
+  font-family:'Fraunces',serif;
+  font-size:1.15rem;
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  -webkit-tap-highlight-color:transparent;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'+';font-size:1.5rem;color:var(--brass);flex-shrink:0;transition:transform .25s;}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq details p{padding-top:.9rem;font-size:.97rem;max-width:64ch;}
+
+footer{
+  background:var(--pine-deep);
+  color:var(--linen);
+  padding:3rem 2rem 2.2rem;
+  text-align:center;
+}
+.foot-brand{
+  font-family:'Fraunces',serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:1rem;
+  margin-bottom:.8rem;
+}
+.foot-brand span{color:var(--brass-light);}
+.foot-cta{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.02rem;
+  opacity:.82;
+  margin-bottom:1.1rem;
+  max-width:48ch;
+  margin-left:auto;
+  margin-right:auto;
+}
+footer a{color:var(--brass-light);text-decoration:none;border-bottom:1px solid rgba(207,169,94,.35);}
+footer a:hover{opacity:1;border-bottom-color:var(--brass-light);}
+footer p{font-size:.8rem;opacity:.6;max-width:74ch;margin:0 auto .5rem;}
+.foot-social{margin:1.2rem 0;}
+.foot-social a{color:var(--linen);text-decoration:none;font-size:.85rem;letter-spacing:.08em;margin:0 .9rem;opacity:.8;}
+.foot-social a:hover{opacity:1;color:var(--brass-light);}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1;transform:none;transition:none;}}
+
+@media (max-width:880px){
+  .site-header{padding:1rem .9rem .9rem;}
+  .site-header.is-scrolled{padding:.85rem .9rem;}
+  .site-header.is-scrolled .site-header-inner{
+    flex-direction:column;
+    align-items:center;
+    gap:.65rem;
+  }
+  .site-brand{font-size:1.02rem;letter-spacing:.12em;text-align:center;width:100%;padding-right:.12em;}
+  .site-header.is-scrolled .site-brand{font-size:.92rem;letter-spacing:.1em;width:100%;}
+  .site-nav{gap:.15rem .2rem;justify-content:center;width:100%;}
+  .site-header.is-scrolled .site-nav{justify-content:center;gap:.15rem .2rem;width:100%;}
+  .site-nav a{
+    font-size:.68rem;
+    letter-spacing:.06em;
+    padding:.55rem .7rem;
+    opacity:.95;
+  }
+  .site-header.is-scrolled .site-nav .nav-about{margin-left:0;}
+  .nav-cta{padding:.6rem 1.05rem;font-size:.68rem;letter-spacing:.07em;}
+  .site-header.is-scrolled .nav-cta-scroll{
+    max-width:14rem;
+    padding:.6rem 1.05rem;
+    margin-left:0;
+    margin-top:.1rem;
+    font-size:.68rem;
+  }
+  .moment-grid,.split-grid,.fit-grid{grid-template-columns:1fr;}
+  .founding-banner{min-height:min(34vh,300px);}
+  .founding-banner-overlay{padding:2rem 1.4rem 1rem;}
+  .founding-banner-box{padding:1.1rem 1.25rem 1.2rem;}
+  .founding-content{padding:0 1.4rem;}
+  .founding-panel{margin-top:0;padding:2rem 1.5rem;}
+  .opportunity-grid{grid-template-columns:1fr 1fr;gap:.85rem;}
+  .opportunity-card{min-height:7.5rem;padding:1.35rem .85rem;}
+  .opportunity-card .num{font-size:1.45rem;}
+  .opportunity-card .label{font-size:.66rem;letter-spacing:.04em;max-width:none;}
+  .opportunity-card--featured{grid-column:1 / -1;min-height:auto;padding:1.5rem 1rem;}
+  .opportunity-card--featured .num{font-size:1.75rem;}
+  .opportunity .reveal,
+  .opportunity .reveal.visible{opacity:1;transform:none;}
+  .founding-spread .reveal,
+  .founding-spread .reveal.visible,
+  .founding-banner-box.reveal,
+  .founding-banner-box.reveal.visible{opacity:1;transform:none;}
+  .fit-grid{gap:2rem;}
+  .standards{padding:2rem 1rem;overflow:hidden;}
+  .standards .container{grid-template-columns:1fr 1fr;gap:1.1rem .75rem;width:100%;max-width:100%;margin:0;padding:0;}
+  .standard-item,
+  .standard-item:first-child,
+  .standard-item:nth-child(3){
+    border-left:none !important;
+    border-top:1px solid rgba(207,169,94,.22);
+    padding:.55rem .25rem 0;
+  }
+  .standard-item:nth-child(1),
+  .standard-item:nth-child(2){border-top:none;padding-top:0;}
+  .standard-item .label{font-size:.6rem;letter-spacing:.03em;line-height:1.35;white-space:normal;}
+  .faq{padding-bottom:4.5rem;}
+  .faq .reveal,
+  .faq .reveal.visible{opacity:1;transform:none;}
+  .faq-list{margin-top:1.6rem;max-width:none;}
+  .faq summary{
+    font-size:1.05rem;
+    line-height:1.35;
+    padding:.45rem 0;
+    min-height:44px;
+    align-items:flex-start;
+  }
+  .faq summary::after{margin-top:.05rem;}
+  .faq details p{font-size:.95rem;max-width:none;}
+}
+@media (max-width:1100px) and (min-width:881px){
+  .opportunity-grid{
+    grid-template-columns:repeat(6,1fr);
+    gap:.9rem;
+  }
+  .opportunity-card:nth-child(-n+3){grid-column:span 2;}
+  .opportunity-card:nth-child(4){grid-column:2 / span 2;}
+  .opportunity-card:nth-child(5){grid-column:4 / span 2;}
+  .opportunity-card--featured{box-shadow:0 6px 20px rgba(179,137,60,.1);}
+}
+@media (max-width:640px){
+  section{padding:4rem 1.4rem;}
+  .page-hero{padding:calc(var(--header-expanded) + 2rem) 1.4rem 3.6rem;}
+  .step{grid-template-columns:56px 1fr;gap:1.1rem;}
+  .step-num{font-size:1.8rem;}
+  .site-header{padding:.95rem .85rem .85rem;}
+  .site-nav a{font-size:.66rem;padding:.55rem .55rem;}
+}
+/* CORE:END css */
+</style>
+</head>
+<body>
+
+<!-- CLIENT:START site-header -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-brand">Ringana <span>·</span> with Kelly</a>
+    <nav class="site-nav" id="navLinks" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="products.html">The Products</a>
+      <a href="business.html" class="active">The Business</a>
+      <a href="about.html" class="nav-about">About Me</a>
+      <a href="#connect" class="nav-cta nav-cta-scroll" target="_blank" rel="noopener">Get First Access</a>
+    </nav>
+  </div>
+</header>
+<!-- CLIENT:END site-header -->
+<!-- CLIENT:START page-business -->
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">The Business</div>
+    <h1>Thirty years of proof. <em>One brand-new market.</em></h1>
+    <p>Ringana has spent three decades becoming a trusted name across Europe and Latin America. In 2026, it opens the United States for the first time — and the people who step in now become the founding generation of its American story.</p>
+  </div>
+</header>
+
+<!-- ============ WHY NOW ============ -->
+<section class="whynow">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Why Now</p>
+      <h2 class="section-title">This exact moment doesn't repeat.</h2>
+      <p class="lede">Most opportunities are either proven <em>or</em> early — almost never both. A company only enters a market for the first time once, and Ringana is doing it with serious commitment behind it.</p>
+    </div>
+    <div class="moment-grid">
+      <div class="moment-card reveal">
+        <span class="stat">$85M</span>
+        <h3>A real American home</h3>
+        <p>Ringana is investing $85 million in its first U.S. headquarters, production, and distribution facility in Roanoke, Virginia — so products for American customers are made fresh on American soil, not shipped across an ocean.</p>
+      </div>
+      <div class="moment-card reveal">
+        <span class="stat">30 yrs</span>
+        <h3>Not a startup gamble</h3>
+        <p>Founded in 1996 and still led by its founding family, Ringana has built its reputation across more than 30 countries. You get ground-floor timing with an established company's track record underneath you.</p>
+      </div>
+      <div class="moment-card reveal">
+        <span class="stat">1st</span>
+        <h3>A market opening once</h3>
+        <p>After three decades across Europe and expansions into Mexico, Colombia, and Peru, the United States is a brand-new market for Ringana — its first stateside facility, its first American-made products, its first U.S. partner generation. A company only opens the American market once.</p>
+      </div>
+      <div class="moment-card reveal">
+        <span class="stat">Now</span>
+        <h3>An audience that's ready</h3>
+        <p>Americans are reading ingredient labels like never before. Demand for genuinely toxin free, transparent products keeps climbing — and Ringana was built for exactly this buyer, decades before the trend.</p>
+      </div>
+    </div>
+  </div>
+  <div class="standards reveal">
+    <div class="container">
+      <div class="standard-item reveal">
+        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3c-3 4-7 6-7 11a7 7 0 0 0 14 0c0-5-4-7-7-11z"/></svg>
+        <span class="num" data-count="1996" data-count-from="2026">2026</span><span class="label">Still family-led today</span>
+      </div>
+      <div class="standard-item reveal">
+        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        <span class="num" data-count="34">0</span><span class="label">Countries served</span>
+      </div>
+      <div class="standard-item reveal">
+        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/></svg>
+        <span class="num" data-count="100" data-suffix="K+">0</span><span class="label">Partners worldwide</span>
+      </div>
+      <div class="standard-item reveal">
+        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>
+        <span class="num" data-count="85" data-prefix="$" data-suffix="M">0</span><span class="label">U.S. campus investment</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE OPPORTUNITY ============ -->
+<section class="opportunity" id="opportunity">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">The Opportunity</p>
+      <h2 class="section-title">Numbers worth knowing upfront.</h2>
+      <p class="lede">Ringana's partner model rewards real product movement — on your own customers and on the team you choose to build. These reflect Ringana's current international compensation; U.S. details will be confirmed at launch.</p>
+    </div>
+    <div class="opportunity-grid">
+      <div class="opportunity-card reveal">
+        <span class="num">Up to 39%</span>
+        <span class="label">on customer turnover</span>
+        <span class="threshold-note">*at a very low threshold</span>
+      </div>
+      <div class="opportunity-card reveal">
+        <span class="num">Up to 14%</span>
+        <span class="label">On team turnover</span>
+      </div>
+      <div class="opportunity-card reveal">
+        <span class="num">9 levels</span>
+        <span class="label">Deep on team turnover</span>
+      </div>
+      <div class="opportunity-card reveal">
+        <span class="num long">No leg requirements</span>
+        <span class="label">Reach the top on personal sales alone</span>
+      </div>
+      <div class="opportunity-card opportunity-card--featured reveal">
+        <span class="num">Up to $30K</span>
+        <span class="label">Recurring bonuses from your first month</span>
+      </div>
+    </div>
+    <p class="opportunity-note reveal">Individual results vary. No income is guaranteed — but the structure is designed so you're not blocked by artificial leg requirements.</p>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="section-title">A business without the baggage.</h2>
+      <p class="lede">Because Ringana products are made fresh to order, they can't sit in stores — or in your garage. The entire model is built around direct recommendation, and it strips out almost everything that makes traditional business (and most network marketing) heavy.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div>
+          <h3>You share what you genuinely use</h3>
+          <p>Your role is recommendation, not sales-floor pressure. You use the products, you talk about them honestly, and you point people to your personal online shop link. That's the whole front end of the business.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Ringana handles everything behind the scenes</h3>
+          <p>Orders go through your personal online office, and Ringana produces fresh, packages, ships direct to your customer, and handles invoicing. No inventory, no packing boxes, no chasing payments.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div>
+          <h3>You earn on real product sales</h3>
+          <p>Commission comes from products your customers actually order and reorder — and from supporting a team of partners you help build, if you choose to grow one. The engine is product sales, not recruiting.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div>
+          <h3>You grow with a mentor, at your pace</h3>
+          <p>Every new partner starts with a mentor — that's where I come in. Training, tools, and systems from day one, whether you want a few hours a week alongside your family or a full-time business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ YOU DO / RINGANA DOES ============ -->
+<section class="split">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">The Division of Labor</p>
+      <h2 class="section-title">Your side of the table is small on purpose.</h2>
+    </div>
+    <div class="split-grid">
+      <div class="split-col reveal">
+        <h3>You focus on</h3>
+        <ul>
+          <li>Using and loving the products</li>
+          <li>Sharing honestly with your people</li>
+          <li>Caring for your customers</li>
+          <li>Growing and mentoring your team, if you choose</li>
+          <li>Learning as you go — at your own pace</li>
+        </ul>
+      </div>
+      <div class="split-col reveal">
+        <h3>Ringana handles</h3>
+        <ul>
+          <li>Product development &amp; fresh production</li>
+          <li>Packaging &amp; direct-to-customer shipping</li>
+          <li>Invoicing &amp; payment processing</li>
+          <li>Your personal online office &amp; shop</li>
+          <li>Brand, research &amp; press</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIT CHECK ============ -->
+<section class="fit">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Honest Fit Check</p>
+      <h2 class="section-title">This is for some people. Not everyone.</h2>
+      <p class="lede">I'd rather you know before we ever talk. Here's my honest read on who thrives with something like this — and who shouldn't bother.</p>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-col fit-yes reveal">
+        <h3>Probably a great fit if you…</h3>
+        <ul>
+          <li>Already care about what's in your products and love talking about it</li>
+          <li>Want income that flexes around family, homeschool, or another job</li>
+          <li>Prefer recommending things you truly use over "selling"</li>
+          <li>Like the idea of being early — and building something over years, not weeks</li>
+          <li>Want a mentor and real systems instead of figuring it out alone</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-no reveal">
+        <h3>Probably not for you if you…</h3>
+        <ul>
+          <li>Are looking for fast or guaranteed money</li>
+          <li>Don't actually care about clean, toxin free living</li>
+          <li>Aren't willing to consistently share and show up</li>
+          <li>Want someone else to build it for you</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDING TEAM ============ -->
+<section class="founding-spread" id="founding">
+  <div class="founding-banner">
+    <div class="founding-banner-bg" aria-hidden="true">
+      <img src="founding-banner.webp" alt="" loading="lazy" decoding="async" width="1400" height="896">
+    </div>
+    <div class="founding-banner-overlay">
+      <div class="founding-banner-box reveal">
+        <p class="eyebrow">The Founding Team</p>
+        <h2 class="section-title">I'm building mine before launch day.</h2>
+      </div>
+    </div>
+  </div>
+  <div class="founding-content">
+    <div class="founding-panel reveal">
+      <p>Through my partnership with Ringana, I'm getting early access to products before U.S. launch — testing everything firsthand and building the systems, training, and content library my team will use. So the day Ringana opens in America, we're not starting. We're <em>ready</em>.</p>
+      <div class="pull">The people who join me now get everything I build, my direct mentorship, and founding-era timing in a market of 330 million people.</div>
+      <div class="why-partner">
+        <h3>Why build with me</h3>
+        <p>I'm not asking you to figure this out alone. Through early access, I'm building the systems, training, and content your team will actually use — so launch day isn't day one for us.</p>
+        <p>Since 2019 I've built a clean beauty business with more than <span class="highlight">$112,000 in lifetime personal sales</span>, helping lead a team with over <span class="highlight">$246,000 in lifetime sales</span>. I bring a decade-plus in wellness entrepreneurship, twenty years of creative work, and real-life mentoring for women who want income that flexes around family — not the other way around.</p>
+      </div>
+      <p>If you've read this far and something in you is saying <em>this might be it</em> — let's talk. No pressure, no scripts. Just an honest conversation about whether this fits your life.</p>
+      <div class="cta-row">
+        <a href="#connect" class="btn btn-brass" target="_blank" rel="noopener">Join the Founding List</a>
+        <a href="#connect" target="_blank" rel="noopener" class="btn btn-pine">DM Me on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="reveal faq-intro">
+      <p class="eyebrow">Questions</p>
+      <h2 class="section-title">Asked and answered.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Is this an MLM / pyramid thing?</summary>
+        <p>Yes, it's network marketing — but it's not a pyramid scheme. A true pyramid scheme pays people primarily for recruiting others, with little or no real product behind it. Ringana is a legitimate business built on legitimate products: earnings come from real product sales to real customers, not from recruitment alone. There's no inventory loading, no required purchases, and internationally partners hold zero stock because fresh products can't sit in a garage. It's direct sales with products people actually use and reorder.</p>
+      </details>
+      <details>
+        <summary>What does it cost to start?</summary>
+        <p>Official U.S. enrollment details will be confirmed at launch, and I'll share them with the founding list the moment they're public.</p>
+      </details>
+      <details>
+        <summary>Will there be monthly purchase requirements to stay active?</summary>
+        <p>No, there are no purchase requirements, ever. You do need at least one purchase (of any size) every year to remain an active partner.</p>
+      </details>
+      <details>
+        <summary>How much can I earn?</summary>
+        <p>Honestly: it depends entirely on you. Partners earn commission on product sales and on team growth, and results vary widely based on effort, consistency, and time. Nobody — including me — can promise you a specific income, and you should walk away from anyone who does. What I can promise is my systems, my mentorship, and founding-team timing.</p>
+      </details>
+      <details>
+        <summary>Do I have to be a "salesperson"?</summary>
+        <p>No — and honestly I believe in sharing from experience, and integrity speaks volumes because it's honest. There will never be pressure from me to be salesy or misleading. I will be your support and resource to find the best way to share with your audience.</p>
+      </details>
+      <details>
+        <summary>When exactly does the U.S. launch?</summary>
+        <p>Ringana's American facility in Roanoke, Virginia begins manufacturing in late 2026, with the U.S. market opening around that time. Exact partner enrollment and ordering dates will come from Ringana — and founding list members will hear them from me first.</p>
+      </details>
+      <details>
+        <summary>What if I just want the products?</summary>
+        <p>That's a great way to start — and if you feel that's the path you want to take, perfect! I'll be sharing product info with everyone who signs up as well. But I'd also encourage you to consider joining while Ringana is coming to market, in case you want to share down the road. There's no requirement to share once you join, so you can decide later.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT:END page-business -->
+<!-- CLIENT:START footer -->
+<footer>
+  <p class="foot-brand">Ringana <span>·</span> with Kelly</p>
+  <p class="foot-cta">Questions before launch? <a href="#connect" target="_blank" rel="noopener">DM me on Instagram</a> — I read every message.</p>
+  <div class="foot-social">
+    <a href="#connect" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/share/g/1JF3UPPnNg/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+  </div>
+  <p>Kelly is an independent Ringana Fresh Partner (pending U.S. launch). This is a personal page and is not an official Ringana corporate website. Business details reflect Ringana's current international partner model; official U.S. terms, compensation, and enrollment details will be confirmed by Ringana at launch. No income is guaranteed or implied; individual results depend on individual effort.</p>
+  <p>&copy; 2026 Kelly</p>
+</footer>
+<!-- CLIENT:END footer -->
+
+<script>
+/* CORE:START js */
+const siteHeader=document.getElementById('siteHeader');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let headerTicking=false;
+
+function measureExpandedHeader(){
+  if(!siteHeader)return;
+  const wasScrolled=siteHeader.classList.contains('is-scrolled');
+  siteHeader.classList.remove('is-scrolled');
+  document.documentElement.style.setProperty('--header-expanded',siteHeader.offsetHeight+'px');
+  if(wasScrolled)siteHeader.classList.add('is-scrolled');
+  document.documentElement.style.setProperty('--header-offset',siteHeader.offsetHeight+'px');
+}
+
+function updateSiteHeader(){
+  if(!siteHeader)return;
+  const y=window.scrollY;
+  if(siteHeader.classList.contains('is-scrolled')){
+    if(y<32)siteHeader.classList.remove('is-scrolled');
+  }else if(y>72){
+    siteHeader.classList.add('is-scrolled');
+  }
+  document.documentElement.style.setProperty('--header-offset',siteHeader.offsetHeight+'px');
+}
+
+measureExpandedHeader();
+window.addEventListener('resize',measureExpandedHeader);
+window.addEventListener('scroll',()=>{
+  if(headerTicking)return;
+  headerTicking=true;
+  requestAnimationFrame(()=>{
+    updateSiteHeader();
+    headerTicking=false;
+  });
+},{passive:true});
+
+function animateCount(el){
+  const target=+el.dataset.count;
+  const from=el.dataset.countFrom?+el.dataset.countFrom:null;
+  const prefix=el.dataset.prefix||'';
+  const suffix=el.dataset.suffix||'';
+  const duration=1400;
+  const start=performance.now();
+  function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    const value=from!==null?Math.round(from-(from-target)*eased):Math.round(target*eased);
+    el.textContent=prefix+value+suffix;
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const countIo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCount(e.target);
+      countIo.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+if(!reduceMotion){
+  document.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
+}else{
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    el.textContent=(el.dataset.prefix||'')+el.dataset.count+(el.dataset.suffix||'');
+  });
+}
+
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px 80px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.faq .reveal, .opportunity .reveal, .founding-spread .reveal, .founding-banner-box.reveal').forEach(el=>el.classList.add('visible'));
+/* CORE:END js */
+</script>
+</body>
+</html>

@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- CLIENT:START head -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ringana with Kelly — Helping Families Create Healthier Homes</title>
+<meta name="description" content="Ringana is coming to America. Follow Kelly — wife, mom of five, wellness educator — for intentional low-tox living and founding updates before U.S. launch.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ringana with Kelly — Helping Families Create Healthier Homes">
+<meta property="og:description" content="Wellness. Motherhood. Purpose. Follow Kelly as she partners with Ringana to help families create healthier homes through intentional choices.">
+<meta property="og:image" content="og-image.jpg?v=6">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ringana with Kelly — Helping Families Create Healthier Homes">
+<meta name="twitter:description" content="Wellness. Motherhood. Purpose. Follow Kelly as she partners with Ringana to help families create healthier homes through intentional choices.">
+<meta name="twitter:image" content="og-image.jpg?v=6">
+<meta name="theme-color" content="#1c3227">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- CLIENT:END head -->
+<style>
+/* CLIENT:START theme */
+:root{
+  --pine:#1c3227;
+  --pine-deep:#142519;
+  --linen:#f6f2ea;
+  --linen-warm:#efe8db;
+  --brass:#b3893c;
+  --brass-light:#cfa95e;
+  --sage:#8ea38f;
+  --ink:#22301f;
+  --white:#fdfcf9;
+  --header-expanded:7.5rem;
+  --header-offset:7.5rem;
+}
+/* CLIENT:END theme */
+/* CORE:START css */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Work Sans',sans-serif;
+  font-weight:300;
+  color:var(--ink);
+  background:var(--linen);
+  line-height:1.7;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9998;
+  opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+body.nav-open{overflow:hidden;}
+h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400;line-height:1.15;}
+a{color:inherit;}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--brass-light);outline-offset:3px;}
+
+/* ------- SITE HEADER ------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(28,50,39,0.95);
+  padding:1.35rem 2rem 1rem;
+  transition:padding .35s ease,background .35s ease,box-shadow .35s ease;
+}
+.site-header.is-scrolled{
+  padding:.8rem 2rem;
+  background:rgba(20,37,25,.98);
+  box-shadow:0 4px 24px rgba(0,0,0,.18);
+}
+.site-header-inner{
+  max-width:1060px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:.9rem;
+  transition:gap .35s ease;
+}
+.site-header.is-scrolled .site-header-inner{
+  flex-direction:row;justify-content:space-between;align-items:center;gap:1.25rem;
+}
+.site-brand{
+  font-family:'Fraunces',serif;
+  color:var(--linen);
+  font-size:clamp(1.15rem,3vw,1.6rem);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+  line-height:1.2;
+  transition:font-size .35s ease,letter-spacing .35s ease;
+}
+.site-brand span{color:var(--brass-light);}
+.site-header.is-scrolled .site-brand{
+  font-size:clamp(.82rem,2.2vw,1rem);
+  letter-spacing:.14em;
+}
+.site-nav{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:1.2rem 2rem;
+  transition:gap .35s ease;
+}
+.site-header.is-scrolled .site-nav{justify-content:flex-end;gap:.85rem 1.15rem;}
+.site-nav .nav-about{margin-left:0;transition:margin-left .35s ease;}
+.site-header.is-scrolled .site-nav .nav-about{margin-left:.85rem;}
+.site-nav a{
+  color:var(--linen);
+  text-decoration:none;
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:400;
+  opacity:.85;
+  transition:opacity .2s,color .2s;
+}
+.site-nav a:hover{opacity:1;color:var(--brass-light);}
+.site-nav a.active{opacity:1;color:var(--brass-light);}
+.nav-cta{
+  border:1px solid var(--brass-light);
+  padding:.45rem 1.15rem;
+  border-radius:2px;
+  color:var(--brass-light) !important;
+  opacity:1 !important;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transition:background .2s,color .2s,opacity .35s ease,max-width .35s ease,padding .35s ease,margin .35s ease,border-color .35s ease,visibility 0s;
+}
+.nav-cta:hover{background:var(--brass-light);color:var(--pine) !important;}
+.nav-cta-scroll{
+  max-width:0;
+  padding-left:0;
+  padding-right:0;
+  margin-left:0;
+  border-color:transparent;
+  opacity:0;
+  visibility:hidden;
+  overflow:hidden;
+  pointer-events:none;
+}
+.site-header.is-scrolled .nav-cta-scroll{
+  max-width:11rem;
+  padding:.45rem 1.15rem;
+  margin-left:1rem;
+  border-color:var(--brass-light);
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+/* ------- HERO ------- */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(168deg,var(--pine-deep) 0%,var(--pine) 55%,#24402f 100%);
+  color:var(--linen);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:calc(var(--header-expanded) + 2.5rem) 2rem 5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-ring{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  will-change:transform;
+  transition:transform .1s linear;
+  z-index:2;
+}
+.hero-ring-1{
+  right:-12vw;top:-10vh;
+  width:60vw;height:60vw;
+  max-width:820px;max-height:820px;
+  border:1px solid rgba(207,169,94,.18);
+}
+.hero-ring-2{
+  right:-4vw;top:6vh;
+  width:44vw;height:44vw;
+  max-width:640px;max-height:640px;
+  border:1px solid rgba(207,169,94,.12);
+}
+.hero-inner{max-width:1060px;margin:0 auto;width:100%;position:relative;z-index:3;}
+.hero-eyebrow{
+  font-size:.8rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--brass-light);
+  font-weight:500;
+  margin-bottom:1.6rem;
+  display:flex;align-items:center;gap:.9rem;
+}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--brass-light);}
+.hero h1{
+  font-size:clamp(2.6rem,6vw,4.6rem);
+  font-weight:300;
+  margin-bottom:1.8rem;
+  max-width:14ch;
+}
+.hero h1 em{font-style:italic;color:var(--brass-light);}
+.hero-sub{
+  font-size:clamp(1.05rem,1.6vw,1.25rem);
+  max-width:52ch;
+  opacity:.88;
+  margin-bottom:2.6rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{
+  display:inline-block;
+  padding:.95rem 2.4rem;
+  font-family:'Work Sans',sans-serif;
+  font-size:.82rem;
+  font-weight:500;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border-radius:1px;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease;
+  cursor:pointer;
+  border:1px solid transparent;
+  position:relative;
+}
+.btn-brass{
+  background:linear-gradient(160deg,#c49a4a 0%,var(--brass) 50%,#9a7530 100%);
+  color:var(--white);
+  box-shadow:0 2px 0 rgba(0,0,0,.14),0 6px 20px rgba(179,137,60,.3);
+  border-color:rgba(255,255,255,.1);
+}
+.btn-brass:hover{
+  background:linear-gradient(160deg,#d4ad5e 0%,var(--brass-light) 55%,var(--brass) 100%);
+  transform:translateY(-2px);
+  box-shadow:0 3px 0 rgba(0,0,0,.1),0 10px 28px rgba(179,137,60,.38);
+}
+.btn-pine{background:var(--pine);color:var(--linen);box-shadow:0 4px 16px rgba(28,50,39,.2);}
+.btn-pine:hover{background:var(--pine-deep);transform:translateY(-2px);box-shadow:0 6px 22px rgba(28,50,39,.28);}
+.btn-ghost{border-color:rgba(246,242,234,.45);color:var(--linen);border-width:1.5px;}
+.btn-ghost:hover{border-color:var(--linen);background:rgba(246,242,234,.1);transform:translateY(-1px);}
+.btn-row{display:flex;flex-direction:column;align-items:center;gap:1.15rem;}
+.btn-row .btn{min-width:min(100%,300px);text-align:center;}
+.hero-note{
+  margin-top:3.5rem;
+  font-size:.85rem;
+  letter-spacing:.05em;
+  opacity:.6;
+}
+
+/* ------- SECTION SCAFFOLD ------- */
+section{padding:6rem 2rem;}
+.container{max-width:1060px;margin:0 auto;}
+.eyebrow{
+  font-size:.78rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-weight:600;
+  margin-bottom:1rem;
+}
+.section-title{
+  font-size:clamp(1.9rem,4vw,2.9rem);
+  font-weight:400;
+  margin-bottom:1.4rem;
+  max-width:22ch;
+}
+.lede{font-size:1.14rem;max-width:60ch;margin-bottom:2rem;}
+
+/* ------- STANDARDS BAND ------- */
+.standards{
+  background:var(--pine);
+  color:var(--linen);
+  padding:3.2rem 2rem;
+}
+.standards .container{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2rem;
+  text-align:center;
+}
+.standard-item{border-left:1px solid rgba(207,169,94,.3);padding:0 1rem;}
+.standard-item:first-child{border-left:none;}
+.standard-icon{
+  display:block;
+  width:2rem;height:2rem;
+  margin:0 auto .55rem;
+  color:var(--brass-light);
+  opacity:.8;
+}
+.standard-item .num{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.5rem,2.4vw,1.9rem);
+  color:var(--brass-light);
+  display:block;
+  margin-bottom:.35rem;
+  line-height:1.1;
+}
+.standard-item .label{
+  font-size:.78rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  opacity:.82;
+  line-height:1.45;
+  white-space:normal;
+}
+
+/* ------- STORY / TIMELINE ------- */
+.story{background:var(--linen);}
+.story-grid{display:grid;grid-template-columns:5fr 6fr;gap:4.5rem;align-items:start;}
+.story-text p{margin-bottom:1.3rem;max-width:56ch;}
+.story-text p strong{font-weight:500;}
+.pull{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.35rem;
+  color:var(--pine);
+  border-left:2px solid var(--brass);
+  padding-left:1.3rem;
+  margin:2rem 0;
+  line-height:1.4;
+}
+.timeline{position:relative;padding-left:2.2rem;}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:7px;top:8px;bottom:8px;
+  width:1px;
+  background:#ddd5c5;
+}
+.tl-line-fill{
+  position:absolute;
+  left:7px;top:8px;
+  width:1px;
+  height:0;
+  background:linear-gradient(to bottom,var(--brass) 0%,var(--sage) 100%);
+  transition:height .4s ease;
+  z-index:1;
+}
+.tl-item{position:relative;padding-bottom:2.4rem;z-index:2;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:'';
+  position:absolute;
+  left:-2.2rem;top:8px;
+  width:15px;height:15px;
+  border-radius:50%;
+  background:var(--linen);
+  border:2px solid var(--brass);
+  transition:background .35s ease,border-color .35s ease,box-shadow .35s ease;
+  z-index:2;
+}
+.tl-item.tl-reached::before{background:var(--brass);}
+.tl-item.tl-future::before{box-shadow:0 0 0 4px rgba(179,137,60,.22);}
+.tl-item.tl-future.tl-reached::before{background:var(--brass);}
+.tl-item.tl-future h3{font-weight:600;color:var(--pine);}
+.tl-item.tl-future .tl-year{font-weight:500;}
+.tl-year{
+  font-family:'Fraunces',serif;
+  font-size:1.25rem;
+  color:var(--brass);
+  display:block;
+}
+.tl-item h3{font-size:1.12rem;font-weight:500;margin:.15rem 0 .3rem;}
+.tl-item p{font-size:.95rem;opacity:.85;max-width:44ch;}
+
+/* ------- CAMPUS EDITORIAL ------- */
+.campus-editorial{padding:0 2rem 6rem;overflow:hidden;}
+.campus-hero-full{
+  position:relative;
+  min-height:min(52vh,500px);
+  margin:0 -2rem;
+  display:flex;
+  align-items:flex-end;
+}
+.campus-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.campus-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:58% center;
+  display:block;
+}
+.campus-overlay{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1060px;
+  margin:0 auto;
+  padding:5rem 2rem 3.2rem;
+}
+.campus-overlay-box{
+  background:rgba(253,252,249,.94);
+  border-radius:2px;
+  padding:1.5rem 1.8rem 1.6rem;
+  max-width:min(100%,52ch);
+  box-shadow:0 10px 32px rgba(28,50,39,.14);
+}
+.campus-overlay-box .eyebrow{color:var(--brass);}
+.campus-overlay-box .section-title{
+  color:var(--pine);
+  max-width:18ch;
+  margin:0;
+}
+.campus-bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(20,37,25,.08) 0%,rgba(20,37,25,.28) 70%,rgba(20,37,25,.38) 100%);
+}
+.campus-copy{margin-top:2.4rem;}
+.campus-copy-box{
+  background:var(--white);
+  border-radius:2px;
+  padding:1.35rem 1.6rem;
+  margin-bottom:1rem;
+  box-shadow:0 8px 28px rgba(28,50,39,.08);
+  max-width:62ch;
+}
+.campus-copy-box:last-child{margin-bottom:0;}
+.campus-copy-box p{margin:0;max-width:none;}
+
+/* ------- PRODUCTS ------- */
+.products{background:var(--linen-warm);}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;
+  margin-top:3rem;
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.product-card{
+  background:var(--white);
+  border-radius:2px;
+  padding:2rem 1.6rem;
+  border-top:3px solid var(--pine);
+  transition:transform .25s,box-shadow .25s;
+  text-decoration:none;
+  color:inherit;
+  display:block;
+  height:100%;
+}
+.product-card.featured{border-top-color:var(--brass);}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(28,50,39,.1);}
+.product-kicker{
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-weight:600;
+  margin-bottom:.5rem;
+}
+.product-card h3{font-size:1.35rem;margin-bottom:.7rem;}
+.product-card p{font-size:.95rem;opacity:.9;}
+.products-cta{
+  margin-top:2.6rem;
+  text-align:center;
+}
+.products-foot{
+  margin-top:2.6rem;
+  font-size:.95rem;
+  max-width:64ch;
+  font-style:italic;
+  font-family:'Fraunces',serif;
+  color:var(--pine);
+}
+
+/* ------- OPPORTUNITY ------- */
+.opportunity{
+  background:var(--pine-deep);
+  color:var(--linen);
+  position:relative;
+  overflow:hidden;
+  padding-top:6rem;
+  padding-bottom:6rem;
+}
+.opportunity::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(179,137,60,.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(142,163,143,.08) 0%, transparent 50%);
+  pointer-events:none;
+}
+.opportunity .eyebrow{color:var(--brass-light);}
+.opportunity .section-title{color:var(--linen);max-width:20ch;}
+.opportunity .lede{opacity:.9;max-width:54ch;}
+.opp-split{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:3.5rem 4rem;
+  margin-top:3rem;
+  align-items:start;
+  position:relative;
+  z-index:2;
+}
+.opp-lead-card{
+  background:var(--linen);
+  color:var(--pine);
+  border-radius:3px;
+  padding:2.4rem 2.2rem;
+  box-shadow:0 20px 50px rgba(0,0,0,.22);
+  transform:translateY(1.2rem);
+}
+.opp-lead-card .opp-stat{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.8rem,5vw,3.8rem);
+  color:var(--brass);
+  line-height:1;
+  margin-bottom:.6rem;
+}
+.opp-lead-card h3{font-size:1.35rem;margin-bottom:.8rem;line-height:1.3;}
+.opp-lead-card p{font-size:.96rem;opacity:.9;}
+.opp-stack{display:flex;flex-direction:column;gap:1rem;}
+.opp-pill{
+  background:rgba(246,242,234,.08);
+  border:1px solid rgba(207,169,94,.32);
+  border-left:3px solid var(--brass-light);
+  border-radius:2px;
+  padding:1.35rem 1.5rem;
+  display:grid;
+  grid-template-columns:3.2rem 1fr;
+  gap:1rem;
+  align-items:start;
+  transition:background .22s ease,transform .22s ease;
+}
+.opp-pill:hover{background:rgba(246,242,234,.12);transform:translateX(4px);}
+.opp-pill-num{
+  font-family:'Fraunces',serif;
+  font-size:1.5rem;
+  color:var(--brass-light);
+  line-height:1;
+  padding-top:.15rem;
+}
+.opp-pill h3{font-size:1.05rem;margin-bottom:.35rem;color:var(--linen);}
+.opp-pill p{font-size:.9rem;opacity:.85;max-width:44ch;}
+.opp-footer{
+  margin-top:2.8rem;
+  padding-top:2.4rem;
+  border-top:1px solid rgba(207,169,94,.25);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.opp-pull{
+  margin:0 auto 2rem;
+  font-family:'Caveat',cursive;
+  font-size:clamp(1.55rem,2.8vw,2.05rem);
+  line-height:1.35;
+  color:var(--brass-light);
+  max-width:32ch;
+}
+.opp-cta{margin-top:0;text-align:center;position:relative;z-index:2;}
+.opp-cta .btn-row{flex-direction:row;justify-content:center;flex-wrap:wrap;}
+
+/* ------- ABOUT TAYLOR STRIP ------- */
+.about{background:var(--linen);}
+.about-grid{display:grid;grid-template-columns:minmax(220px,280px) 1fr;gap:2.8rem;align-items:start;}
+.about-photo-wrap{position:relative;max-width:280px;}
+.about-photo{
+  position:relative;
+  aspect-ratio:4/5;
+  max-height:340px;
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--linen-warm);
+  box-shadow:0 8px 24px rgba(28,50,39,.08);
+}
+.about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 18%;
+  display:block;
+}
+.about-text p{margin-bottom:1.2rem;max-width:54ch;}
+.about-more{margin-top:1.8rem;}
+.about-more a{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.08rem;
+  color:var(--brass);
+  text-decoration:none;
+  border-bottom:1px solid rgba(179,137,60,.4);
+  transition:border-color .2s,color .2s;
+}
+.about-more a:hover{color:var(--pine);border-bottom-color:var(--pine);}
+
+/* ------- CONNECT ------- */
+.section-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(179,137,60,.35) 18%,rgba(28,50,39,.18) 50%,rgba(179,137,60,.35) 82%,transparent);
+}
+.connect{background:var(--white);text-align:center;}
+.connect .section-title{margin-left:auto;margin-right:auto;}
+.connect .lede{margin-left:auto;margin-right:auto;}
+
+/* ------- FOOTER ------- */
+footer{
+  background:var(--pine-deep);
+  color:var(--linen);
+  padding:3rem 2rem 2.2rem;
+  text-align:center;
+}
+.foot-brand{
+  font-family:'Fraunces',serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:1rem;
+  margin-bottom:.8rem;
+}
+.foot-brand span{color:var(--brass-light);}
+.foot-cta{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.02rem;
+  opacity:.82;
+  margin-bottom:1.1rem;
+  max-width:48ch;
+  margin-left:auto;
+  margin-right:auto;
+}
+footer a{color:var(--brass-light);text-decoration:none;border-bottom:1px solid rgba(207,169,94,.35);}
+footer a:hover{opacity:1;border-bottom-color:var(--brass-light);}
+footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
+.foot-social{margin:1.2rem 0;}
+.foot-social a{
+  color:var(--linen);
+  text-decoration:none;
+  font-size:.85rem;
+  letter-spacing:.08em;
+  margin:0 .9rem;
+  opacity:.8;
+}
+.foot-social a:hover{opacity:1;color:var(--brass-light);}
+
+/* ------- REVEAL ANIMATION ------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
+  .product-card:hover{transform:none;}
+  .hero-ring{transition:none;}
+  .tl-line-fill{transition:none;}
+  .tl-item::before{transition:none;}
+}
+
+/* ------- RESPONSIVE ------- */
+@media (max-width:880px){
+  .site-header{padding:1rem .9rem .9rem;}
+  .site-header.is-scrolled{padding:.85rem .9rem;}
+  .site-header.is-scrolled .site-header-inner{
+    flex-direction:column;
+    align-items:center;
+    gap:.65rem;
+  }
+  .site-brand{font-size:1.02rem;letter-spacing:.12em;text-align:center;width:100%;padding-right:.12em;}
+  .site-header.is-scrolled .site-brand{font-size:.92rem;letter-spacing:.1em;width:100%;}
+  .site-nav{gap:.15rem .2rem;justify-content:center;width:100%;}
+  .site-header.is-scrolled .site-nav{justify-content:center;gap:.15rem .2rem;width:100%;}
+  .site-nav a{
+    font-size:.68rem;
+    letter-spacing:.06em;
+    padding:.55rem .7rem;
+    opacity:.95;
+  }
+  .site-header.is-scrolled .site-nav .nav-about{margin-left:0;}
+  .nav-cta{padding:.6rem 1.05rem;font-size:.68rem;letter-spacing:.07em;}
+  .site-header.is-scrolled .nav-cta-scroll{
+    max-width:14rem;
+    padding:.6rem 1.05rem;
+    margin-left:0;
+    margin-top:.1rem;
+    font-size:.68rem;
+  }
+  .story-grid,.about-grid{grid-template-columns:1fr;gap:2.6rem;}
+  .about-photo-wrap{max-width:240px;margin:0 auto;}
+  .campus-hero-full{min-height:min(44vh,400px);margin:0 -1.4rem;}
+  .campus-overlay{padding:4.5rem 1.4rem 2.5rem;}
+  .opp-split{grid-template-columns:1fr;gap:2rem;}
+  .opp-lead-card{transform:none;}
+  .product-grid{grid-template-columns:1fr;}
+  .standards{padding:2rem 1rem;overflow:hidden;}
+  .standards .container{grid-template-columns:1fr 1fr;gap:1.1rem .75rem;width:100%;max-width:100%;margin:0;padding:0;}
+  .standard-item,
+  .standard-item:first-child,
+  .standard-item:nth-child(3){
+    border-left:none !important;
+    border-top:1px solid rgba(207,169,94,.22);
+    padding:.55rem .25rem 0;
+  }
+  .standard-item:nth-child(1),
+  .standard-item:nth-child(2){border-top:none;padding-top:0;}
+  .standard-item .label{font-size:.6rem;letter-spacing:.03em;line-height:1.35;white-space:normal;}
+}
+@media (max-width:640px){
+  section{padding:4.2rem 1.4rem;}
+  .hero{padding:calc(var(--header-expanded) + 2rem) 1.4rem 4rem;}
+  .product-grid{grid-template-columns:1fr;}
+  .site-header{padding:.95rem .85rem .85rem;}
+  .site-nav a{font-size:.66rem;padding:.55rem .55rem;}
+  .campus-bg{inset:0;}
+  .campus-hero-full{min-height:0;padding-bottom:0;margin:0 -1.4rem;}
+  .campus-overlay{padding:3.5rem 1.4rem 2.2rem;}
+}
+/* CORE:END css */
+</style>
+</head>
+<body>
+
+<!-- CLIENT:START site-header -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-brand">Ringana <span>·</span> with Kelly</a>
+    <nav class="site-nav" id="navLinks" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">The Products</a>
+      <a href="business.html">The Business</a>
+      <a href="about.html" class="nav-about">About Me</a>
+      <a href="#connect" class="nav-cta nav-cta-scroll" target="_blank" rel="noopener">Get First Access</a>
+    </nav>
+  </div>
+</header>
+<!-- CLIENT:END site-header -->
+
+<!-- ================= HERO ================= -->
+<!-- CLIENT:START hero -->
+<header class="hero" id="top">
+  <div class="hero-ring hero-ring-1" aria-hidden="true"></div>
+  <div class="hero-ring hero-ring-2" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Wellness. Motherhood. Purpose. · Coming to America · 2026</div>
+    <h1>Helping families create healthier homes through <em>intentional choices.</em></h1>
+    <p class="hero-sub">Ringana is a family-founded Austrian company making fresh, totally toxin free skincare and supplements since 1996 — and it's coming to America. I'm Kelly, and I'm inviting you to follow along as we choose with purpose and build healthier homes for generations to come.</p>
+    <div class="hero-actions">
+      <a href="#connect" class="btn btn-brass" target="_blank" rel="noopener">Get First Access</a>
+      <a href="#story" class="btn btn-ghost">Read the Story</a>
+    </div>
+  </div>
+</header>
+<!-- CLIENT:END hero -->
+
+<!-- ================= STANDARDS BAND ================= -->
+<div class="standards">
+  <div class="container">
+    <div class="standard-item reveal">
+      <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3c-3 4-7 6-7 11a7 7 0 0 0 14 0c0-5-4-7-7-11z"/></svg>
+      <span class="num" data-count="1996" data-count-from="2026">2026</span><span class="label">Still family-led today</span>
+    </div>
+    <div class="standard-item reveal">
+      <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span class="num" data-count="34">0</span><span class="label">Countries served</span>
+    </div>
+    <div class="standard-item reveal">
+      <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/></svg>
+      <span class="num" data-count="100" data-suffix="K+">0</span><span class="label">Partners worldwide</span>
+    </div>
+    <div class="standard-item reveal">
+      <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>
+      <span class="num" data-count="85" data-prefix="$" data-suffix="M">0</span><span class="label">U.S. campus investment</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= STORY ================= -->
+<!-- CORE:START story -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <p class="eyebrow">Why Ringana</p>
+        <h2 class="section-title">A legacy that began with wanting clean products.</h2>
+        <p>In 1996, Andreas Wilfinger and Ulla Wannemacher looked at the ingredient list on a toothpaste their young son brought home — and were stunned by what they found in a product made for children.</p>
+        <p>Instead of accepting it, they built the alternative. Ringana became Austria's first fresh cosmetics company, founded on a simple conviction: <strong>what goes on your body and in your body should need no apology.</strong> No artificial preservatives. No mineral oils. No microplastics. No fillers standing in for function.</p>
+        <div class="pull">Three decades later, the founding family still leads the company — and the standard has never bent.</div>
+        <p>Every product is developed, produced, and shipped from Ringana's own campus. Small batches, made to order, with plant actives at full potency. It's why their products carry an expiration date like fresh food does — not as a limitation, but as proof that nothing artificial is holding them together.</p>
+      </div>
+      <div class="timeline reveal" id="timeline" aria-label="Ringana history timeline">
+        <div class="tl-line-fill" id="tlLineFill" aria-hidden="true"></div>
+        <div class="tl-item">
+          <span class="tl-year">1996</span>
+          <h3>The toothpaste moment</h3>
+          <p>Two parents in Hartberg, Austria refuse to accept questionable ingredients in everyday products — and found Ringana.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2013</span>
+          <h3>The Frischewerk</h3>
+          <p>Ringana opens its own "fresh factory," bringing development and production fully in-house.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2021</span>
+          <h3>The campus</h3>
+          <p>A new headquarters opens in St. Johann in der Haide — one of Austria's most ambitious sustainable builds, powered by geothermal and solar.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2026</span>
+          <h3>America</h3>
+          <p>Ringana invests $85 million in its first U.S. headquarters, production, and distribution facility in Roanoke, Virginia — so products are made fresh on American soil.</p>
+        </div>
+        <div class="tl-item tl-future">
+          <span class="tl-year">Next</span>
+          <h3>Your chapter</h3>
+          <p>The American story is just beginning — and the people who step in now get to help write it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CORE:END story -->
+
+<!-- ================= CAMPUS ================= -->
+<!-- CORE:START campus -->
+<section class="campus-editorial" aria-label="Ringana campus">
+  <div class="campus-hero-full reveal">
+    <div class="campus-bg" aria-hidden="true">
+      <img
+        src="campus-interior-1200w.webp"
+        srcset="campus-interior-800w.webp 800w, campus-interior-1200w.webp 1200w, campus-interior-1600w.webp 1600w"
+        sizes="100vw"
+        alt="Ringana sustainable production campus interior in Austria"
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="801">
+    </div>
+    <div class="campus-overlay">
+      <div class="campus-overlay-box">
+        <p class="eyebrow">Where It's Made</p>
+        <h2 class="section-title">Fresh from the campus — not a third-party factory.</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container campus-copy reveal">
+    <div class="campus-copy-box">
+      <p>Every Ringana product is developed, produced, and shipped from the company's own campus in St. Johann in der Haide, Austria — one of Europe's most ambitious sustainable builds, powered by geothermal and solar energy.</p>
+    </div>
+    <div class="campus-copy-box">
+      <p>In 2026, Ringana is investing $85 million in its first U.S. headquarters and production facility in Roanoke, Virginia — so American customers get the same fresh-made standard, closer to home.</p>
+    </div>
+  </div>
+</section>
+<!-- CORE:END campus -->
+
+<!-- ================= PRODUCTS ================= -->
+<!-- CORE:START products-teaser -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">The Products</p>
+      <h2 class="section-title">One standard, for your whole routine.</h2>
+      <p class="lede">Ringana isn't a single hero product — it's a complete, tightly curated system for skin and body. Skincare, supplements, and functional nutrition, all held to the same uncompromising bar: totally toxin free and formulated with plant actives at their full strength.</p>
+    </div>
+    <div class="product-grid reveal">
+      <a href="products.html#fresh" class="product-card featured">
+        <p class="product-kicker">Skincare</p>
+        <h3>FRESH</h3>
+        <p>Cleansers, serums, deodorant, hair and body care — concentrated plant actives at full potency, patented packaging, and natural preservation for maximum efficacy.</p>
+      </a>
+      <a href="products.html#caps" class="product-card">
+        <p class="product-kicker">Supplements</p>
+        <h3>CAPS</h3>
+        <p>Targeted plant-powered capsules for immunity, focus, joints, and more — designed to slot into your daily rhythm.</p>
+      </a>
+      <a href="products.html#packs" class="product-card">
+        <p class="product-kicker">Daily Nutrition</p>
+        <h3>PACKS</h3>
+        <p>Portioned sachets of concentrated plant nutrition for antioxidant support, balance, and everyday cellular protection.</p>
+      </a>
+    </div>
+    <p class="products-cta reveal"><a href="products.html" class="btn btn-pine">Explore the Full Product System</a></p>
+  </div>
+</section>
+<!-- CORE:END products-teaser -->
+
+<!-- ================= OPPORTUNITY ================= -->
+<!-- CORE:START opportunity -->
+<section class="opportunity" id="opportunity">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">The Opportunity</p>
+      <h2 class="section-title">Why now is different.</h2>
+      <p class="lede">Ringana has spent thirty years becoming a household name across Europe, then expanded through Mexico, Colombia, and Peru. In 2026, it enters the United States for the very first time — backed by an $85 million American manufacturing and distribution hub in Virginia. Moments like this don't repeat.</p>
+    </div>
+    <div class="opp-split reveal">
+      <div class="opp-lead-card">
+        <p class="opp-stat">$85M</p>
+        <h3>A real American home — not a warehouse strategy.</h3>
+        <p>Ringana is building its first U.S. headquarters, production, and distribution facility in Roanoke, Virginia. This isn't a startup gamble — it's a three-decade family company opening America for the first time.</p>
+      </div>
+      <div class="opp-stack">
+        <div class="opp-pill">
+          <span class="opp-pill-num">01</span>
+          <div>
+            <h3>A market that's ready</h3>
+            <p>Americans are reading labels like never before. Demand for genuinely toxin free, transparent products has never been higher.</p>
+          </div>
+        </div>
+        <div class="opp-pill">
+          <span class="opp-pill-num">02</span>
+          <div>
+            <h3>Built on real products</h3>
+            <p>A business grounded in products people reorder because they work — a daily wellness routine, not a garage full of inventory.</p>
+          </div>
+        </div>
+        <div class="opp-pill">
+          <span class="opp-pill-num">03</span>
+          <div>
+            <h3>Founding-era timing</h3>
+            <p>After decades across Europe and Latin America, the U.S. is a once-in-a-generation opening. The people who step in now help write the American chapter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="opp-footer reveal">
+      <p class="opp-pull">Moments like this don't repeat — and I'm inviting an exclusive group to explore this journey with me from the very beginning.</p>
+      <div class="opp-cta">
+        <div class="btn-row">
+          <a href="#connect" class="btn btn-brass" target="_blank" rel="noopener">I Want In Early</a>
+          <a href="business.html" class="btn btn-ghost">How the Business Works</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CORE:END opportunity -->
+
+<!-- ================= ABOUT LILY ================= -->
+<!-- CLIENT:START about -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap reveal">
+        <div class="about-photo">
+          <img src="kelly-portrait.webp" alt="Kelly" loading="lazy" decoding="async" width="715" height="1024">
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p class="eyebrow">From Personal Transformation to Purpose</p>
+        <h2 class="section-title">Hi, I'm Kelly.</h2>
+        <p>I'm a wife of 18 years, mom of five, foster mom, wellness educator, entrepreneur, graphic designer, and author of two ebooks. More than anything, I'm a mom who understands how overwhelming it can feel to navigate health, ingredients, and the products we bring into our homes.</p>
+        <p>When I became a first-time mom in 2009, I had no idea what toxins were. After a lingering illness following the birth of my second child, God guided me into 13 years of learning how to create a lower-tox home — not through fear or perfection, but through education, encouragement, and simple intentional steps.</p>
+        <p>Today my mission is making low-tox living simple and practical: helping women create healthier homes, discover products they love, and support companies that align with our values. Ringana is the new chapter I'm most excited to share.</p>
+        <p class="about-more"><a href="about.html">Read more of my story →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CLIENT:END about -->
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ================= CONNECT ================= -->
+<!-- CLIENT:START connect -->
+<section class="connect" id="connect">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Creating Healthier Homes for Generations to Come</p>
+      <h2 class="section-title">Be first when Ringana arrives.</h2>
+      <p class="lede">Join the founding list and you'll get the launch date before anyone else, my honest first impressions of every product I try, and first pick if you want to build this alongside me.</p>
+      <div class="btn-row" style="margin-top:2.2rem;">
+        <a href="#connect" class="btn btn-brass" target="_blank" rel="noopener">Get First Access</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CLIENT:END connect -->
+
+<!-- ================= FOOTER ================= -->
+<!-- CLIENT:START footer -->
+<footer>
+  <p class="foot-brand">Ringana <span>·</span> with Kelly</p>
+  <p class="foot-cta">Questions before launch? <a href="#connect" target="_blank" rel="noopener">DM me on Instagram</a> — I read every message.</p>
+  <div class="foot-social">
+    <a href="#connect" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/share/g/1JF3UPPnNg/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+  </div>
+  <p>Kelly is an independent Ringana Fresh Partner (pending U.S. launch). This is a personal page and is not an official Ringana corporate website.</p>
+  <p>&copy; 2026 Kelly</p>
+</footer>
+<!-- CLIENT:END footer -->
+
+<script>
+/* CORE:START js */
+const siteHeader=document.getElementById('siteHeader');
+const heroRings=document.querySelectorAll('.hero-ring');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let headerTicking=false;
+
+function measureExpandedHeader(){
+  if(!siteHeader)return;
+  const wasScrolled=siteHeader.classList.contains('is-scrolled');
+  siteHeader.classList.remove('is-scrolled');
+  document.documentElement.style.setProperty('--header-expanded',siteHeader.offsetHeight+'px');
+  if(wasScrolled)siteHeader.classList.add('is-scrolled');
+  document.documentElement.style.setProperty('--header-offset',siteHeader.offsetHeight+'px');
+}
+
+function updateSiteHeader(){
+  if(!siteHeader)return;
+  const y=window.scrollY;
+  if(siteHeader.classList.contains('is-scrolled')){
+    if(y<32)siteHeader.classList.remove('is-scrolled');
+  }else if(y>72){
+    siteHeader.classList.add('is-scrolled');
+  }
+  document.documentElement.style.setProperty('--header-offset',siteHeader.offsetHeight+'px');
+}
+
+measureExpandedHeader();
+window.addEventListener('resize',measureExpandedHeader);
+
+window.addEventListener('scroll',()=>{
+  if(headerTicking)return;
+  headerTicking=true;
+  requestAnimationFrame(()=>{
+    updateSiteHeader();
+    if(!reduceMotion&&heroRings.length){
+      const y=window.scrollY*.08;
+      heroRings[0].style.transform=`translateY(${y}px)`;
+      if(heroRings[1])heroRings[1].style.transform=`translateY(${y*.6}px)`;
+    }
+    headerTicking=false;
+  });
+},{passive:true});
+
+// Count-up / count-down stats
+function animateCount(el){
+  const target=+el.dataset.count;
+  const from=el.dataset.countFrom?+el.dataset.countFrom:null;
+  const prefix=el.dataset.prefix||'';
+  const suffix=el.dataset.suffix||'';
+  const duration=1400;
+  const start=performance.now();
+  function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    const value=from!==null?Math.round(from-(from-target)*eased):Math.round(target*eased);
+    el.textContent=prefix+value+suffix;
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const countIo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCount(e.target);
+      countIo.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+if(!reduceMotion){
+  document.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
+}else{
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    el.textContent=(el.dataset.prefix||'')+el.dataset.count+(el.dataset.suffix||'');
+  });
+}
+
+// Timeline fill on scroll
+const timeline=document.getElementById('timeline');
+const tlItems=timeline?[...timeline.querySelectorAll('.tl-item')]:[];
+const tlFill=document.getElementById('tlLineFill');
+function updateTimeline(){
+  if(!timeline||!tlFill||!tlItems.length)return;
+  const reached=tlItems.filter(item=>item.classList.contains('tl-reached'));
+  if(!reached.length){tlFill.style.height='0';return;}
+  const first=tlItems[0];
+  const last=reached[reached.length-1];
+  const start=first.offsetTop+8;
+  const end=last.offsetTop+8;
+  tlFill.style.height=Math.max(0,end-start+7)+'px';
+}
+if(timeline&&tlItems.length){
+  const tlIo=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)e.target.classList.add('tl-reached');
+      updateTimeline();
+    });
+  },{threshold:0.55,rootMargin:'-8% 0px -30% 0px'});
+  tlItems.filter(item=>!item.classList.contains('tl-future')).forEach(item=>tlIo.observe(item));
+  window.addEventListener('resize',updateTimeline,{passive:true});
+  if(reduceMotion){
+    tlItems.forEach(item=>item.classList.add('tl-reached'));
+    updateTimeline();
+  }
+}
+
+// Connect modal
+const connectModal=document.getElementById('connectModal');
+function setConnectOpen(open){
+  if(!connectModal)return;
+  connectModal.classList.toggle('open',open);
+  connectModal.setAttribute('aria-hidden',open?'false':'true');
+  document.body.classList.toggle('nav-open',open);
+}
+document.querySelectorAll('[data-open-connect]').forEach(el=>{
+  el.addEventListener('click',e=>{e.preventDefault();setConnectOpen(true);});
+});
+connectModal?.querySelectorAll('[data-close-connect]').forEach(el=>{
+  el.addEventListener('click',()=>setConnectOpen(false));
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
+});
+// Scroll reveal (must run even if Flodesk fails to load)
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Failsafe if observer never fires (odd viewports / blocked APIs)
+setTimeout(()=>{
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>el.classList.add('visible'));
+},3000);
+
+/* CORE:END js */
+</script>
+</body>
+</html>
