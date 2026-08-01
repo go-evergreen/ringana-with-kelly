@@ -602,9 +602,39 @@ section{padding:6rem 2rem;}
   height:1px;
   background:linear-gradient(90deg,transparent,rgba(179,137,60,.35) 18%,rgba(28,50,39,.18) 50%,rgba(179,137,60,.35) 82%,transparent);
 }
-.connect{background:var(--white);text-align:center;}
+.connect{background:var(--white);text-align:center;scroll-margin-top:calc(var(--header-offset) + 1rem);}
 .connect .section-title{margin-left:auto;margin-right:auto;}
 .connect .lede{margin-left:auto;margin-right:auto;}
+.kit-form-wrap .formkit-form{background:transparent !important;border:none !important;box-shadow:none !important;max-width:100% !important;margin:0 auto !important;}
+.kit-form-wrap .formkit-background{display:none !important;}
+.kit-form-wrap [data-style="full"]{border:none !important;background:transparent !important;}
+.kit-form-wrap .formkit-input{
+  border:1px solid rgba(28,50,39,.22) !important;
+  border-radius:2px !important;
+  font-family:'Montserrat',sans-serif !important;
+  font-size:.92rem !important;
+  padding:.85rem 1rem !important;
+  color:var(--pine) !important;
+  background:var(--linen,#f7f3ea) !important;
+}
+.kit-form-wrap .formkit-submit{
+  background:var(--brass) !important;
+  color:var(--pine-deep,#142519) !important;
+  border:none !important;
+  border-radius:2px !important;
+  font-family:'Montserrat',sans-serif !important;
+  font-weight:600 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  font-size:.78rem !important;
+  padding:.95rem 1.4rem !important;
+}
+.kit-form-wrap .formkit-submit:hover{background:var(--brass-light,#c9a35a) !important;}
+.kit-form-wrap .formkit-alert-success{
+  color:var(--pine) !important;
+  font-family:'Fraunces',serif !important;
+  font-style:italic !important;
+}
 
 /* ------- FOOTER ------- */
 footer{
@@ -729,7 +759,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       <a href="products.html">The Products</a>
       <a href="business.html">The Business</a>
       <a href="about.html" class="nav-about">About Me</a>
-      <a href="https://www.instagram.com/dr_kelly_amorose" class="nav-cta" target="_blank" rel="noopener">Get First Access</a>
+      <a href="#connect" class="nav-cta nav-cta-scroll">Get First Access</a>
     </nav>
   </div>
 </header>
@@ -745,7 +775,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
     <h1>Fresh. Toxin-free. <em>Honest about every ingredient.</em></h1>
     <p class="hero-sub">For thirty years, a family in Austria has been making skincare and supplements the hard way — totally toxin-free, made fresh, and honest about every ingredient. Now Ringana is coming to America, and we want you to explore it with us!</p>
     <div class="hero-actions">
-      <a href="https://www.instagram.com/dr_kelly_amorose" class="btn btn-brass" target="_blank" rel="noopener">Get First Access</a>
+      <a href="#connect" class="btn btn-brass">Get First Access</a>
       <a href="#story" class="btn btn-ghost">Read the Story</a>
     </div>
   </div>
@@ -927,7 +957,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       <p class="opp-pull">Moments like this don't repeat — and I'm inviting an exclusive group to explore this journey with me from the very beginning.</p>
       <div class="opp-cta">
         <div class="btn-row">
-          <a href="https://www.instagram.com/dr_kelly_amorose" class="btn btn-brass" target="_blank" rel="noopener">I Want In Early</a>
+          <a href="#connect" class="btn btn-brass">I Want In Early</a>
           <a href="business.html" class="btn btn-ghost">How the Business Works</a>
         </div>
       </div>
@@ -967,9 +997,14 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
     <div class="reveal">
       <p class="eyebrow">Stay Close</p>
       <h2 class="section-title">I look forward to introducing you to Ringana.</h2>
-      <p class="lede">Follow along on Instagram for founding updates, honest first impressions as I try the products I'm most excited about, and a seat at the table before U.S. launch.</p>
-      <div class="btn-row" style="margin-top:2.2rem;">
-        <a href="https://www.instagram.com/dr_kelly_amorose" class="btn btn-brass" target="_blank" rel="noopener">Get First Access</a>
+      <p class="lede">Join the founding list for launch updates, honest first impressions as I try the products I'm most excited about, and a seat at the table before U.S. launch.</p>
+      <div class="kit-form-wrap" style="margin:2rem auto 0;max-width:28rem;">
+        <script async data-uid="df86f42a40" src="https://dr-kelly-amorose.kit.com/df86f42a40/index.js"></script>
+      </div>
+      <p class="lede" style="margin-top:1.8rem;margin-bottom:.6rem;font-size:1rem;">Want to chat first? Reach out on socials — I read every message.</p>
+      <div class="btn-row" style="margin-top:.8rem;">
+        <a href="https://www.instagram.com/dr_kelly_amorose" class="btn btn-pine" target="_blank" rel="noopener">Message Me on Instagram</a>
+        <a href="https://www.facebook.com/share/1JWpixRpPW/?mibextid=wwXIfr" class="btn btn-pine" target="_blank" rel="noopener">Find Me on Facebook</a>
       </div>
     </div>
   </div>
