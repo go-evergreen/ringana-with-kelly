@@ -513,6 +513,26 @@ section{padding:5.5rem 2rem;}
 .cta-band .lede{margin-left:auto;margin-right:auto;}
 .cta-band .btn{margin-top:1rem;}
 
+/* Letter modal */
+.connect-modal{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:1.4rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease;}
+.connect-modal.open{opacity:1;visibility:visible;pointer-events:auto;}
+.connect-modal-backdrop{position:absolute;inset:0;background:rgba(20,37,25,.65);}
+.connect-modal-panel.letter-panel{position:relative;z-index:2;width:min(100%,560px);max-height:min(92dvh,820px);overflow:auto;background:transparent;border:none;box-shadow:none;padding:0;}
+.connect-modal-close{position:absolute;top:.6rem;right:.8rem;z-index:3;background:rgba(255,255,255,.7);border:1px solid #e3d9c8;border-radius:50%;font-size:1.5rem;line-height:1;color:var(--pine);cursor:pointer;width:2.2rem;height:2.2rem;display:flex;align-items:center;justify-content:center;}
+.letter-paper{background:linear-gradient(175deg,#fffcf7 0%,#f8f3ea 100%);border:1px solid #e3d9c8;border-radius:2px;padding:2.8rem 2.6rem 2.4rem;box-shadow:0 24px 60px rgba(28,50,39,.24),inset 0 1px 0 rgba(255,255,255,.85);position:relative;}
+.letter-paper::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;border-radius:2px;}
+.letter-head,.letter-body-copy,.letter-form,.letter-sign,.modal-fine{position:relative;z-index:1;}
+.letter-form{margin-top:.4rem;}
+.letter-form .formkit-form{margin:0 auto !important;max-width:100% !important;background:transparent !important;border:none !important;box-shadow:none !important;}
+.letter-form .formkit-background{display:none !important;}
+.letter-form .formkit-header,.letter-form .formkit-subheader,.letter-form .formkit-guarantee{display:none !important;}
+.letter-form [data-style=minimal]{padding:0 !important;}
+.letter-form input,.letter-form textarea,.letter-form select,.letter-form button{font-family:'Work Sans',sans-serif !important;}
+.letter-salutation{font-family:'Caveat',cursive;font-size:2.4rem;font-weight:500;margin-bottom:.6rem;color:var(--pine);line-height:1.1;transform:rotate(-.8deg);transform-origin:left center;}
+.letter-body-copy p{font-family:'Caveat',cursive;font-size:1.45rem;line-height:1.55;margin-bottom:1.2rem;max-width:48ch;color:var(--ink);}
+.letter-sign{font-family:'Caveat',cursive;margin-top:1.4rem;color:var(--pine);font-size:1.75rem;font-weight:500;transform:rotate(-1.2deg);transform-origin:left center;}
+.modal-fine{font-size:.75rem;opacity:.55;margin-top:1.2rem;text-align:left;}
+
 footer{
   background:var(--pine-deep);
   color:var(--linen);
@@ -646,7 +666,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       <a href="products.html" class="active">The Products</a>
       <a href="business.html">The Business</a>
       <a href="about.html" class="nav-about">About Me</a>
-      <a href="index.html#connect" class="nav-cta nav-cta-scroll">Get First Access</a>
+      <a href="#" class="nav-cta nav-cta-scroll" data-open-connect>Get First Access</a>
     </nav>
   </div>
 </header>
@@ -1019,7 +1039,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       </div>
     </div>
     <p class="radar-foot reveal">Plenty more where these came from. As early-access products land in my hands, I'll share first impressions, ingredient breakdowns, and who each one is actually for — straight to the founding list.</p>
-    <p class="reveal" style="text-align:center;margin-top:1.8rem;"><a href="index.html#connect" class="btn btn-pine">Join the Founding List</a></p>
+    <p class="reveal" style="text-align:center;margin-top:1.8rem;"><a href="#" class="btn btn-pine" data-open-connect>Join the Founding List</a></p>
   </div>
 </section>
 
@@ -1035,6 +1055,28 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
 </div>
 
 <!-- CLIENT:END page-products -->
+<!-- CLIENT:START connect-modal -->
+<div class="connect-modal" id="connectModal" aria-hidden="true" role="dialog" aria-labelledby="connectModalTitle">
+  <div class="connect-modal-backdrop" data-close-connect></div>
+  <div class="connect-modal-panel letter-panel">
+    <button class="connect-modal-close" type="button" aria-label="Close" data-close-connect>&times;</button>
+    <div class="letter-paper">
+      <header class="letter-head">
+        <h2 id="connectModalTitle" class="letter-salutation">friend,</h2>
+      </header>
+      <div class="letter-body-copy">
+        <p>I'll personally email you when Ringana arrives in America — launch updates, my honest first impressions, and first access if you want to build alongside me.</p>
+      </div>
+      <div class="letter-form" id="kit-form-modal">
+        <script async data-uid="df86f42a40" src="https://dr-kelly-amorose.kit.com/df86f42a40/index.js"></script>
+      </div>
+      <p class="letter-sign">— Kelly</p>
+      <p class="modal-fine">No spam, ever. Just the good stuff, and only until you say otherwise.</p>
+    </div>
+  </div>
+</div>
+<!-- CLIENT:END connect-modal -->
+
 <!-- CLIENT:START footer -->
 <footer>
   <p class="foot-brand">Ringana <span>·</span> with Kelly</p>
@@ -1275,6 +1317,24 @@ if(subnavLinks.length&&subnavSections.length){
 const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* CORE:END js */
+/* CLIENT:START js-optin */
+const connectModal=document.getElementById('connectModal');
+function setConnectOpen(open){
+  if(!connectModal)return;
+  connectModal.classList.toggle('open',open);
+  connectModal.setAttribute('aria-hidden',open?'false':'true');
+  document.body.classList.toggle('nav-open',open);
+}
+document.querySelectorAll('[data-open-connect]').forEach(el=>{
+  el.addEventListener('click',e=>{e.preventDefault();setConnectOpen(true);});
+});
+connectModal?.querySelectorAll('[data-close-connect]').forEach(el=>{
+  el.addEventListener('click',()=>setConnectOpen(false));
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
+});
+/* CLIENT:END js-optin */
 </script>
 </body>
 </html>

@@ -602,39 +602,89 @@ section{padding:6rem 2rem;}
   height:1px;
   background:linear-gradient(90deg,transparent,rgba(179,137,60,.35) 18%,rgba(28,50,39,.18) 50%,rgba(179,137,60,.35) 82%,transparent);
 }
-.connect{background:var(--white);text-align:center;scroll-margin-top:calc(var(--header-offset) + 1rem);}
+.connect{background:var(--white);text-align:center;}
 .connect .section-title{margin-left:auto;margin-right:auto;}
 .connect .lede{margin-left:auto;margin-right:auto;}
-.kit-form-wrap .formkit-form{background:transparent !important;border:none !important;box-shadow:none !important;max-width:100% !important;margin:0 auto !important;}
-.kit-form-wrap .formkit-background{display:none !important;}
-.kit-form-wrap [data-style="full"]{border:none !important;background:transparent !important;}
-.kit-form-wrap .formkit-input{
-  border:1px solid rgba(28,50,39,.22) !important;
-  border-radius:2px !important;
-  font-family:'Montserrat',sans-serif !important;
-  font-size:.92rem !important;
-  padding:.85rem 1rem !important;
-  color:var(--pine) !important;
-  background:var(--linen,#f7f3ea) !important;
+.connect-modal{
+  position:fixed;inset:0;z-index:10000;
+  display:flex;align-items:center;justify-content:center;
+  padding:1.4rem;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .25s ease,visibility .25s ease;
 }
-.kit-form-wrap .formkit-submit{
-  background:var(--brass) !important;
-  color:var(--pine-deep,#142519) !important;
-  border:none !important;
-  border-radius:2px !important;
-  font-family:'Montserrat',sans-serif !important;
-  font-weight:600 !important;
-  letter-spacing:.08em !important;
-  text-transform:uppercase !important;
-  font-size:.78rem !important;
-  padding:.95rem 1.4rem !important;
+.connect-modal.open{opacity:1;visibility:visible;pointer-events:auto;}
+.connect-modal-backdrop{position:absolute;inset:0;background:rgba(20,37,25,.65);}
+.connect-modal-panel.letter-panel{
+  position:relative;z-index:2;
+  width:min(100%,560px);
+  max-height:min(92dvh,820px);
+  overflow:auto;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  padding:0;
 }
-.kit-form-wrap .formkit-submit:hover{background:var(--brass-light,#c9a35a) !important;}
-.kit-form-wrap .formkit-alert-success{
-  color:var(--pine) !important;
-  font-family:'Fraunces',serif !important;
-  font-style:italic !important;
+.connect-modal-close{
+  position:absolute;top:.6rem;right:.8rem;z-index:3;
+  background:rgba(255,255,255,.7);
+  border:1px solid #e3d9c8;
+  border-radius:50%;
+  font-size:1.5rem;line-height:1;
+  color:var(--pine);cursor:pointer;
+  width:2.2rem;height:2.2rem;
+  display:flex;align-items:center;justify-content:center;
 }
+.letter-paper{
+  background:linear-gradient(175deg,#fffcf7 0%,#f8f3ea 100%);
+  border:1px solid #e3d9c8;
+  border-radius:2px;
+  padding:2.8rem 2.6rem 2.4rem;
+  box-shadow:0 24px 60px rgba(28,50,39,.24),inset 0 1px 0 rgba(255,255,255,.85);
+  position:relative;
+}
+.letter-paper::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.05;
+  pointer-events:none;
+  border-radius:2px;
+}
+.letter-head,.letter-body-copy,.letter-form,.letter-sign,.modal-fine{position:relative;z-index:1;}
+.letter-salutation{
+  font-family:'Caveat',cursive;
+  font-size:2.4rem;
+  font-weight:500;
+  margin-bottom:.6rem;
+  color:var(--pine);
+  line-height:1.1;
+  transform:rotate(-.8deg);
+  transform-origin:left center;
+}
+.letter-body-copy p{
+  font-family:'Caveat',cursive;
+  font-size:1.45rem;
+  line-height:1.55;
+  margin-bottom:1.2rem;
+  max-width:48ch;
+  color:var(--ink);
+}
+.letter-form{margin-top:.4rem;}
+.letter-form .formkit-form{margin:0 auto !important;max-width:100% !important;background:transparent !important;border:none !important;box-shadow:none !important;}
+.letter-form .formkit-background{display:none !important;}
+.letter-form .formkit-header,.letter-form .formkit-subheader,.letter-form .formkit-guarantee{display:none !important;}
+.letter-form [data-style=minimal]{padding:0 !important;}
+.letter-form input,.letter-form textarea,.letter-form select,.letter-form button{font-family:'Work Sans',sans-serif !important;}
+.letter-sign{
+  font-family:'Caveat',cursive;
+  margin-top:1.4rem;
+  color:var(--pine);
+  font-size:1.75rem;
+  font-weight:500;
+  transform:rotate(-1.2deg);
+  transform-origin:left center;
+}
+.modal-fine{font-size:.75rem;opacity:.55;margin-top:1.2rem;text-align:left;}
 
 /* ------- FOOTER ------- */
 footer{
@@ -759,7 +809,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       <a href="products.html">The Products</a>
       <a href="business.html">The Business</a>
       <a href="about.html" class="nav-about">About Me</a>
-      <a href="#connect" class="nav-cta nav-cta-scroll">Get First Access</a>
+      <a href="#" class="nav-cta nav-cta-scroll" data-open-connect>Get First Access</a>
     </nav>
   </div>
 </header>
@@ -775,7 +825,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
     <h1>Fresh. Toxin-free. <em>Honest about every ingredient.</em></h1>
     <p class="hero-sub">For thirty years, a family in Austria has been making skincare and supplements the hard way — totally toxin-free, made fresh, and honest about every ingredient. Now Ringana is coming to America, and we want you to explore it with us!</p>
     <div class="hero-actions">
-      <a href="#connect" class="btn btn-brass">Get First Access</a>
+      <a href="#" class="btn btn-brass" data-open-connect>Get First Access</a>
       <a href="#story" class="btn btn-ghost">Read the Story</a>
     </div>
   </div>
@@ -957,7 +1007,7 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       <p class="opp-pull">Moments like this don't repeat — and I'm inviting an exclusive group to explore this journey with me from the very beginning.</p>
       <div class="opp-cta">
         <div class="btn-row">
-          <a href="#connect" class="btn btn-brass">I Want In Early</a>
+          <a href="#" class="btn btn-brass" data-open-connect>I Want In Early</a>
           <a href="business.html" class="btn btn-ghost">How the Business Works</a>
         </div>
       </div>
@@ -998,18 +1048,35 @@ footer p{font-size:.8rem;opacity:.6;max-width:70ch;margin:0 auto .5rem;}
       <p class="eyebrow">Stay Close</p>
       <h2 class="section-title">I look forward to introducing you to Ringana.</h2>
       <p class="lede">Join the founding list for launch updates, honest first impressions as I try the products I'm most excited about, and a seat at the table before U.S. launch.</p>
-      <div class="kit-form-wrap" style="margin:2rem auto 0;max-width:28rem;">
-        <script async data-uid="df86f42a40" src="https://dr-kelly-amorose.kit.com/df86f42a40/index.js"></script>
-      </div>
-      <p class="lede" style="margin-top:1.8rem;margin-bottom:.6rem;font-size:1rem;">Want to chat first? Reach out on socials — I read every message.</p>
-      <div class="btn-row" style="margin-top:.8rem;">
-        <a href="https://www.instagram.com/dr_kelly_amorose" class="btn btn-pine" target="_blank" rel="noopener">Message Me on Instagram</a>
-        <a href="https://www.facebook.com/share/1JWpixRpPW/?mibextid=wwXIfr" class="btn btn-pine" target="_blank" rel="noopener">Find Me on Facebook</a>
+      <div class="btn-row" style="margin-top:2.2rem;">
+        <a href="#" class="btn btn-brass" data-open-connect>Get First Access</a>
       </div>
     </div>
   </div>
 </section>
 <!-- CLIENT:END connect -->
+
+<!-- CLIENT:START connect-modal -->
+<div class="connect-modal" id="connectModal" aria-hidden="true" role="dialog" aria-labelledby="connectModalTitle">
+  <div class="connect-modal-backdrop" data-close-connect></div>
+  <div class="connect-modal-panel letter-panel">
+    <button class="connect-modal-close" type="button" aria-label="Close" data-close-connect>&times;</button>
+    <div class="letter-paper">
+      <header class="letter-head">
+        <h2 id="connectModalTitle" class="letter-salutation">friend,</h2>
+      </header>
+      <div class="letter-body-copy">
+        <p>I'll personally email you when Ringana arrives in America — launch updates, my honest first impressions, and first access if you want to build alongside me.</p>
+      </div>
+      <div class="letter-form" id="kit-form-modal">
+        <script async data-uid="df86f42a40" src="https://dr-kelly-amorose.kit.com/df86f42a40/index.js"></script>
+      </div>
+      <p class="letter-sign">— Kelly</p>
+      <p class="modal-fine">No spam, ever. Just the good stuff, and only until you say otherwise.</p>
+    </div>
+  </div>
+</div>
+<!-- CLIENT:END connect-modal -->
 
 <!-- ================= FOOTER ================= -->
 <!-- CLIENT:START footer -->
@@ -1132,6 +1199,7 @@ if(timeline&&tlItems.length){
 }
 
 // Connect modal
+/* CLIENT:START js-optin */
 const connectModal=document.getElementById('connectModal');
 function setConnectOpen(open){
   if(!connectModal)return;
@@ -1148,6 +1216,7 @@ connectModal?.querySelectorAll('[data-close-connect]').forEach(el=>{
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
 });
+/* CLIENT:END js-optin */
 // Scroll reveal (must run even if Flodesk fails to load)
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
