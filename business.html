@@ -907,6 +907,8 @@ connectModal?.querySelectorAll('[data-close-connect]').forEach(el=>{
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
 });
+window.FS_SITE_LEAD={slug:"kelly-amorose",root:"#kit-form-modal"};
+(function(){function go(){try{window.FSSiteLead&&window.FSSiteLead.watch(window.FS_SITE_LEAD)}catch(e){}}if(window.FSSiteLead){go();return;}var s=document.createElement('script');s.src='site-lead-bridge.js';s.async=true;s.onload=go;s.onerror=function(){};document.head.appendChild(s);})();
 /* CLIENT:END js-optin */
 </script>
 </body>
