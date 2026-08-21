@@ -65,7 +65,7 @@
       p_name: fallbackName(fields),
       p_email: trim(fields.email).slice(0, 120),
       p_phone: trim(fields.phone).slice(0, 40),
-      p_interest: "both",
+      p_interest: "",
       p_hp: "",
       p_source: "site"
     };
@@ -137,10 +137,46 @@
     } catch (err2) {}
   }
 
-  root.FSSiteLead = { watch: watch };
+  function showJoinError(form, on) {
+    var el = form.querySelector("[data-fs-error]");
+    if (!el) return;
+    if (on) el.classList.add("is-on");
+    else el.classList.remove("is-on");
+  }
+
+  /* One button: copy into First Seeds, then open the prefilled SMS. */
+  function bindSmsJoin(opts) {
+    if (!opts || !opts.slug) return;
+    var form = document.querySelector(opts.form || "#fs-sms-join");
+    if (!form || form.getAttribute("data-fs-sms-bound") === "1") return;
+    form.setAttribute("data-fs-sms-bound", "1");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var hp = form.querySelector(".letter-join-hp, input[name=website]");
+      if (hp && trim(hp.value)) return;
+      var fields = readFields(form);
+      if (trim(fields.name).length < 2 || !trim(fields.phone)) {
+        showJoinError(form, true);
+        return;
+      }
+      showJoinError(form, false);
+      send(opts, fields);
+      var sms = form.getAttribute("data-sms") || "";
+      if (sms) {
+        setTimeout(function () {
+          window.location.href = sms;
+        }, 40);
+      }
+    });
+  }
+
+  root.FSSiteLead = { watch: watch, send: send, bindSmsJoin: bindSmsJoin };
 
   function bootFromConfig() {
-    if (root.FS_SITE_LEAD && root.FS_SITE_LEAD.slug) watch(root.FS_SITE_LEAD);
+    var cfg = root.FS_SITE_LEAD;
+    if (!cfg || !cfg.slug) return;
+    if (cfg.form) bindSmsJoin(cfg);
+    else watch(cfg);
   }
 
   if (document.readyState === "loading") {
