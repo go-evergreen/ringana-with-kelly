@@ -10,17 +10,47 @@
     return String(v == null ? "" : v).trim();
   }
 
-  function looksEmail(n, t) {
-    return t === "email" || /email|e-mail/.test(n);
+  function fieldLabel(el) {
+    var wrap = el.closest && el.closest('[class*="__field"]');
+    if (!wrap) return "";
+    var label = wrap.querySelector("label");
+    return label ? trim(label.textContent) : "";
   }
 
-  function looksPhone(n, t) {
-    return t === "tel" || /phone|mobile|cell/.test(n);
+  function fieldVisible(el) {
+    var wrap = el.closest && el.closest('[class*="__field"]');
+    if (!wrap) return true;
+    return getComputedStyle(wrap).display !== "none";
   }
 
-  function looksName(n, t) {
+  function fieldHint(el) {
+    return String(
+      el.name || el.id || el.placeholder || el.getAttribute("aria-label") || fieldLabel(el) || ""
+    ).toLowerCase();
+  }
+
+  function looksLikeEmailValue(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trim(v));
+  }
+
+  function looksLikePhoneValue(v) {
+    var digits = trim(v).replace(/\D/g, "");
+    return digits.length >= 10 && digits.length <= 15;
+  }
+
+  function looksEmail(n, t, v) {
+    if (t === "email" || /email|e-mail/.test(n)) return true;
+    return looksLikeEmailValue(v);
+  }
+
+  function looksPhone(n, t, v) {
+    if (t === "tel" || /phone|mobile|cell|number/.test(n)) return true;
+    return looksLikePhoneValue(v);
+  }
+
+  function looksName(n, t, v) {
     if (t === "hidden" || t === "submit" || t === "checkbox" || t === "radio") return false;
-    if (looksEmail(n, t) || looksPhone(n, t)) return false;
+    if (looksEmail(n, t, v) || looksPhone(n, t, v)) return false;
     return /name|first|last|fname|lname/.test(n);
   }
 
@@ -33,14 +63,16 @@
     for (var i = 0; i < nodes.length; i++) {
       var el = nodes[i];
       if (el.disabled || el.type === "password" || el.getAttribute("aria-hidden") === "true") continue;
+      if (!fieldVisible(el)) continue;
       var t = String(el.type || "text").toLowerCase();
-      var n = String(el.name || el.id || el.placeholder || el.getAttribute("aria-label") || "").toLowerCase();
+      if (t === "hidden") continue;
+      var n = fieldHint(el);
       var v = trim(el.value);
       if (!v) continue;
-      if (looksEmail(n, t)) email = v.toLowerCase();
-      else if (looksPhone(n, t)) phone = v;
+      if (looksEmail(n, t, v)) email = v.toLowerCase();
+      else if (looksPhone(n, t, v)) phone = v;
       else if (/last/.test(n)) last = v;
-      else if (looksName(n, t)) {
+      else if (looksName(n, t, v)) {
         if (!name) name = v;
       }
     }
@@ -110,7 +142,10 @@
     var sentKey = "";
 
     function harvest() {
-      try { last = readFields(root); } catch (err) {}
+      try {
+        var fresh = readFields(root);
+        if (fresh.email || fresh.phone || fresh.name) last = fresh;
+      } catch (err) {}
     }
 
     function maybeSend() {
@@ -126,12 +161,20 @@
     root.addEventListener("change", harvest, true);
     root.addEventListener("submit", function () { maybeSend(); }, true);
     root.addEventListener("click", function (e) {
-      if (isSubmitControl(e.target)) setTimeout(maybeSend, 80);
+      if (isSubmitControl(e.target)) {
+        harvest();
+        maybeSend();
+        setTimeout(maybeSend, 120);
+        setTimeout(maybeSend, 500);
+      }
     }, true);
 
     try {
       var obs = new MutationObserver(function () {
-        if (looksSuccess(root)) maybeSend();
+        if (looksSuccess(root)) {
+          maybeSend();
+          setTimeout(maybeSend, 120);
+        }
       });
       obs.observe(root, { childList: true, subtree: true, attributes: true, characterData: true });
     } catch (err2) {}
