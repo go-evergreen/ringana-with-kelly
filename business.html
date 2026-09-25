@@ -1828,22 +1828,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.querySelectorAll('.faq .reveal, .opportunity .reveal, .biz-rules .reveal, .company .reveal, .hub .reveal, .shelf .reveal, .community .reveal, .founding-spread .reveal, .founding-banner-box.reveal').forEach(el=>el.classList.add('visible'));
 /* CORE:END js */
 /* CLIENT:START js-optin */
-const connectModal=document.getElementById('connectModal');
-function setConnectOpen(open){
-  if(!connectModal)return;
-  connectModal.classList.toggle('open',open);
-  connectModal.setAttribute('aria-hidden',open?'false':'true');
-  document.body.classList.toggle('nav-open',open);
-}
-document.querySelectorAll('[data-open-connect]').forEach(el=>{
-  el.addEventListener('click',e=>{e.preventDefault();setConnectOpen(true);});
-});
-connectModal?.querySelectorAll('[data-close-connect]').forEach(el=>{
-  el.addEventListener('click',()=>setConnectOpen(false));
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
-});
 window.FS_SITE_LEAD={slug:"kelly-amorose",root:"#kit-form-modal"};
 (function(){function go(){try{window.FSSiteLead&&window.FSSiteLead.watch(window.FS_SITE_LEAD)}catch(e){}}if(window.FSSiteLead){go();return;}var s=document.createElement('script');s.src='site-lead-bridge.js?v=3';s.async=true;s.onload=go;s.onerror=function(){};document.head.appendChild(s);})();
 /* CLIENT:END js-optin */

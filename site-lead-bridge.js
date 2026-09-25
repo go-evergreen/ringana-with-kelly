@@ -244,6 +244,37 @@
     parent.insertBefore(picker, host || null);
   }
 
+  function vendorFieldWrap(el) {
+    return el.closest && el.closest('[class*="__field"]:not([class*="__fields"]):not([class*="__footer"])');
+  }
+
+  /* Flodesk and Kit hide decoy fields. Filling those makes the list drop the
+     signup, so the welcome email never sends. Fields we hide ourselves are
+     tagged and still receive the real name. */
+  function isSpamTrap(el) {
+    if (!el || (el.dataset && el.dataset.fsOwnHide === "1")) return false;
+    var wrap = vendorFieldWrap(el);
+    if (wrap && wrap.dataset && wrap.dataset.fsOwnHide === "1") return false;
+    var node = wrap || el;
+    var style = node.getAttribute ? (node.getAttribute("style") || "") : "";
+    if (/left\s*:\s*-|right\s*:\s*-/i.test(style)) return true;
+    try {
+      if (getComputedStyle(node).display === "none") return true;
+    } catch (err) {}
+    return false;
+  }
+
+  function clearSpamTraps(box) {
+    var nodes = (box || document).querySelectorAll("input, textarea");
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      var t = String(el.type || "text").toLowerCase();
+      if (t === "hidden" || t === "submit" || t === "button") continue;
+      if (!isSpamTrap(el)) continue;
+      if (el.value) el.value = "";
+    }
+  }
+
   function hideVendorNameFields(box) {
     if (!ourNameInput(box)) return;
     var nodes = box.querySelectorAll("input, textarea");
@@ -253,9 +284,15 @@
       var t = String(el.type || "text").toLowerCase();
       if (t === "hidden" || t === "email" || t === "submit" || t === "button") continue;
       if (!looksName(fieldHint(el), t, trim(el.value), el)) continue;
-      var wrap = el.closest && el.closest('[class*="__field"]:not([class*="__fields"]):not([class*="__footer"])');
-      if (wrap && /__field(\s|$)/.test(wrap.className || "")) wrap.style.display = "none";
-      else if (!wrap) el.style.display = "none";
+      if (isSpamTrap(el)) continue;
+      var wrap = vendorFieldWrap(el);
+      if (wrap && /__field(\s|$)/.test(wrap.className || "")) {
+        wrap.dataset.fsOwnHide = "1";
+        wrap.style.display = "none";
+      } else if (!wrap) {
+        el.dataset.fsOwnHide = "1";
+        el.style.display = "none";
+      }
     }
   }
 
@@ -283,6 +320,7 @@
   }
 
   function syncNameIntoForm(box) {
+    clearSpamTraps(box);
     var ours = readOwnName(box);
     if (!ours) return;
     var nodes = box.querySelectorAll("input, textarea");
@@ -292,6 +330,7 @@
       if (el.disabled || el.type === "password") continue;
       var t = String(el.type || "text").toLowerCase();
       if (t === "hidden") continue;
+      if (isSpamTrap(el)) continue;
       if (looksName(fieldHint(el), t, trim(el.value), el)) el.value = ours;
     }
   }
