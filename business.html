@@ -26,14 +26,15 @@
 <style>
 /* CLIENT:START theme */
 :root{
-  --pine:#1c3227;
-  --pine-deep:#142519;
+  --pine:#5f7a63;
+  --pine-deep:#445a48;
   --linen:#f6f2ea;
   --linen-warm:#efe8db;
   --brass:#b3893c;
   --brass-light:#cfa95e;
   --sage:#8ea38f;
-  --ink:#22301f;
+  --sage-light:#c9d6ca;
+  --ink:#2d3b30;
   --white:#fdfcf9;
   --header-expanded:7.5rem;
   --header-offset:7.5rem;
@@ -50,14 +51,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
 .site-header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(28,50,39,0.95);
+  background:rgba(68,90,72,0.95);
   padding:1.35rem 2rem 1rem;
   transition:padding .35s ease,background .35s ease,box-shadow .35s ease;
 }
 .site-header.is-scrolled{
   padding:.8rem 2rem;
-  background:rgba(20,37,25,.98);
-  box-shadow:0 4px 24px rgba(0,0,0,.18);
+  background:rgba(68,90,72,.98);
+  box-shadow:0 4px 24px rgba(68,90,72,.22);
 }
 .site-header-inner{
   max-width:1060px;margin:0 auto;
@@ -88,7 +89,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   gap:1.2rem 2rem;
   transition:gap .35s ease;
 }
-.site-header.is-scrolled .site-nav{justify-content:flex-end;gap:.85rem 1.15rem;}
+.site-header.is-scrolled .site-nav{justify-content:flex-end;align-items:center;gap:.85rem 1.15rem;flex-wrap:nowrap;}
 .site-nav .nav-about{margin-left:0;transition:margin-left .35s ease;}
 .site-header.is-scrolled .site-nav .nav-about{margin-left:.85rem;}
 .site-nav a{color:var(--linen);text-decoration:none;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:400;opacity:.85;transition:opacity .2s,color .2s;}
@@ -96,11 +97,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .site-nav a.active{opacity:1;color:var(--brass-light);}
 .nav-cta{border:1px solid var(--brass-light);padding:.45rem 1.15rem;border-radius:2px;color:var(--brass-light) !important;opacity:1 !important;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:background .2s,color .2s,opacity .35s ease,max-width .35s ease,padding .35s ease,margin .35s ease,border-color .35s ease,visibility 0s;}
 .nav-cta:hover{background:var(--brass-light);color:var(--pine) !important;}
-.nav-cta-scroll{max-width:0;padding-left:0;padding-right:0;margin-left:0;border-color:transparent;opacity:0;visibility:hidden;overflow:hidden;pointer-events:none;}
-.site-header.is-scrolled .nav-cta-scroll{max-width:11rem;padding:.45rem 1.15rem;margin-left:1rem;border-color:var(--brass-light);opacity:1;visibility:visible;pointer-events:auto;}
+.nav-cta-scroll{max-width:0;width:0;padding-left:0;padding-right:0;margin-left:0;border-color:transparent;border-width:0;opacity:0;visibility:hidden;overflow:hidden;pointer-events:none;position:absolute;}
+.site-header.is-scrolled .nav-cta-scroll{max-width:11rem;width:auto;padding:.45rem 1.15rem;margin-left:1rem;border-color:var(--brass-light);border-width:1px;opacity:1;visibility:visible;pointer-events:auto;position:static;}
 body.nav-open{overflow:hidden;}
 
-.page-hero{background:linear-gradient(168deg,var(--pine-deep) 0%,var(--pine) 60%,#24402f 100%);color:var(--linen);padding:calc(var(--header-expanded) + 3rem) 2rem 5rem;position:relative;overflow:hidden;}
+.page-hero{background:linear-gradient(168deg,var(--pine-deep) 0%,var(--pine) 60%,#6f8b73 100%);color:var(--linen);padding:calc(var(--header-expanded) + 3rem) 2rem 5rem;position:relative;overflow-x:hidden;overflow-y:visible;}
 .page-hero::after{content:'';position:absolute;right:-14vw;top:-16vh;width:52vw;height:52vw;max-width:700px;max-height:700px;border:1px solid rgba(207,169,94,.16);border-radius:50%;pointer-events:none;}
 .page-hero-inner{max-width:1060px;margin:0 auto;position:relative;z-index:2;}
 .hero-eyebrow{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-light);font-weight:500;margin-bottom:1.4rem;display:flex;align-items:center;gap:.9rem;}
@@ -117,7 +118,7 @@ section{padding:5.5rem 2rem;}
 .btn{display:inline-block;padding:.95rem 2.4rem;font-family:'Work Sans',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;cursor:pointer;border:1px solid transparent;}
 .btn-brass{background:linear-gradient(160deg,#c49a4a 0%,var(--brass) 50%,#9a7530 100%);color:var(--white);box-shadow:0 2px 0 rgba(0,0,0,.14),0 6px 20px rgba(179,137,60,.3);}
 .btn-brass:hover{background:linear-gradient(160deg,#d4ad5e 0%,var(--brass-light) 55%,var(--brass) 100%);transform:translateY(-2px);box-shadow:0 3px 0 rgba(0,0,0,.1),0 10px 28px rgba(179,137,60,.38);}
-.btn-pine{background:var(--pine);color:var(--linen);box-shadow:0 4px 16px rgba(28,50,39,.2);}
+.btn-pine{background:var(--pine);color:var(--linen);box-shadow:0 4px 16px rgba(68,90,72,.2);}
 .btn-pine:hover{background:var(--pine-deep);transform:translateY(-2px);}
 
 /* Standards band — mirrors homepage */
@@ -186,14 +187,6 @@ section{padding:5.5rem 2rem;}
   line-height:1.45;
   max-width:14ch;
 }
-.opportunity-card .threshold-note{
-  display:block;
-  margin-top:.35rem;
-  font-size:.68rem;
-  font-style:italic;
-  line-height:1.35;
-  opacity:.7;
-}
 .opportunity-card--featured{
   background:linear-gradient(175deg,#fffdf8 0%,var(--linen) 100%);
   border-color:rgba(179,137,60,.45);
@@ -207,6 +200,7 @@ section{padding:5.5rem 2rem;}
   max-width:62ch;
   text-align:center;
 }
+.why-taylor .highlight{font-family:'Fraunces',serif;color:var(--brass);font-weight:500;}
 
 /* You do / Ringana does */
 .split{background:var(--pine);color:var(--linen);position:relative;overflow:hidden;}
@@ -278,7 +272,7 @@ section{padding:5.5rem 2rem;}
   border-radius:2px;
   padding:1.25rem 1.5rem 1.4rem;
   max-width:min(100%,42ch);
-  box-shadow:0 8px 24px rgba(28,50,39,.08);
+  box-shadow:0 8px 24px rgba(68,90,72,.08);
 }
 .founding-banner-box .eyebrow{margin-bottom:.75rem;}
 .founding-banner-box .section-title{margin:0;max-width:16ch;}
@@ -294,11 +288,11 @@ section{padding:5.5rem 2rem;}
   background:var(--white);
   padding:2.35rem 2.1rem;
   border-radius:2px;
-  box-shadow:0 14px 44px rgba(28,50,39,.09);
+  box-shadow:0 14px 44px rgba(68,90,72,.09);
 }
 .founding-panel p{margin-bottom:1.1rem;max-width:none;}
 .founding-panel .pull{margin:1.4rem 0;}
-.founding-panel .why-partner{
+.founding-panel .why-taylor{
   margin:1.6rem 0 0;
   padding:1.5rem 0 0;
   background:transparent;
@@ -306,22 +300,22 @@ section{padding:5.5rem 2rem;}
   border-top:1px solid rgba(179,137,60,.28);
   border-radius:0;
 }
-.founding-panel .why-partner h3{font-size:1.12rem;margin-bottom:.7rem;}
-.founding-panel .why-partner p{font-size:.96rem;margin-bottom:.75rem;}
+.founding-panel .why-taylor h3{font-size:1.12rem;margin-bottom:.7rem;}
+.founding-panel .why-taylor p{font-size:.96rem;margin-bottom:.75rem;}
 .founding-panel .cta-row{margin-top:1.8rem;}
 .pull{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--pine);border-left:2px solid var(--brass);padding-left:1.2rem;line-height:1.45;}
-.why-partner .highlight{font-family:'Fraunces',serif;color:var(--brass);font-weight:500;}
+.why-taylor .highlight{font-family:'Fraunces',serif;color:var(--brass);font-weight:500;}
 .cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
-.why-partner{
+.why-taylor{
   margin:2.4rem 0;
   padding:2rem 1.8rem;
   background:var(--white);
   border-left:3px solid var(--brass);
   border-radius:3px;
 }
-.why-partner h3{font-size:1.25rem;margin-bottom:.9rem;}
-.why-partner p{max-width:62ch;margin-bottom:.9rem;}
-.why-partner p:last-child{margin-bottom:0;}
+.why-taylor h3{font-size:1.25rem;margin-bottom:.9rem;}
+.why-taylor p{max-width:62ch;margin-bottom:.9rem;}
+.why-taylor p:last-child{margin-bottom:0;}
 
 /* FAQ */
 .faq{background:var(--linen);}
@@ -344,56 +338,221 @@ section{padding:5.5rem 2rem;}
 .faq details[open] summary::after{transform:rotate(45deg);}
 .faq details p{padding-top:.9rem;font-size:.97rem;max-width:64ch;}
 
-/* Letter modal */
-.connect-modal{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:1.4rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease;}
+/* Connect modal — letter style */
+.connect-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:1.4rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease;}
 .connect-modal.open{opacity:1;visibility:visible;pointer-events:auto;}
 .connect-modal-backdrop{position:absolute;inset:0;background:rgba(20,37,25,.65);}
 .connect-modal-panel.letter-panel{position:relative;z-index:2;width:min(100%,560px);max-height:min(92dvh,820px);overflow:auto;background:transparent;border:none;box-shadow:none;padding:0;}
 .connect-modal-close{position:absolute;top:.6rem;right:.8rem;z-index:3;background:rgba(255,255,255,.7);border:1px solid #e3d9c8;border-radius:50%;font-size:1.5rem;line-height:1;color:var(--pine);cursor:pointer;width:2.2rem;height:2.2rem;display:flex;align-items:center;justify-content:center;}
-.letter-paper{background:linear-gradient(175deg,#fffcf7 0%,#f8f3ea 100%);border:1px solid #e3d9c8;border-radius:2px;padding:2.8rem 2.6rem 2.4rem;box-shadow:0 24px 60px rgba(28,50,39,.24),inset 0 1px 0 rgba(255,255,255,.85);position:relative;}
+.letter-paper{background:linear-gradient(175deg,#fffcf7 0%,#f8f3ea 100%);border:1px solid #e3d9c8;border-radius:2px;padding:2.8rem 2.6rem 2.4rem;box-shadow:0 24px 60px rgba(68,90,72,.24),inset 0 1px 0 rgba(255,255,255,.85);position:relative;}
 .letter-paper::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;border-radius:2px;}
-.letter-head,.letter-body-copy,.letter-form,.letter-sign,.modal-fine{position:relative;z-index:1;}
-.letter-form{margin-top:.4rem;}
-.letter-form .formkit-form{margin:0 auto !important;max-width:100% !important;background:transparent !important;border:none !important;box-shadow:none !important;}
-.letter-form .formkit-background{display:none !important;}
-.letter-form .formkit-header,.letter-form .formkit-subheader,.letter-form .formkit-guarantee{display:none !important;}
-.letter-form [data-style=minimal]{padding:0 !important;}
-.letter-form input,.letter-form textarea,.letter-form select,.letter-form button{font-family:'Work Sans',sans-serif !important;}
+.letter-head,.letter-body-copy,.letter-form,.letter-interest,.letter-sign,.modal-fine{position:relative;z-index:1;}
+.letter-signup{display:flex;flex-direction:column;gap:0;}
+.letter-interest{width:100%;margin:0 0 .75rem;}
+.letter-interest-label{
+  font-family:'Work Sans',sans-serif;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:var(--pine);
+  margin:0 0 .45rem;
+}
+.letter-interest-row{display:flex;flex-wrap:nowrap;gap:.32rem;width:100%;}
+.letter-interest-chip{
+  flex:1 1 0;
+  min-width:0;
+  font-family:'Work Sans',sans-serif;
+  font-size:.68rem;
+  font-weight:600;
+  line-height:1.25;
+  text-align:center;
+  color:var(--ink);
+  background:#fff;
+  border:1.5px solid rgba(95,122,99,.28);
+  border-radius:999px;
+  padding:.5rem .15rem;
+  cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s,box-shadow .15s;
+}
+.letter-interest-chip:hover{border-color:var(--brass);}
+.letter-interest-chip.on{
+  background:var(--pine);
+  border-color:var(--pine);
+  color:#fff;
+  box-shadow:0 2px 10px rgba(68,90,72,.22);
+}
+.letter-interest-error{
+  font-family:'Work Sans',sans-serif;
+  font-size:.82rem;
+  color:#9b3b3b;
+  margin:.4rem 0 0;
+}
+.letter-name{width:100%;margin:0 0 .75rem;}
+.letter-name-input{
+  width:100%;
+  box-sizing:border-box;
+  font-family:'Work Sans',sans-serif;
+  background:#fffcf7;
+  border:1px solid rgba(28,50,39,.18);
+  color:var(--ink);
+  padding:.85rem 1rem;
+  font-size:.95rem;
+  border-radius:1px;
+}
+.letter-name-input:focus{
+  outline:2px solid var(--brass);
+  outline-offset:1px;
+  border-color:var(--brass);
+}
+
 .letter-salutation{font-family:'Caveat',cursive;font-size:2.4rem;font-weight:500;margin-bottom:.6rem;color:var(--pine);line-height:1.1;transform:rotate(-.8deg);transform-origin:left center;}
 .letter-body-copy p{font-family:'Caveat',cursive;font-size:1.45rem;line-height:1.55;margin-bottom:1.2rem;max-width:48ch;color:var(--ink);}
+
+/* fs-submit-visible */
+.connect-modal-panel.letter-panel{
+  -webkit-overflow-scrolling:touch;
+  scroll-padding-bottom:6rem;
+}
+#fd-form-modal [class*="__content"],
+#fd-form-modal [class*="__fields"],
+#fd-form-modal [class*="__footer"]{
+  display:flex !important;
+  flex-direction:column !important;
+  width:100% !important;
+  max-width:100% !important;
+}
+#fd-form-modal [class*="__footer"],
+#fd-form-modal [class*="__button"],
+#fd-form-modal button.fd-btn,
+#kit-form-modal .formkit-submit,
+#kit-form-modal [data-element="submit"]{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  margin-top:.65rem !important;
+}
+@media (max-width:720px){
+  .connect-modal{padding:.7rem .7rem max(.7rem, env(safe-area-inset-bottom));align-items:flex-start;}
+  .connect-modal-panel.letter-panel{max-height:96dvh;}
+  .letter-paper{padding:1.5rem 1.15rem 1.25rem;}
+  .letter-salutation{font-size:2rem;margin-bottom:.35rem;}
+  .letter-body-copy p{font-size:1.2rem;margin-bottom:.7rem;}
+}
+@media (max-height:740px){
+  .letter-body-copy p{margin-bottom:.45rem;}
+  .letter-sign{margin-top:.8rem;}
+}
+#fd-form-modal,#fd-form-modal > *{margin:0 !important;}
+#fd-form-modal .ff-fs-email__form{padding:0 !important;margin:0 !important;}
+#fd-form-modal input,#fd-form-modal textarea,#fd-form-modal select,#fd-form-modal button{font-family:'Work Sans',sans-serif !important;border-radius:1px !important;}
+#fd-form-modal input:focus,#fd-form-modal textarea:focus,#fd-form-modal select:focus{outline:2px solid var(--brass) !important;outline-offset:1px !important;}
+#fd-form-modal .ff-fs-email__success,
+#fd-form-modal .ff-fs-email__success-message{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+#fd-form-modal.is-submitted .ff-fs-email__form{display:none !important;}
+.optin-success{
+  display:none;
+  text-align:center;
+  padding:2rem 1.5rem 1.5rem;
+  margin-top:.35rem;
+  border:1px solid rgba(179,137,60,.42);
+  border-radius:2px;
+  background:linear-gradient(175deg,#fffdf8 0%,#f3ebdc 100%);
+  box-shadow:0 10px 32px rgba(179,137,60,.22),inset 0 1px 0 rgba(255,255,255,.9);
+}
+.optin-success.is-visible{display:block;}
+.optin-success-mark{
+  width:3.5rem;height:3.5rem;
+  margin:0 auto 1.1rem;
+  border-radius:50%;
+  background:linear-gradient(160deg,#c49a4a 0%,var(--brass) 50%,#9a7530 100%);
+  color:var(--white,#fff);
+  font-size:1.65rem;
+  line-height:3.5rem;
+  font-weight:600;
+  box-shadow:0 4px 16px rgba(179,137,60,.35);
+}
+.optin-success-eyebrow{
+  font-size:.78rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--brass);
+  margin-bottom:.55rem;
+  font-weight:500;
+}
+.optin-success-title{
+  font-family:'Fraunces',serif;
+  font-size:2rem;
+  color:var(--pine);
+  margin-bottom:.75rem;
+  line-height:1.2;
+}
+.optin-success-copy{
+  font-family:'Work Sans',sans-serif;
+  font-size:1.08rem;
+  line-height:1.65;
+  color:rgba(34,48,31,.85);
+  max-width:38ch;
+  margin:0 auto;
+}
+.letter-paper.is-submitted .letter-body-copy,
+.letter-paper.is-submitted .letter-interest,
+.letter-paper.is-submitted .letter-name,
+.letter-paper.is-submitted .letter-social,
+.letter-paper.is-submitted .letter-sign,
+.letter-paper.is-submitted .modal-fine{display:none;}
 .letter-sign{font-family:'Caveat',cursive;margin-top:1.4rem;color:var(--pine);font-size:1.75rem;font-weight:500;transform:rotate(-1.2deg);transform-origin:left center;}
 .modal-fine{font-size:.75rem;opacity:.55;margin-top:1.2rem;text-align:left;}
 
-footer{
+.foot-ig{
   background:var(--pine-deep);
-  color:var(--linen);
-  padding:3rem 2rem 2.2rem;
-  text-align:center;
+  width:100%;
+  margin:.55rem 0 1.2rem;
+  padding:1.05rem 1.4rem 1.6rem;
 }
-.foot-brand{
+footer .foot-ig-label{
   font-family:'Fraunces',serif;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-size:1rem;
-  margin-bottom:.8rem;
+  font-style:italic;
+  font-weight:400;
+  font-size:.98rem;
+  letter-spacing:.02em;
+  color:var(--linen);
+  opacity:.82;
+  max-width:none;
+  margin:0 auto .95rem;
 }
+.foot-ig-grid{
+  max-width:780px;
+  margin:0 auto;
+}
+footer{background:var(--pine-deep);color:var(--linen);padding:3rem 0 2.2rem;text-align:center;}
+.foot-brand{font-family:'Fraunces',serif;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;margin-bottom:.8rem;padding:0 2rem;}
 .foot-brand span{color:var(--brass-light);}
 .foot-cta{
   font-family:'Fraunces',serif;
   font-style:italic;
   font-size:1.02rem;
   opacity:.82;
-  margin-bottom:1.1rem;
+  margin-bottom:.45rem;
   max-width:48ch;
   margin-left:auto;
   margin-right:auto;
+  padding:0 2rem;
 }
-footer a{color:var(--brass-light);text-decoration:none;border-bottom:1px solid rgba(207,169,94,.35);}
-footer a:hover{opacity:1;border-bottom-color:var(--brass-light);}
-footer p{font-size:.8rem;opacity:.6;max-width:74ch;margin:0 auto .5rem;}
-.foot-social{margin:1.2rem 0;}
-.foot-social a{color:var(--linen);text-decoration:none;font-size:.85rem;letter-spacing:.08em;margin:0 .9rem;opacity:.8;}
-.foot-social a:hover{opacity:1;color:var(--brass-light);}
+.foot-cta a{color:var(--brass-light);text-decoration:none;border-bottom:1px solid rgba(207,169,94,.35);}
+.foot-cta a:hover{opacity:1;border-bottom-color:var(--brass-light);}
+footer p{font-size:.8rem;opacity:.6;max-width:74ch;margin:0 auto .5rem;padding:0 2rem;}
+
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:none;}
@@ -407,24 +566,29 @@ footer p{font-size:.8rem;opacity:.6;max-width:74ch;margin:0 auto .5rem;}
     align-items:center;
     gap:.65rem;
   }
-  .site-brand{font-size:1.02rem;letter-spacing:.12em;text-align:center;width:100%;padding-right:.12em;}
+  .site-brand{font-size:1.02rem;letter-spacing:.12em;text-align:center;width:100%;padding-right:0;}
   .site-header.is-scrolled .site-brand{font-size:.92rem;letter-spacing:.1em;width:100%;}
-  .site-nav{gap:.15rem .2rem;justify-content:center;width:100%;}
-  .site-header.is-scrolled .site-nav{justify-content:center;gap:.15rem .2rem;width:100%;}
+  .site-nav{gap:0 .95rem;justify-content:center;width:auto;max-width:100%;margin:0 auto;flex-wrap:nowrap;}
+  .site-header.is-scrolled .site-nav{justify-content:center;align-items:center;gap:0 .72rem;width:auto;max-width:100%;margin:0 auto;flex-wrap:nowrap;}
+  .site-header.is-scrolled .site-nav a:not(.nav-cta){padding:.5rem 0;}
   .site-nav a{
-    font-size:.68rem;
-    letter-spacing:.06em;
-    padding:.55rem .7rem;
+    font-size:.74rem;
+    letter-spacing:.055em;
+    padding:.5rem 0;
     opacity:.95;
   }
   .site-header.is-scrolled .site-nav .nav-about{margin-left:0;}
   .nav-cta{padding:.6rem 1.05rem;font-size:.68rem;letter-spacing:.07em;}
   .site-header.is-scrolled .nav-cta-scroll{
-    max-width:14rem;
-    padding:.6rem 1.05rem;
-    margin-left:0;
-    margin-top:.1rem;
-    font-size:.68rem;
+    max-width:9.6rem;
+    padding:.42rem .65rem;
+    margin-left:.4rem;
+    margin-top:0;
+    font-size:.6rem;
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
   }
   .moment-grid,.split-grid,.fit-grid{grid-template-columns:1fr;}
   .founding-banner{min-height:min(34vh,300px);}
@@ -487,7 +651,9 @@ footer p{font-size:.8rem;opacity:.6;max-width:74ch;margin:0 auto .5rem;}
   .step{grid-template-columns:56px 1fr;gap:1.1rem;}
   .step-num{font-size:1.8rem;}
   .site-header{padding:.95rem .85rem .85rem;}
-  .site-nav a{font-size:.66rem;padding:.55rem .55rem;}
+  .site-nav a{font-size:.72rem;padding:.5rem 0;}
+  .site-header.is-scrolled .site-nav a:not(.nav-cta){padding:.45rem 0;font-size:.66rem;}
+  .site-header.is-scrolled .nav-cta-scroll{padding:.4rem .55rem;font-size:.56rem;margin-left:.28rem;}
 }
 footer .foot-copy a,footer .foot-legal a{color:var(--brass-light);text-decoration:none;border-bottom:1px solid rgba(207,169,94,.35);}
 footer .foot-copy a:hover,footer .foot-legal a:hover{border-bottom-color:var(--brass-light);}
@@ -495,8 +661,20 @@ footer .foot-legal{max-width:78ch;}
 .letter-join-consent{display:flex;align-items:flex-start;gap:.55rem;margin:.15rem 0 0;font-size:.78rem;line-height:1.45;opacity:.78;text-align:left;font-family:'Work Sans',system-ui,sans-serif;}
 .letter-join-consent input{margin-top:.2rem;flex:0 0 auto;}
 .letter-join-consent a{color:var(--brass);text-decoration:underline;}
+/* Instagram / Facebook in-app: variable fonts drop word spaces and clip display type. */
+html.is-inapp{word-spacing:.28em;}
+html.is-inapp .site-brand{letter-spacing:.12em;word-spacing:.45em;}
+html.is-inapp .site-nav a,html.is-inapp .btn,html.is-inapp .nav-cta,html.is-inapp .standard-item .label,html.is-inapp .eyebrow,html.is-inapp .hero-eyebrow{letter-spacing:.06em;word-spacing:.4em;}
+html.is-inapp .hero h1,html.is-inapp .page-hero h1,html.is-inapp h1{padding-top:.14em;line-height:1.2;overflow:visible;}
+html.is-inapp .site-nav{flex-wrap:nowrap;}
 /* CORE:END css */
+
+#fs-email-join.is-submitted{display:none;}
+.letter-submit{width:100%;margin-top:.35rem;cursor:pointer;}
 </style>
+<link rel="stylesheet" href="site-extra.css?v=8">
+<link rel="stylesheet" href="business-extra.css?v=8">
+<link rel="stylesheet" href="grove-demo.css?v=4">
 </head>
 <body>
 
@@ -518,92 +696,747 @@ footer .foot-legal{max-width:78ch;}
 
 <header class="page-hero">
   <div class="page-hero-inner">
-    <div class="hero-eyebrow">The Business</div>
+    <div class="hero-eyebrow">Ringana in America</div>
     <h1>Thirty years of proof. <em>One brand-new market.</em></h1>
-    <p>Ringana has spent three decades becoming a trusted name across Europe and Latin America. In 2026, it opens the United States for the first time — and the people who step in now become the founding generation of its American story.</p>
+    <p>Ringana has spent three decades becoming a trusted name across Europe and Latin America. On October 1, the founding door opens in America — and the people who step in now become the first generation of its U.S. story.</p>
+    <div class="hero-door">
+      <span>Partner pre-reg <b>Oct 1</b></span>
+      <span>Products <b>Nov 1</b></span>
+    </div>
   </div>
 </header>
 
-<!-- ============ WHY NOW ============ -->
-<section class="whynow">
+<nav class="page-subnav" aria-label="On this page">
+  <div class="page-subnav-inner">
+    <a href="#ringana">The Company</a>
+    <a href="#hub">The App</a>
+    <a href="#opportunity">How it works</a>
+    <a href="#why">This team</a>
+  </div>
+</nav>
+
+<section class="company" id="ringana">
   <div class="container">
     <div class="reveal">
-      <p class="eyebrow">Why Now</p>
-      <h2 class="section-title">This exact moment doesn't repeat.</h2>
-      <p class="lede">Most opportunities are either proven <em>or</em> early — almost never both. A company only enters a market for the first time once, and Ringana is doing it with serious commitment behind it.</p>
+      <p class="eyebrow">Why Ringana</p>
+      <h2 class="section-title">Fresh. On purpose.</h2>
+      <p class="lede">A family company — no outside investors — has made skincare and supplements this way for thirty years. Toxin free. Made to order. Honest about every ingredient.</p>
     </div>
-    <div class="moment-grid">
-      <div class="moment-card reveal">
-        <span class="stat">$85M</span>
-        <h3>A real American home</h3>
-        <p>Ringana is investing $85 million in its first U.S. headquarters, production, and distribution facility in Roanoke, Virginia — so products for American customers are made fresh on American soil, not shipped across an ocean.</p>
-      </div>
-      <div class="moment-card reveal">
-        <span class="stat">30 yrs</span>
-        <h3>Not a startup gamble</h3>
-        <p>Founded in 1996 and still led by its founding family, Ringana has built its reputation across more than 30 countries. You get ground-floor timing with an established company's track record underneath you.</p>
-      </div>
-      <div class="moment-card reveal">
-        <span class="stat">1st</span>
-        <h3>A market opening once</h3>
-        <p>After three decades across Europe and expansions into Mexico, Colombia, and Peru, the United States is a brand-new market for Ringana — its first stateside facility, its first American-made products, its first U.S. partner generation. A company only opens the American market once.</p>
-      </div>
-      <div class="moment-card reveal">
-        <span class="stat">Now</span>
-        <h3>An audience that's ready</h3>
-        <p>Americans are reading ingredient labels like never before. Demand for genuinely toxin free, transparent products keeps climbing — and Ringana was built for exactly this buyer, decades before the trend.</p>
-      </div>
-    </div>
-  </div>
-  <div class="standards reveal">
-    <div class="container">
-      <div class="standard-item reveal">
-        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3c-3 4-7 6-7 11a7 7 0 0 0 14 0c0-5-4-7-7-11z"/></svg>
-        <span class="num" data-count="1996" data-count-from="2026">2026</span><span class="label">Still family-led today</span>
-      </div>
-      <div class="standard-item reveal">
-        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-        <span class="num" data-count="37">0</span><span class="label">Countries served</span>
-      </div>
-      <div class="standard-item reveal">
-        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/></svg>
-        <span class="num" data-count="100" data-suffix="K+">0</span><span class="label">Partners worldwide</span>
-      </div>
-      <div class="standard-item reveal">
-        <svg class="standard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>
-        <span class="num" data-count="85" data-prefix="$" data-suffix="M">0</span><span class="label">U.S. campus investment</span>
+    <ul class="company-stats reveal">
+      <li><b>$300M+</b><span>in annual sales</span></li>
+      <li><b>~2× / week</b><span>made fresh, like food</span></li>
+      <li><b>Family owned</b><span>no outside investors</span></li>
+      <li><b>Glass comes back</b><span>no inventory loading</span></li>
+    </ul>
+    <div class="factory-stage reveal" id="factoryFlip" data-carousel>
+      <div class="carousel-viewport factory-viewport">
+        <div class="carousel-track">
+          <article class="carousel-slide factory-card factory-from is-active">
+            <div class="factory-body">
+              <figure class="factory-shot">
+                <img src="campus-interior-800w.webp" alt="Ringana fresh cosmetics campus in St. Johann, Austria" width="800" height="500">
+              </figure>
+              <div class="factory-copy">
+                <p class="bubble-kicker">For now</p>
+                <h3>Made in Austria.</h3>
+                <p>The Fresh Factory in St. Johann. Formulate, make, pack — nearly everything under one roof.</p>
+                <ul class="factory-facts">
+                  <li>~30,000 kg made a day</li>
+                  <li>A glass gallery over the floor</li>
+                  <li>100% green electricity</li>
+                </ul>
+                <button type="button" class="factory-go" data-carousel-next>
+                  <span>→</span>
+                  Coming to America
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="carousel-slide factory-card factory-to">
+            <div class="factory-body">
+              <figure class="factory-shot">
+                <img src="roanoke.jpg" alt="Roanoke, Virginia — Ringana’s new U.S. home" width="800" height="500">
+              </figure>
+              <div class="factory-copy">
+                <p class="bubble-kicker">What’s coming</p>
+                <h3><span class="factory-figure">$85M</span> in Virginia.</h3>
+                <p>First U.S. headquarters, production, and R&amp;D in Roanoke — so freshness doesn’t have to cross an ocean.</p>
+                <ul class="factory-facts">
+                  <li>Blue Ridge Commerce Park</li>
+                  <li>435 jobs over five years</li>
+                  <li>Expected to begin operations in 2027</li>
+                </ul>
+                <button type="button" class="factory-back" data-carousel-prev>
+                  <span>←</span>
+                  Made in Austria
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ THE OPPORTUNITY ============ -->
-<section class="opportunity" id="opportunity">
+<section class="hub" id="hub">
+  <div class="hub-stage">
+    <div class="hub-copy reveal">
+      <p class="eyebrow">The hub</p>
+      <h2 class="section-title">Where this team actually lives.</h2>
+      <div class="app-pair" id="appPair">
+        <button type="button" class="app-pick" data-app="seeds" aria-expanded="false" aria-controls="blurbSeeds">
+          <img src="first-seeds.png" alt="" width="84" height="84">
+          <span><b>First Seeds</b><small>The team hub</small></span>
+        </button>
+        <button type="button" class="app-pick" data-app="shelf" aria-expanded="false" aria-controls="blurbShelf">
+          <img src="fresh-shelf.png" alt="" width="84" height="84">
+          <span><b>The Fresh Shelf</b><small>The client app</small></span>
+        </button>
+      </div>
+      <div class="app-blurb" id="blurbSeeds" hidden>
+        <p>First Seeds is this team’s exclusive, custom-built hub — the runway to October, plus the library, calendar, inbox, and client desk that stay after. The phone is a walkthrough — tap around, or tap Next.</p>
+        <p class="hub-hold">You’re led, guided, and supported from day one. A person who knows your name, zooms you can actually get to, and a live team that stays. You’re not guessing — and you’re not doing this alone.</p>
+        <ul class="hub-points">
+          <li><strong>A runway, not a scramble.</strong> Your story, first products, your page, then who you’d tell — in that order, so you always know the next quiet step. Peek ahead anytime. When you’re ready, Post Studio, the calendar, and growing a team are already here.</li>
+          <li><strong>Look it up in one place.</strong> Company, products, ingredients, and launch facts — all searchable, so you can find what you need.</li>
+          <li><strong>Dates, drafts, pictures, and videos.</strong> Grove Gatherings and October. A vault of posts. Pictures and videos you can save. Add your own follow-ups.</li>
+          <li><strong>Your page, your inbox.</strong> A lead page that’s yours. Curious names land with you. Leaders check in and send cheers — without a group chat swallowing it.</li>
+          <li><strong>Connect directly with your clients.</strong> Their side is The Fresh Shelf. Yours is the Clients tab — names, notes, and a line back to you.</li>
+        </ul>
+        <a href="#" class="btn btn-brass" data-open-connect>Join the Founding List</a>
+      </div>
+      <div class="app-blurb" id="blurbShelf" hidden>
+        <p>The Fresh Shelf is the other side of this same grove — the app for the people you share with. It’s already live. Each partner has their own link.</p>
+        <p class="hub-hold">They can look, match, and ask. You stay the person they come back to.</p>
+        <ul class="hub-points">
+          <li><strong>A quiz, not a guess.</strong> It matches them to skincare, body care, and supplements — then they can look the line up themselves.</li>
+          <li><strong>Look it up, then ask you.</strong> The facts live in the app. The real question comes back to the partner who shared it.</li>
+          <li><strong>A line, not a group chat.</strong> Questions go to that person. Nobody else is in the thread.</li>
+          <li><strong>Their link, their shelf.</strong> Their person, on a link that’s theirs. The rest of the grove stays with the team.</li>
+        </ul>
+        <a href="#" class="btn btn-brass" data-open-connect>Join the Founding List</a>
+      </div>
+    </div>
+<div class="phone-dock" id="phoneDock" aria-label="First Seeds hub">
+      <div class="phone-wrap">
+        <div class="phone-glow" aria-hidden="true"></div>
+        <p class="phone-hint">Tap around — or tap Next</p>
+        <div class="phone" id="demoPhone">
+          <div class="phone-island" aria-hidden="true"></div>
+          <div class="phone-status" aria-hidden="true">
+            <span>9:41</span>
+            <span class="phone-status-end"><i class="sig"></i><i class="wifi"></i><i class="bat"></i></span>
+          </div>
+          <div class="phone-home" aria-hidden="true"></div>
+          <div class="demo-app" id="demoApp">
+            <div class="demo-toast" id="demoToast">Sent — demo only</div>
+            <header class="demo-rail">
+              <div class="demo-rail-top">
+                <div>
+                  <div class="demo-brand-eye">THE FRESH GROVE</div>
+                  <div class="demo-brand-title">First Seeds</div>
+                </div>
+                <div class="demo-rail-actions">
+                  <button type="button" class="demo-gear" id="demoGroveTree" aria-label="Grow Your Grove" aria-pressed="false" title="Grow Your Grove">🌳</button>
+                  <button type="button" class="demo-gear" id="demoMessagesBtn" aria-label="Messages" aria-pressed="false" title="Messages">💬</button>
+                  <button type="button" class="demo-gear" data-locked aria-label="Settings">⚙️</button>
+                </div>
+              </div>
+              <p class="demo-brand-sub">Fresh products. Clear facts. Laying solid roots before launch.</p>
+            </header>
+            <div class="demo-cds">
+              <button type="button" class="demo-cd featured" data-locked>
+                <span class="demo-cd-num" id="demoCdPre">—</span>
+                <span class="demo-cd-unit">DAYS</span>
+                <span class="demo-cd-label">Pre-Reg Opens</span>
+              </button>
+              <button type="button" class="demo-cd" data-locked>
+                <span class="demo-cd-num" id="demoCdLaunch">—</span>
+                <span class="demo-cd-unit">DAYS</span>
+                <span class="demo-cd-label">Products Launch</span>
+              </button>
+            </div>
+
+            <div class="demo-stage">
+              <div class="demo-tab on" data-tab="sprout">
+                <p class="demo-eye">Your sprout</p>
+                <h2 class="demo-h1">Watch it grow.</h2>
+                <p class="demo-p">Quiet prep now — your story, a few people you’d actually want beside you, clear facts — makes October feel a lot less overwhelming.</p>
+                <div class="fs-plant-zone">
+                  <button type="button" class="fs-plantbox" id="demoPlant" data-locked aria-label="Sprout preview"></button>
+                  <div class="fs-plant-meta">
+                    <div class="fs-stats">
+                      <span class="fs-stat" id="demoStatRoots"><em>Roots</em> 0/3</span>
+                      <span class="fs-stat" id="demoStatChecks"><em>Checks</em> 0/3</span>
+                    </div>
+                    <p class="fs-caption" id="demoPlantCaption">Seed on the dirt.</p>
+                    <div class="fs-progress-meta"><span id="demoGrowthLabel">Growth 0%</span></div>
+                    <div class="fs-track"><div class="fs-fill" id="demoFill"></div></div>
+                  </div>
+                </div>
+                <div class="fs-today" id="demoToday">
+                  <div class="demo-live-tag">What’s next</div>
+                  <strong id="demoTodayTitle">Plant your roots</strong>
+                  <p class="demo-blur" id="demoTodayBody">Three quiet story answers. That’s what grows the roots underground.</p>
+                  <button type="button" class="fs-go" data-locked id="demoTodayGo">Let’s go →</button>
+                </div>
+                <div class="fs-runway">
+                  <div class="demo-live-tag">Your path · step by step</div>
+                  <button type="button" class="fs-step next" data-step="story" data-locked>
+                    <span class="fs-num">1</span>
+                    <span class="fs-step-main"><b>Plant Your Roots</b><span class="fs-sub demo-blur">your story</span><em class="fs-status">Up next</em></span>
+                  </button>
+                  <button type="button" class="fs-step" data-step="products" data-locked>
+                    <span class="fs-num">2</span>
+                    <span class="fs-step-main"><b>Pick Your First Few</b><span class="fs-sub demo-blur">products · your voice</span><em class="fs-status">In the hub</em></span>
+                  </button>
+                  <button type="button" class="fs-step" data-step="ground" data-locked>
+                    <span class="fs-num">3</span>
+                    <span class="fs-step-main"><b>Your Patch of Ground</b><span class="fs-sub demo-blur">your page</span><em class="fs-status">In the hub</em></span>
+                  </button>
+                  <button type="button" class="fs-step" data-step="map" data-locked>
+                    <span class="fs-num">4</span>
+                    <span class="fs-step-main"><b>Map Your Grove</b><span class="fs-sub demo-blur">customers · partners optional</span><em class="fs-status">In the hub</em></span>
+                  </button>
+                  <button type="button" class="fs-step locked" data-locked>
+                    <span class="fs-num">5</span>
+                    <span class="fs-step-main"><b>Grow Your Tree</b><span class="fs-sub demo-blur">your future team</span><em class="fs-status">All in</em></span>
+                  </button>
+                  <button type="button" class="fs-step locked" data-locked>
+                    <span class="fs-num">6</span>
+                    <span class="fs-step-main"><b>Post Studio</b><span class="fs-sub demo-blur">your first drafts</span><em class="fs-status">All in</em></span>
+                  </button>
+                  <button type="button" class="fs-step locked" data-locked>
+                    <span class="fs-num">7</span>
+                    <span class="fs-step-main"><b>Calendar</b><span class="fs-sub demo-blur">runway habit · mark 3 done</span><em class="fs-status">All in</em></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="demo-tab" data-tab="calendar">
+                <p class="demo-eye">Plan · post yourself</p>
+                <h2 class="demo-h1">Calendar</h2>
+                <p class="demo-sub demo-blur">Dates, posts, pictures, videos.</p>
+                <div class="fs-cal-board">
+                  <div class="fs-cal-head">
+                    <span class="fs-cal-title">Your month <i class="fs-cal-chev" aria-hidden="true"></i></span>
+                    <span class="fs-cal-meta">
+                      <span class="fs-cal-dated">2 dated</span>
+                      <span class="fs-cal-views"><b>Week</b><b class="on">Month</b></span>
+                    </span>
+                  </div>
+                  <div class="fs-cal-grid" aria-hidden="true">
+                    <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i>1</i>
+                    <i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i class="cell" data-locked>7</i><i class="cell" data-locked>8</i>
+                    <i class="cell" data-locked>9</i><i class="cell" data-locked>10</i><i class="cell" data-locked>11</i><i class="cell" data-locked>12</i><i class="cell" data-locked>13</i><i class="cell" data-locked>14</i><i class="cell gold" data-locked>15</i>
+                    <i class="cell" data-locked>16</i><i class="cell" data-locked>17</i><i class="cell" data-locked>18</i><i class="cell" data-locked>19</i><i class="cell" data-locked>20</i><i class="cell" data-locked>21</i><i class="cell" data-locked>22</i>
+                    <i class="cell" data-locked>23</i><i class="cell" data-locked>24</i><i class="cell" data-locked>25</i><i class="cell" data-locked>26</i><i class="cell gold" data-locked>27</i><i class="cell" data-locked>28</i><i class="cell" data-locked>29</i>
+                    <i class="cell">30</i><i class="cell">31</i>
+                  </div>
+                </div>
+                <div class="demo-cal-tabs">
+                  <button type="button" class="demo-cal-tab" data-locked>
+                    <span class="demo-cal-tab-label">Your<br>story</span>
+                    <span class="demo-fold-chev" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="demo-cal-tab" data-locked>
+                    <span class="demo-cal-tab-label">Favorite<br>products</span>
+                    <span class="demo-fold-chev" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="demo-cal-tab" data-locked>
+                    <span class="demo-cal-tab-label">Favorite<br>facts</span>
+                    <span class="demo-fold-chev" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">This week</span>
+                  <span class="fs-cta-title">This week’s plan</span>
+                  <span class="fs-cta-sub demo-blur">A calm rotation — drop it onto your calendar, then tap a day to post.</span>
+                  <span class="fs-cta-go">See this week →</span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">Content library</span>
+                  <span class="fs-cta-title">Post vault</span>
+                  <span class="fs-cta-sub demo-blur">Browse by type, copy a caption, add it to a day. Steal the structure — rewrite until it sounds like you.</span>
+                  <span class="fs-cta-go">Open vault →</span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">Library</span>
+                  <span class="fs-cta-title">Pictures & videos</span>
+                  <span class="fs-cta-sub demo-blur">Search or browse — tap to open, press and hold to save.</span>
+                  <span class="fs-cta-go">Open library →</span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">From the grove</span>
+                  <span class="fs-cta-title">Posts from the team</span>
+                  <span class="fs-cta-sub demo-blur">A growing library of posts people on team created. Steal the structure, rewrite it in your voice — and add yours when something worked.</span>
+                  <span class="fs-cta-go">Browse posts →</span>
+                </button>
+              </div>
+
+              <div class="demo-tab" data-tab="leads">
+                <p class="demo-eye">For people who are curious</p>
+                <h2 class="demo-h1">Leads</h2>
+                <p class="demo-sub demo-blur">They leave their name and how to reach them. Everything lands only in your inbox.</p>
+                <div class="fs-share">
+                  <div class="fs-share-row">
+                    <button type="button" class="fs-bloom" data-locked aria-label="Copy my lead page">
+                      <span class="fs-bloom-ico" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" width="40" height="40" overflow="visible">
+                          <defs><radialGradient id="demoBloomLeads" cx="50%" cy="42%" r="62%">
+                            <stop offset="0%" stop-color="#fff4c8"/>
+                            <stop offset="45%" stop-color="#f0d06a"/>
+                            <stop offset="100%" stop-color="#c9922e"/>
+                          </radialGradient></defs>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomLeads)" transform="rotate(0 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomLeads)" transform="rotate(72 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomLeads)" transform="rotate(144 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomLeads)" transform="rotate(216 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomLeads)" transform="rotate(288 24 24)" opacity=".96"/>
+                          <circle cx="24" cy="24" r="4.4" fill="#5a4a37"/>
+                          <circle cx="24" cy="24" r="2.5" fill="#e8c45a" opacity=".92"/>
+                          <circle cx="24" cy="24" r="3.1" fill="#fff4c8" opacity=".5"/>
+                        </svg>
+                      </span>
+                      <span class="fs-bloom-label">Copy my lead page</span>
+                    </button>
+                  </div>
+                  <div class="fs-share-row">
+                    <button type="button" class="fs-bloom" data-locked aria-label="Copy my business-info link">
+                      <span class="fs-bloom-ico" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" width="40" height="40" overflow="visible">
+                          <defs><radialGradient id="demoBloomGrovePage" cx="50%" cy="42%" r="62%">
+                            <stop offset="0%" stop-color="#fff4c8"/>
+                            <stop offset="45%" stop-color="#f0d06a"/>
+                            <stop offset="100%" stop-color="#c9922e"/>
+                          </radialGradient></defs>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrovePage)" transform="rotate(0 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrovePage)" transform="rotate(72 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrovePage)" transform="rotate(144 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrovePage)" transform="rotate(216 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrovePage)" transform="rotate(288 24 24)" opacity=".96"/>
+                          <circle cx="24" cy="24" r="4.4" fill="#5a4a37"/>
+                          <circle cx="24" cy="24" r="2.5" fill="#e8c45a" opacity=".92"/>
+                          <circle cx="24" cy="24" r="3.1" fill="#fff4c8" opacity=".5"/>
+                        </svg>
+                      </span>
+                      <span class="fs-bloom-label">Copy my business-info link</span>
+                    </button>
+                  </div>
+                </div>
+                <button type="button" class="demo-fold" data-locked>
+                  <span class="demo-live-tag">Your ideal lead list</span>
+                  <span class="demo-fold-chev" aria-hidden="true"></span>
+                </button>
+                <div class="demo-live-tag">Inbox</div>
+                <button type="button" class="demo-fold" data-locked>
+                  <span class="demo-live-tag">Filters</span>
+                  <span class="demo-fold-chev" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="demo-search" data-locked>Search by name, email, phone, notes…</button>
+                <article class="demo-lead-card is-new" data-locked data-lead-filters="all new products">
+                  <div class="demo-lead-head">
+                    <div class="demo-lead-head-main">
+                      <div class="demo-lead-name-row">
+                        <span class="demo-lead-hot" aria-hidden="true">🔥</span>
+                        <strong class="demo-lead-name demo-blur">Jordan M.</strong>
+                      </div>
+                      <div class="demo-lead-tags">
+                        <div class="demo-lead-dd">
+                          <button type="button" class="demo-lead-tab is-interest" data-demo-dd>Products</button>
+                          <div class="demo-lead-menu" role="listbox">
+                            <button type="button" class="demo-lead-opt on" data-demo-opt>Products</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Business</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Both</button>
+                          </div>
+                        </div>
+                        <div class="demo-lead-dd">
+                          <button type="button" class="demo-lead-tab" data-demo-dd>New</button>
+                          <div class="demo-lead-menu" role="listbox">
+                            <button type="button" class="demo-lead-opt on" data-demo-opt>New</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Reached out</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Talking</button>
+                          </div>
+                        </div>
+                        <div class="demo-lead-dd">
+                          <button type="button" class="demo-lead-tab is-quiz" data-demo-dd>Quiz</button>
+                          <div class="demo-lead-menu" role="listbox">
+                            <button type="button" class="demo-lead-opt on" data-demo-opt>Quiz</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Took quiz</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="demo-lead-more" data-demo-lead-more aria-expanded="false" aria-label="Show details">
+                      <span class="demo-lead-expand" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                  <div class="demo-lead-rest" hidden>
+                    <p class="demo-lead-meta demo-blur">jordan@example.com</p>
+                    <p class="demo-lock">Contact stays hidden here. In the hub you’d text, email, or copy an opener.</p>
+                  </div>
+                </article>
+                <article class="demo-lead-card" data-locked data-lead-filters="all grove reached both hot quiz">
+                  <div class="demo-lead-head">
+                    <div class="demo-lead-head-main">
+                      <div class="demo-lead-name-row">
+                        <span class="demo-lead-hot on" aria-hidden="true">🔥</span>
+                        <strong class="demo-lead-name demo-blur">Sam R.</strong>
+                      </div>
+                      <div class="demo-lead-tags">
+                        <div class="demo-lead-dd">
+                          <button type="button" class="demo-lead-tab is-interest" data-demo-dd>Both</button>
+                          <div class="demo-lead-menu" role="listbox">
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Products</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Business</button>
+                            <button type="button" class="demo-lead-opt on" data-demo-opt>Both</button>
+                          </div>
+                        </div>
+                        <span class="demo-lead-pill grove">Fresh Grove</span>
+                        <div class="demo-lead-dd">
+                          <button type="button" class="demo-lead-tab" data-demo-dd>Reached out</button>
+                          <div class="demo-lead-menu" role="listbox">
+                            <button type="button" class="demo-lead-opt" data-demo-opt>New</button>
+                            <button type="button" class="demo-lead-opt on" data-demo-opt>Reached out</button>
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Talking</button>
+                          </div>
+                        </div>
+                        <div class="demo-lead-dd">
+                          <button type="button" class="demo-lead-tab is-quiz" data-demo-dd>Took quiz</button>
+                          <div class="demo-lead-menu" role="listbox">
+                            <button type="button" class="demo-lead-opt" data-demo-opt>Quiz</button>
+                            <button type="button" class="demo-lead-opt on" data-demo-opt>Took quiz</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="demo-lead-more" data-demo-lead-more aria-expanded="false" aria-label="Show details">
+                      <span class="demo-lead-expand" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                  <div class="demo-lead-rest" hidden>
+                    <p class="demo-lead-meta">Found you on The Fresh Grove</p>
+                    <p class="demo-lock">Dummy lead — not a real person on this page.</p>
+                  </div>
+                </article>
+                <p class="demo-leads-empty" id="demoLeadsEmpty" hidden>Nobody in this filter — demo names only.</p>
+              </div>
+
+              <div class="demo-tab" data-tab="learn">
+                <p class="demo-eye">Clarity · not hype</p>
+                <h2 class="demo-h1">Learn</h2>
+                <p class="demo-p demo-blur">Are we excited? Absolutely. Excitement doesn’t replace due diligence. We want everyone here equipped to decide with clarity — not pressure.</p>
+                <div class="demo-callout" data-locked>
+                  <div class="demo-live-tag">Please remember</div>
+                  <p class="demo-blur">We’re building something new in the U.S. Some details may shift as we get closer to launch. What’s below is current guidance — not a guarantee.</p>
+                </div>
+                <button type="button" class="demo-search" data-locked>Search Learn — products, facts, FAQs, quiz…</button>
+                <button type="button" class="demo-leader-btn" data-locked>
+                  <span class="demo-leader-ico" aria-hidden="true">✨</span>
+                  <span class="demo-leader-text">Exclusively for Grove Leaders</span>
+                  <span class="demo-leader-go">Open →</span>
+                </button>
+                <button type="button" class="demo-acc" data-locked>
+                  <span class="demo-acc-main">
+                    <span class="demo-acc-ico" aria-hidden="true">❓</span>
+                    FAQs
+                  </span>
+                  <span class="demo-acc-plus" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">The company</span>
+                  <span class="fs-cta-title">Why Ringana</span>
+                  <span class="fs-cta-sub demo-blur">What makes the products and the business different — how they treat the planet, and the three words they actually live by.</span>
+                  <span class="fs-cta-go">Open →</span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">Product library</span>
+                  <span class="fs-cta-title">Learn the products</span>
+                  <span class="fs-cta-sub demo-blur">Skincare, body, hair, baby, and supplements — plus an ingredient guide for label literacy and “what’s in it” lookups.</span>
+                  <span class="fs-cta-go">Open library →</span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">Conversation guide</span>
+                  <span class="fs-cta-title">Talking fresh</span>
+                  <span class="fs-cta-sub demo-blur">What to say when someone comments, objects, goes quiet, or asks about the business — structure you can steal, not a script to recite.</span>
+                  <span class="fs-cta-go">Open guide →</span>
+                </button>
+                <button type="button" class="fs-cta" data-locked>
+                  <span class="fs-cta-eye">Shareable tool</span>
+                  <span class="fs-cta-title">The Fresh Match</span>
+                  <span class="fs-cta-sub demo-blur">A short quiz for people who already know you. They get a match, then they come back to you.</span>
+                  <span class="fs-cta-go">Open guide →</span>
+                </button>
+                <div class="demo-callout demo-callout-voice" data-locked>
+                  <div class="demo-live-tag">Our promise</div>
+                  <p class="demo-blur">Not through hype. Not through exaggerated claims. Through education, transparency, and honest conversation.</p>
+                </div>
+              </div>
+
+              <div class="demo-tab" data-tab="clients">
+                <p class="demo-eye">Your clients</p>
+                <h2 class="demo-h1">Clients</h2>
+                <p class="demo-sub demo-blur">Who they are, and a way to write them.</p>
+                <div class="fs-share">
+                  <div class="fs-share-row">
+                    <button type="button" class="fs-bloom" data-locked aria-label="Copy my shelf link">
+                      <span class="fs-bloom-ico" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" width="40" height="40" overflow="visible">
+                          <defs><radialGradient id="demoBloomShelf" cx="50%" cy="42%" r="62%">
+                            <stop offset="0%" stop-color="#fff4c8"/>
+                            <stop offset="45%" stop-color="#f0d06a"/>
+                            <stop offset="100%" stop-color="#c9922e"/>
+                          </radialGradient></defs>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomShelf)" transform="rotate(0 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomShelf)" transform="rotate(72 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomShelf)" transform="rotate(144 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomShelf)" transform="rotate(216 24 24)" opacity=".96"/>
+                          <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomShelf)" transform="rotate(288 24 24)" opacity=".96"/>
+                          <circle cx="24" cy="24" r="4.4" fill="#5a4a37"/>
+                          <circle cx="24" cy="24" r="2.5" fill="#e8c45a" opacity=".92"/>
+                          <circle cx="24" cy="24" r="3.1" fill="#fff4c8" opacity=".5"/>
+                        </svg>
+                      </span>
+                      <span class="fs-bloom-label">Copy my shelf link</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="demo-live-tag">Today</div>
+                <article class="demo-lead-card is-new" data-locked>
+                  <div class="demo-lead-head">
+                    <div class="demo-lead-head-main">
+                      <div class="demo-lead-name-row">
+                        <strong class="demo-lead-name demo-blur">Casey L.</strong>
+                      </div>
+                      <p class="demo-lead-meta demo-blur">New on The Fresh Shelf</p>
+                    </div>
+                  </div>
+                </article>
+                <div class="demo-live-tag">With you</div>
+                <article class="demo-lead-card" data-locked>
+                  <div class="demo-lead-head">
+                    <div class="demo-lead-head-main">
+                      <div class="demo-lead-name-row">
+                        <strong class="demo-lead-name demo-blur">Riley P.</strong>
+                      </div>
+                      <p class="demo-lead-meta demo-blur">Left a note</p>
+                    </div>
+                  </div>
+                </article>
+                <p class="demo-lock">Dummy names — not a real client on this page.</p>
+              </div>
+
+              <div class="demo-tab" data-tab="grove">
+                <p class="demo-eye">The Fresh Grove</p>
+                <div class="fs-team-head">
+                  <h2 class="demo-h1">Grow Your Grove</h2>
+                  <button type="button" class="fs-bloom" data-locked aria-label="Copy my link to join">
+                    <span class="fs-bloom-ico" aria-hidden="true">
+                      <svg viewBox="0 0 48 48" width="40" height="40" overflow="visible">
+                        <defs><radialGradient id="demoBloomGrove" cx="50%" cy="42%" r="62%">
+                          <stop offset="0%" stop-color="#fff4c8"/>
+                          <stop offset="45%" stop-color="#f0d06a"/>
+                          <stop offset="100%" stop-color="#c9922e"/>
+                        </radialGradient></defs>
+                        <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrove)" transform="rotate(0 24 24)" opacity=".96"/>
+                        <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrove)" transform="rotate(72 24 24)" opacity=".96"/>
+                        <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrove)" transform="rotate(144 24 24)" opacity=".96"/>
+                        <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrove)" transform="rotate(216 24 24)" opacity=".96"/>
+                        <ellipse cx="24" cy="24" rx="5.2" ry="17" fill="url(#demoBloomGrove)" transform="rotate(288 24 24)" opacity=".96"/>
+                        <circle cx="24" cy="24" r="4.4" fill="#5a4a37"/>
+                        <circle cx="24" cy="24" r="2.5" fill="#e8c45a" opacity=".92"/>
+                        <circle cx="24" cy="24" r="3.1" fill="#fff4c8" opacity=".5"/>
+                      </svg>
+                    </span>
+                    <span class="fs-bloom-label">Copy my link to join</span>
+                  </button>
+                </div>
+                <p class="demo-sub demo-blur">The people building alongside you — check in, cheer them on, watch the family grow.</p>
+                <div class="demo-live-team">
+                  <div class="demo-live-stats">
+                    <div class="demo-live-stat"><strong>3</strong><span>Level 1</span></div>
+                    <div class="demo-live-stat"><strong>7</strong><span>on tree</span></div>
+                    <div class="demo-live-stat"><strong>2</strong><span>deep</span></div>
+                  </div>
+                  <div class="demo-live-you"><span aria-hidden="true">🌿</span> You</div>
+                  <div class="demo-live-list">
+                    <div class="demo-live-l1 has-kids is-open">
+                      <div class="demo-live-sum">
+                        <span class="demo-live-rank">1</span>
+                        <span class="demo-live-main">
+                          <button type="button" class="demo-live-name demo-blur" data-locked>Maya</button>
+                          <span class="demo-live-meta demo-blur">2/7 sections · 3d ago</span>
+                        </span>
+                        <button type="button" class="demo-live-expand" data-locked aria-expanded="true" aria-label="Hide 2 under"></button>
+                      </div>
+                      <ul class="demo-live-kids">
+                        <li class="demo-live-node">
+                          <span class="demo-live-sprout" aria-hidden="true">🌱</span>
+                          <button type="button" class="demo-live-kid demo-blur" data-locked>Sam</button>
+                        </li>
+                        <li class="demo-live-node">
+                          <span class="demo-live-sprout" aria-hidden="true">🌱</span>
+                          <button type="button" class="demo-live-kid demo-blur" data-locked>Alex</button>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="demo-live-l1">
+                      <div class="demo-live-sum is-static">
+                        <span class="demo-live-rank">2</span>
+                        <span class="demo-live-main">
+                          <button type="button" class="demo-live-name demo-blur" data-locked>Jordan</button>
+                          <span class="demo-live-meta demo-blur">active today</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="demo-live-l1 has-kids">
+                      <div class="demo-live-sum">
+                        <span class="demo-live-rank">3</span>
+                        <span class="demo-live-main">
+                          <button type="button" class="demo-live-name demo-blur" data-locked>Priya</button>
+                          <span class="demo-live-meta demo-blur">4/7 sections · 1d ago</span>
+                        </span>
+                        <button type="button" class="demo-live-expand" data-locked aria-expanded="false" aria-label="Show 2 under"></button>
+                      </div>
+                      <ul class="demo-live-kids">
+                        <li class="demo-live-node">
+                          <span class="demo-live-sprout" aria-hidden="true">🌱</span>
+                          <button type="button" class="demo-live-kid demo-blur" data-locked>Riley</button>
+                        </li>
+                        <li class="demo-live-node">
+                          <span class="demo-live-sprout" aria-hidden="true">🌱</span>
+                          <button type="button" class="demo-live-kid demo-blur" data-locked>Tess</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="fs-mentor">
+                  <button type="button" class="fs-mentor-col nudge" data-locked>
+                    <span>Needs a nudge <b>1</b></span>
+                    <strong class="demo-blur">Maya</strong>
+                  </button>
+                  <button type="button" class="fs-mentor-col motion" data-locked>
+                    <span>In motion <b>1</b></span>
+                    <strong class="demo-blur">Jordan</strong>
+                  </button>
+                  <button type="button" class="fs-mentor-col ready" data-locked>
+                    <span>Ready / blooming <b>1</b></span>
+                    <strong class="demo-blur">Priya</strong>
+                  </button>
+                </div>
+                <button type="button" class="demo-fold" data-locked>
+                  <span class="demo-live-tag">Dream tree</span>
+                  <span class="demo-fold-chev" aria-hidden="true"></span>
+                </button>
+                <p class="demo-lock">Dummy names — not a real team on this page.</p>
+              </div>
+
+              <div class="demo-tab" data-tab="messages">
+                <p class="demo-eye">The Fresh Grove</p>
+                <h2 class="demo-h1">What’s new</h2>
+                <p class="demo-sub">Notes from the team, and a line back to you — from the header, not another group chat.</p>
+                <div class="demo-live-tag">From the grove</div>
+                <article class="demo-lead-card is-new" data-locked>
+                  <div class="demo-lead-head">
+                    <div class="demo-lead-head-main">
+                      <div class="demo-lead-name-row">
+                        <strong class="demo-lead-name">Grove Gathering</strong>
+                      </div>
+                      <p class="demo-lead-meta">This week’s zoom is on the calendar. Come if you can — replay lives here after.</p>
+                    </div>
+                  </div>
+                </article>
+                <div class="demo-live-tag">For you</div>
+                <article class="demo-lead-card" data-locked>
+                  <div class="demo-lead-head">
+                    <div class="demo-lead-head-main">
+                      <div class="demo-lead-name-row">
+                        <strong class="demo-lead-name demo-blur">A note from your person</strong>
+                      </div>
+                      <p class="demo-lead-meta demo-blur">Proud of the quiet work this week.</p>
+                    </div>
+                  </div>
+                </article>
+                <p class="demo-lock">Demo notes — your real messages stay in the hub.</p>
+              </div>
+
+              <div class="demo-sheet" id="demoSheet" hidden>
+                <button type="button" class="demo-back" id="demoBack">← Back</button>
+                <div id="demoSheetBody"></div>
+              </div>
+            </div>
+
+            <button type="button" class="demo-guide" id="demoGuide">
+              <span>
+                <i id="demoGuideKicker">🌱 Sprout</i>
+                <b id="demoGuideTitle">The path is already built.</b>
+                <small id="demoGuideLine">Story, a few products, your page, then who you’d tell. Post Studio and Calendar are waiting when you want them.</small>
+              </span>
+              <em><span id="tourPos">1 / 7</span> · Next →</em>
+            </button>
+            <nav class="demo-nav" aria-label="Demo hub">
+              <button type="button" class="on" data-tab="sprout"><span class="demo-nav-ico">🌱</span>Sprout</button>
+              <button type="button" data-tab="calendar"><span class="demo-nav-ico">📅</span>Calendar</button>
+              <button type="button" data-tab="leads"><span class="demo-nav-ico" aria-hidden="true">&#x1F4E7;</span>Leads</button>
+              <button type="button" data-tab="learn"><span class="demo-nav-ico">💡</span>Learn</button>
+              <button type="button" data-tab="clients"><span class="demo-nav-ico">🧴</span>Clients</button>
+            </nav>
+          </div>
+        </div>
+        <p class="hub-legal">© 2026 The Fresh Grove. First Seeds shown here as a walkthrough of the private hub. All rights reserved. No copying, scraping, cloning, or redistribution of this interface, artwork, or plant. Not an official Ringana corporate website or product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="biz-rules" id="opportunity">
   <div class="container">
     <div class="reveal">
-      <p class="eyebrow">The Opportunity</p>
-      <h2 class="section-title">Numbers worth knowing upfront.</h2>
-      <p class="lede">Ringana's partner model rewards real product movement — on your own customers and on the team you choose to build. These reflect Ringana's current international compensation; U.S. details will be confirmed at launch.</p>
+      <p class="eyebrow">The partner side</p>
+      <h2 class="section-title">How this business actually works.</h2>
+      <p class="lede">The model is built around real product movement — not monthly quotas, and not a garage full of inventory. These rules are how Ringana runs internationally today. U.S. details will be confirmed at launch.</p>
     </div>
-    <div class="opportunity-grid">
-      <div class="opportunity-card reveal">
+    <div class="company-rules reveal">
+      <ul class="company-rules-list">
+        <li>
+          <b>Never monthly</b>
+          <p>A purchase is never required each month. Not to stay active. Not to earn.</p>
+        </li>
+        <li>
+          <b>Once a year</b>
+          <p>One order every 12 months keeps you active — from a client, or from you.</p>
+        </li>
+        <li>
+          <b>$0 / month</b>
+          <p>You can run this business for nothing a month, if that’s how you want it.</p>
+        </li>
+        <li>
+          <b>No team required</b>
+          <p>You can go to the top of the plan with no team at all. Not common — still true.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="opportunity-grid reveal" style="margin-top:2.2rem">
+      <div class="opportunity-card">
         <span class="num">Up to 39%</span>
-        <span class="label">on customer turnover</span>
-        <span class="threshold-note">*at a very low threshold</span>
+        <span class="label">On customer turnover</span>
       </div>
-      <div class="opportunity-card reveal">
+      <div class="opportunity-card">
         <span class="num">Up to 14%</span>
         <span class="label">On team turnover</span>
       </div>
-      <div class="opportunity-card reveal">
+      <div class="opportunity-card">
         <span class="num">9 levels</span>
         <span class="label">Deep on team turnover</span>
       </div>
-      <div class="opportunity-card reveal">
+      <div class="opportunity-card">
         <span class="num long">No leg requirements</span>
         <span class="label">Reach the top on personal sales alone</span>
       </div>
-      <div class="opportunity-card opportunity-card--featured reveal">
+      <div class="opportunity-card opportunity-card--featured">
         <span class="num">Up to $30K</span>
         <span class="label">Recurring bonuses from your first month</span>
       </div>
@@ -612,47 +1445,6 @@ footer .foot-legal{max-width:78ch;}
   </div>
 </section>
 
-<section class="how">
-  <div class="container">
-    <div class="reveal">
-      <p class="eyebrow">How It Works</p>
-      <h2 class="section-title">A business without the baggage.</h2>
-      <p class="lede">Because Ringana products are made fresh to order, they can't sit in stores — or in your garage. The entire model is built around direct recommendation, and it strips out almost everything that makes traditional business (and most network marketing) heavy.</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <div>
-          <h3>You share what you genuinely use</h3>
-          <p>Your role is recommendation, not sales-floor pressure. You use the products, you talk about them honestly, and you point people to your personal online shop link. That's the whole front end of the business.</p>
-        </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">02</div>
-        <div>
-          <h3>Ringana handles everything behind the scenes</h3>
-          <p>Orders go through your personal online office, and Ringana produces fresh, packages, ships direct to your customer, and handles invoicing. No inventory, no packing boxes, no chasing payments.</p>
-        </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">03</div>
-        <div>
-          <h3>You earn on real product sales</h3>
-          <p>Commission comes from products your customers actually order and reorder — and from supporting a team of partners you help build, if you choose to grow one. The engine is product sales, not recruiting.</p>
-        </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">04</div>
-        <div>
-          <h3>You grow with a mentor, at your pace</h3>
-          <p>Every new partner starts with a mentor — that's where I come in. Training, tools, and systems from day one, whether you want a few hours a week alongside your family or a full-time business.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ YOU DO / RINGANA DOES ============ -->
 <section class="split">
   <div class="container">
     <div class="reveal">
@@ -684,13 +1476,12 @@ footer .foot-legal{max-width:78ch;}
   </div>
 </section>
 
-<!-- ============ FIT CHECK ============ -->
 <section class="fit">
   <div class="container">
     <div class="reveal">
       <p class="eyebrow">Honest Fit Check</p>
       <h2 class="section-title">This is for some people. Not everyone.</h2>
-      <p class="lede">I'd rather you know before we ever talk. Here's my honest read on who thrives with something like this — and who shouldn't bother.</p>
+      <p class="lede">Better to know before you ever talk. Here's an honest read on who thrives with something like this — and who shouldn't bother.</p>
     </div>
     <div class="fit-grid">
       <div class="fit-col fit-yes reveal">
@@ -716,7 +1507,50 @@ footer .foot-legal{max-width:78ch;}
   </div>
 </section>
 
-<!-- ============ FOUNDING TEAM ============ -->
+<section class="community" id="why">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Why this team</p>
+      <h2 class="section-title">This grove is built on solid ground.</h2>
+      <p class="lede">You’re not pouring the foundation. You’re being invited onto it.</p>
+    </div>
+    <div class="community-merge">
+      <article class="community-zoom reveal">
+        <span class="community-live"><i></i> Weekly</span>
+        <h3>Weekly team zooms.</h3>
+        <p>Training, Q&amp;A, and support. With the team, every week. Times rotate.</p>
+      </article>
+      <div class="community-letter reveal">
+        <span class="community-seal">
+          <img src="grove-logo.jpg" alt="The Fresh Grove" width="96" height="96">
+        </span>
+        <div class="community-stamps">
+          <aside class="community-stamp">
+            <em>Led</em>
+            <b>from day one</b>
+            <p>A person who knows your name, and a live team that stays.</p>
+          </aside>
+          <aside class="community-stamp">
+            <em>Already</em>
+            <b>in motion</b>
+            <p>Zooms, a private hub, and a team that remembers being new.</p>
+          </aside>
+          <aside class="community-stamp">
+            <em>Founding</em>
+            <b>U.S. team</b>
+            <p>First American chapter. October 1 is the door.</p>
+          </aside>
+          <aside class="community-stamp">
+            <em>However</em>
+            <b>you need us</b>
+            <p>Products, sharing, or a team. The grove meets you there.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="founding-spread" id="founding">
   <div class="founding-banner">
     <div class="founding-banner-bg" aria-hidden="true">
@@ -747,48 +1581,108 @@ footer .foot-legal{max-width:78ch;}
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="reveal faq-intro">
-      <p class="eyebrow">Questions</p>
+      <p class="eyebrow">Ringana FAQ</p>
       <h2 class="section-title">Asked and answered.</h2>
     </div>
-    <div class="faq-list reveal">
-      <details>
-        <summary>Is this an MLM / pyramid thing?</summary>
-        <p>Yes, it's network marketing — but it's not a pyramid scheme. A true pyramid scheme pays people primarily for recruiting others, with little or no real product behind it. Ringana is a legitimate business built on legitimate products: earnings come from real product sales to real customers, not from recruitment alone. There's no inventory loading, no required purchases, and internationally partners hold zero stock because fresh products can't sit in a garage. It's direct sales with products people actually use and reorder.</p>
-      </details>
-      <details>
-        <summary>What does it cost to start?</summary>
-        <p>Official U.S. enrollment details will be confirmed at launch, and I'll share them with the founding list the moment they're public.</p>
-      </details>
-      <details>
-        <summary>Will there be monthly purchase requirements to stay active?</summary>
-        <p>No, there are no purchase requirements, ever. You do need at least one purchase (of any size) every year to remain an active partner.</p>
-      </details>
-      <details>
-        <summary>How much can I earn?</summary>
-        <p>Honestly: it depends entirely on you. Partners earn commission on product sales and on team growth, and results vary widely based on effort, consistency, and time. Nobody — including me — can promise you a specific income, and you should walk away from anyone who does. What I can promise is my systems, my mentorship, and founding-team timing.</p>
-      </details>
-      <details>
-        <summary>Do I have to be a "salesperson"?</summary>
-        <p>No — and honestly I believe in sharing from experience, and integrity speaks volumes because it's honest. There will never be pressure from me to be salesy or misleading. I will be your support and resource to find the best way to share with your audience.</p>
-      </details>
-      <details>
-        <summary>When exactly does the U.S. launch?</summary>
-        <p>Ringana's American facility in Roanoke, Virginia begins manufacturing in late 2026, with the U.S. market opening around that time. Exact partner enrollment and ordering dates will come from Ringana — and founding list members will hear them from me first.</p>
-      </details>
-      <details>
-        <summary>What if I just want the products?</summary>
-        <p>That's a great way to start — and if you feel that's the path you want to take, perfect! I'll be sharing product info with everyone who signs up as well. But I'd also encourage you to consider joining while Ringana is coming to market, in case you want to share down the road. There's no requirement to share once you join, so you can decide later.</p>
-      </details>
+    <div class="faq-doors reveal">
+      <div class="faq-item">
+        <button type="button" class="faq-door" aria-expanded="false" data-faq-cat="company">
+          <span class="faq-door-kicker">01</span>
+          <span class="faq-door-title">The company</span>
+          <span class="faq-door-hint">Ringana, the factory, the model</span>
+        </button>
+        <div class="faq-group" data-faq-group="company" hidden>
+          <details name="faq-company">
+            <summary>What is Ringana?</summary>
+            <p>An Austrian family company — skincare and supplements made fresh, toxin free, with an expiration date like food. Thirty years in. Now coming to America. Independent partners share the products; nobody here is Ringana corporate.</p>
+          </details>
+          <details name="faq-company">
+            <summary>Is this an MLM / pyramid thing?</summary>
+            <p>Yes, it's network marketing — but it's not a pyramid scheme. Earnings come from real product sales to real customers, not from recruiting alone. You don’t have to build a team to earn — and the plan lets you go all the way to the top without one. No inventory loading. Fresh products can’t sit in a garage.</p>
+          </details>
+          <details name="faq-company">
+            <summary>Where are the products made?</summary>
+            <p>Austria for now — the Fresh Factory in St. Johann. $85 million is going into a state-of-the-art Fresh Factory finishing in Virginia, so the same start-to-finish care can live here.</p>
+          </details>
+          <details name="faq-company">
+            <summary>What does “toxin free” actually mean?</summary>
+            <p>No synthetic preservatives, no microplastics, no nanoparticles, no mineral oils in the freshness story. The fresh range is vegan. They don’t test on animals. The ingredient list is meant to make sense when you read it.</p>
+          </details>
+          <details name="faq-company">
+            <summary>Will there be monthly purchase requirements?</summary>
+            <p>No. A monthly purchase is never required — not to stay active, not to earn. One order every 12 months keeps your partnership active, and that order can be from a client or from you. You can run this business for $0 a month if you want to.</p>
+          </details>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-door" aria-expanded="false" data-faq-cat="grove">
+          <span class="faq-door-kicker">02</span>
+          <span class="faq-door-title">The grove</span>
+          <span class="faq-door-hint">Team, the hub, how we hold you</span>
+        </button>
+        <div class="faq-group" data-faq-group="grove" hidden>
+          <details name="faq-grove">
+            <summary>What is The Fresh Grove?</summary>
+            <p>The founding U.S. Ringana team — a live community. Frequent zooms, a person in your corner, and a private hub so you’re not piecing this together from Instagram.</p>
+          </details>
+          <details name="faq-grove">
+            <summary>Do I have to build a team?</summary>
+            <p>Nope. Enjoy the products, share them, or build if you want to. The zooms, the support, and the hub are still yours. And this isn’t just permission to stay small — you can actually go all the way to the top of the compensation plan with no team at all. Not common — still true.</p>
+          </details>
+          <details name="faq-grove">
+            <summary>What does community actually look like?</summary>
+            <p>Frequent zooms — questions, strategy, and a room that shows up. You also get a person in your corner. Whether you want a quiet product business, a few hours a week, or something bigger, the grove is built for the version you’re building — not one script for everyone.</p>
+          </details>
+          <details name="faq-grove">
+            <summary>What is First Seeds?</summary>
+            <p>The private hub this team uses. The phone above is the walkthrough — sprout, calendar, leads, Learn, clients, the tree, and messages. The real rooms stay inside the team.</p>
+          </details>
+          <details name="faq-grove">
+            <summary>What’s The Fresh Shelf?</summary>
+            <p>An exclusive app for our clients and potential clients. Each partner has their own link to share. They can learn more about the products, connect with their partner, and more.</p>
+          </details>
+          <details name="faq-grove">
+            <summary>Do I have to be a “salesperson”?</summary>
+            <p>No — and honestly, that energy doesn't work with these products anyway. The model is built around genuine recommendation: you use the products, you share your real experience, and Ringana handles the entire transaction behind the scenes. If you've ever told a friend about a product you love, you already know how to do this.</p>
+          </details>
+          <details name="faq-grove">
+            <summary>How much can I earn?</summary>
+            <p>Honestly: it depends entirely on you. Partners earn commission on product sales and on team growth, and results vary widely based on effort, consistency, and time. Nobody can promise you a specific income, and you should walk away from anyone who does. What this team can promise is honesty, a team that stays, and founding-team timing.</p>
+          </details>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-door" aria-expanded="false" data-faq-cat="start">
+          <span class="faq-door-kicker">03</span>
+          <span class="faq-door-title">Getting started</span>
+          <span class="faq-door-hint">Dates, cost, what happens next</span>
+        </button>
+        <div class="faq-group" data-faq-group="start" hidden>
+          <details name="faq-start">
+            <summary>When does the U.S. launch?</summary>
+            <p>Partner pre-reg October 1, 2026. Products for customers November 1. Founding-list members hear the exact ordering details first.</p>
+          </details>
+          <details name="faq-start">
+            <summary>What does it cost to start?</summary>
+            <p>Official U.S. enrollment details will be confirmed at launch, and the founding list hears them the moment they’re public. There is no inventory to buy, and no monthly fee after that. You can run this for $0 a month.</p>
+          </details>
+          <details name="faq-start">
+            <summary>What if I just want the products?</summary>
+            <p>That’s a great way to start — pick “the products” when you write in. You’ll get launch timing and honest product notes. There’s no requirement to share once you join, so you can decide later.</p>
+          </details>
+          <details name="faq-start">
+            <summary>What happens after I leave a note?</summary>
+            <p>You get a follow-up — launch timing, honest product notes, and a next step that matches where you actually are. No spam list. No script that ignores what you said.</p>
+          </details>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENT:END page-business -->
-<!-- CLIENT:START connect-modal -->
 <div class="connect-modal" id="connectModal" aria-hidden="true" role="dialog" aria-labelledby="connectModalTitle">
   <div class="connect-modal-backdrop" data-close-connect></div>
   <div class="connect-modal-panel letter-panel">
@@ -799,6 +1693,11 @@ footer .foot-legal{max-width:78ch;}
       </header>
       <div class="letter-body-copy">
         <p>I'll personally email you when Ringana arrives in America — launch updates, my honest first impressions, and first access if you want to build alongside me.</p>
+      </div>
+      <div class="letter-name letter-float" data-fs-lead-name>
+      <input type="text" id="fs-lead-name" class="letter-name-input" name="fs-name" autocomplete="name" maxlength="80" placeholder="Your name">
+      <label class="letter-float-label" for="fs-lead-name">Your name</label>
+      <p class="letter-interest-error" id="fs-name-error" hidden>Please enter your name.</p>
       </div>
       <div class="letter-form" id="kit-form-modal">
         <script async data-uid="df86f42a40" src="https://dr-kelly-amorose.kit.com/df86f42a40/index.js"></script>
@@ -893,9 +1792,40 @@ if(!reduceMotion){
   });
 }
 
+const connectModal=document.getElementById('connectModal');
+function setConnectOpen(open){
+  if(!connectModal)return;
+  connectModal.classList.toggle('open',open);
+  connectModal.setAttribute('aria-hidden',open?'false':'true');
+  document.body.classList.toggle('nav-open',open);
+}
+document.querySelectorAll('[data-open-connect]').forEach(el=>{
+  el.addEventListener('click',e=>{e.preventDefault();setConnectOpen(true);});
+});
+connectModal?.querySelectorAll('[data-close-connect]').forEach(el=>{
+  el.addEventListener('click',()=>setConnectOpen(false));
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
+});
+
+const subnavLinks=document.querySelectorAll('.page-subnav a');
+const subnavSections=[...subnavLinks].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+if(subnavLinks.length&&subnavSections.length){
+  const subIo=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id='#'+e.target.id;
+        subnavLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));
+      }
+    });
+  },{rootMargin:'-40% 0px -50% 0px',threshold:0});
+  subnavSections.forEach(s=>subIo.observe(s));
+}
+
 const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px 80px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.faq .reveal, .opportunity .reveal, .founding-spread .reveal, .founding-banner-box.reveal').forEach(el=>el.classList.add('visible'));
+document.querySelectorAll('.faq .reveal, .opportunity .reveal, .biz-rules .reveal, .company .reveal, .hub .reveal, .shelf .reveal, .community .reveal, .founding-spread .reveal, .founding-banner-box.reveal').forEach(el=>el.classList.add('visible'));
 /* CORE:END js */
 /* CLIENT:START js-optin */
 const connectModal=document.getElementById('connectModal');
@@ -915,8 +1845,53 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
 });
 window.FS_SITE_LEAD={slug:"kelly-amorose",root:"#kit-form-modal"};
-(function(){function go(){try{window.FSSiteLead&&window.FSSiteLead.watch(window.FS_SITE_LEAD)}catch(e){}}if(window.FSSiteLead){go();return;}var s=document.createElement('script');s.src='site-lead-bridge.js';s.async=true;s.onload=go;s.onerror=function(){};document.head.appendChild(s);})();
+(function(){function go(){try{window.FSSiteLead&&window.FSSiteLead.watch(window.FS_SITE_LEAD)}catch(e){}}if(window.FSSiteLead){go();return;}var s=document.createElement('script');s.src='site-lead-bridge.js?v=3';s.async=true;s.onload=go;s.onerror=function(){};document.head.appendChild(s);})();
 /* CLIENT:END js-optin */
+
 </script>
+<script src="grove-plant.js"></script>
+<script src="grove-demo.js?v=3"></script>
+<script>
+(function () {
+  var hub = document.getElementById("hub");
+  var pair = document.getElementById("appPair");
+  var seeds = document.getElementById("blurbSeeds");
+  var shelf = document.getElementById("blurbShelf");
+  var phone = document.getElementById("phoneDock");
+  if (!hub || !pair || !seeds || !shelf) return;
+  var open = "";
+  function show(which) {
+    open = which;
+    seeds.hidden = which !== "seeds";
+    shelf.hidden = which !== "shelf";
+    seeds.classList.toggle("is-on", which === "seeds");
+    shelf.classList.toggle("is-on", which === "shelf");
+    hub.classList.toggle("is-shelf", which === "shelf");
+    if (phone) phone.hidden = which === "shelf";
+    pair.querySelectorAll(".app-pick").forEach(function (btn) {
+      var on = btn.getAttribute("data-app") === which;
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-expanded", on ? "true" : "false");
+    });
+  }
+  pair.addEventListener("click", function (e) {
+    var btn = e.target.closest(".app-pick");
+    if (!btn) return;
+    var which = btn.getAttribute("data-app");
+    show(open === which ? "" : which);
+  });
+  if ("IntersectionObserver" in window) {
+    var seen = false;
+    var io = new IntersectionObserver(function (entries) {
+      if (seen || !entries.some(function (en) { return en.isIntersecting; })) return;
+      seen = true;
+      if (!open) show("seeds");
+      io.disconnect();
+    }, { threshold: 0.45 });
+    io.observe(pair);
+  }
+})();
+</script>
+<script src="grove-page.js"></script>
 </body>
 </html>

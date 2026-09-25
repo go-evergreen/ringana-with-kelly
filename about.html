@@ -252,6 +252,76 @@ section{padding:5.5rem 2rem;}
 .letter-paper{background:linear-gradient(175deg,#fffcf7 0%,#f8f3ea 100%);border:1px solid #e3d9c8;border-radius:2px;padding:2.8rem 2.6rem 2.4rem;box-shadow:0 24px 60px rgba(28,50,39,.24),inset 0 1px 0 rgba(255,255,255,.85);position:relative;}
 .letter-paper::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;border-radius:2px;}
 .letter-head,.letter-body-copy,.letter-form,.letter-sign,.modal-fine{position:relative;z-index:1;}
+.letter-name{width:100%;margin:0 0 .75rem;}
+.letter-name-input{
+  width:100%;
+  box-sizing:border-box;
+  font-family:'Work Sans',sans-serif;
+  background:#fffcf7;
+  border:1px solid rgba(28,50,39,.18);
+  color:var(--ink);
+  padding:.85rem 1rem;
+  font-size:.95rem;
+  border-radius:1px;
+}
+.letter-name-input:focus{
+  outline:2px solid var(--brass);
+  outline-offset:1px;
+  border-color:var(--brass);
+}
+.letter-interest-label{
+  display:block;
+  font-family:'Work Sans',sans-serif;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(12,14,13,.55);
+  margin:0 0 .4rem;
+}
+.letter-interest-error{
+  font-family:'Work Sans',sans-serif;
+  font-size:.82rem;
+  color:#9b3b3b;
+  margin:.4rem 0 0;
+}
+
+/* fs-submit-visible */
+.connect-modal-panel.letter-panel{
+  -webkit-overflow-scrolling:touch;
+  scroll-padding-bottom:6rem;
+}
+#fd-form-modal [class*="__content"],
+#fd-form-modal [class*="__fields"],
+#fd-form-modal [class*="__footer"]{
+  display:flex !important;
+  flex-direction:column !important;
+  width:100% !important;
+  max-width:100% !important;
+}
+#fd-form-modal [class*="__footer"],
+#fd-form-modal [class*="__button"],
+#fd-form-modal button.fd-btn,
+#kit-form-modal .formkit-submit,
+#kit-form-modal [data-element="submit"]{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  margin-top:.65rem !important;
+}
+@media (max-width:720px){
+  .connect-modal{padding:.7rem .7rem max(.7rem, env(safe-area-inset-bottom));align-items:flex-start;}
+  .connect-modal-panel.letter-panel{max-height:96dvh;}
+  .letter-paper{padding:1.5rem 1.15rem 1.25rem;}
+  .letter-salutation{font-size:2rem;margin-bottom:.35rem;}
+  .letter-body-copy p{font-size:1.2rem;margin-bottom:.7rem;}
+}
+@media (max-height:740px){
+  .letter-body-copy p{margin-bottom:.45rem;}
+  .letter-sign{margin-top:.8rem;}
+}
 .letter-form{margin-top:.4rem;}
 .letter-form .formkit-form{margin:0 auto !important;max-width:100% !important;background:transparent !important;border:none !important;box-shadow:none !important;}
 .letter-form .formkit-background{display:none !important;}
@@ -504,6 +574,11 @@ footer .foot-legal{max-width:78ch;}
       </header>
       <div class="letter-body-copy">
         <p>I'll personally email you when Ringana arrives in America — launch updates, my honest first impressions, and first access if you want to build alongside me.</p>
+      </div>
+      <div class="letter-name" data-fs-lead-name>
+      <label class="letter-interest-label" for="fs-lead-name">Your name</label>
+      <input type="text" id="fs-lead-name" class="letter-name-input" name="fs-name" autocomplete="name" maxlength="80" placeholder="First and last name">
+      <p class="letter-interest-error" id="fs-name-error" hidden>Please enter your name.</p>
       </div>
       <div class="letter-form" id="kit-form-modal">
         <script async data-uid="df86f42a40" src="https://dr-kelly-amorose.kit.com/df86f42a40/index.js"></script>
