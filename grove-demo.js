@@ -368,7 +368,7 @@
         '<p class="demo-kicker">Roadmap to launch</p>' +
         '<h2 class="demo-h1">The dates that matter.</h2>' +
         '<div class="demo-card" style="cursor:default"><strong>Oct 1</strong><p>Partner pre-reg opens.</p></div>' +
-        '<div class="demo-card" style="cursor:default"><strong>Nov 1</strong><p>Products launch in the U.S.</p></div>' +
+        '<div class="demo-card" style="cursor:default"><strong>Nov 2</strong><p>Products launch in the U.S.</p></div>' +
         '<p class="demo-lock">Same countdown chips as the real hub. Details can still shift.</p>'
     }
   };
@@ -566,7 +566,7 @@
     var pre = byId("demoCdPre");
     var launch = byId("demoCdLaunch");
     if (pre) pre.textContent = String(daysUntil(2026, 9, 1));
-    if (launch) launch.textContent = String(daysUntil(2026, 10, 1));
+    if (launch) launch.textContent = String(daysUntil(2026, 10, 2));
   }
 
   function setCaption(tab) {

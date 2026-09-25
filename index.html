@@ -686,32 +686,6 @@ section{padding:6rem 2rem;}
   outline-offset:1px;
   border-color:var(--brass);
 }
-.letter-float{position:relative;}
-.letter-float-label{
-  position:absolute;
-  left:1rem;
-  right:1rem;
-  top:0;
-  height:3rem;
-  display:flex;
-  align-items:center;
-  margin:0;
-  pointer-events:none;
-  font-family:'Work Sans',system-ui,sans-serif;
-  font-size:.72rem;
-  font-weight:600;
-  letter-spacing:.07em;
-  text-transform:uppercase;
-  color:var(--pine);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.letter-float .letter-name-input{min-height:3rem;}
-.letter-float input::placeholder{color:transparent;}
-.letter-float input:focus + .letter-float-label,
-.letter-float input:not(:placeholder-shown) + .letter-float-label{opacity:0;}
-
 .letter-interest-label{
   display:block;
   font-family:'Work Sans',sans-serif;
@@ -1170,9 +1144,9 @@ footer .foot-legal{max-width:78ch;}
       <div class="letter-body-copy">
         <p>I'll personally email you when Ringana arrives in America — launch updates, my honest first impressions, and first access if you want to build alongside me.</p>
       </div>
-      <div class="letter-name letter-float" data-fs-lead-name>
-      <input type="text" id="fs-lead-name" class="letter-name-input" name="fs-name" autocomplete="name" maxlength="80" placeholder="Your name">
-      <label class="letter-float-label" for="fs-lead-name">Your name</label>
+      <div class="letter-name" data-fs-lead-name>
+      <label class="letter-interest-label" for="fs-lead-name">Your name</label>
+      <input type="text" id="fs-lead-name" class="letter-name-input" name="fs-name" autocomplete="name" maxlength="80" placeholder="First and last name">
       <p class="letter-interest-error" id="fs-name-error" hidden>Please enter your name.</p>
       </div>
       <div class="letter-form" id="kit-form-modal">
@@ -1325,7 +1299,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&connectModal?.classList.contains('open'))setConnectOpen(false);
 });
 window.FS_SITE_LEAD={slug:"kelly-amorose",root:"#kit-form-modal"};
-(function(){function go(){try{window.FSSiteLead&&window.FSSiteLead.watch(window.FS_SITE_LEAD)}catch(e){}}if(window.FSSiteLead){go();return;}var s=document.createElement('script');s.src='site-lead-bridge.js?v=3';s.async=true;s.onload=go;s.onerror=function(){};document.head.appendChild(s);})();
+(function(){function go(){try{window.FSSiteLead&&window.FSSiteLead.watch(window.FS_SITE_LEAD)}catch(e){}}if(window.FSSiteLead){go();return;}var s=document.createElement('script');s.src='site-lead-bridge.js';s.async=true;s.onload=go;s.onerror=function(){};document.head.appendChild(s);})();
 /* CLIENT:END js-optin */
 // Scroll reveal (must run even if Flodesk fails to load)
 const io=new IntersectionObserver(entries=>{
