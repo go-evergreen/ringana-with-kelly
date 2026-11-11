@@ -19,7 +19,7 @@
         if (byFor) return trim(byFor.textContent);
       } catch (err) {}
     }
-    var wrap = el.closest && el.closest('[class*="__field"], [data-fs-lead-name]');
+    var wrap = el.closest && el.closest('[class*="__field"], [data-fs-lead-name], [data-fs-lead-social]');
     if (!wrap) return "";
     var label = wrap.querySelector("label");
     return label ? trim(label.textContent) : "";
@@ -112,7 +112,7 @@
     var nodes = (scope || document).querySelectorAll("input, textarea");
     for (var i = 0; i < nodes.length; i++) {
       var el = nodes[i];
-      if (el.closest && el.closest("[data-fs-interest], [data-fs-lead-name]")) continue;
+      if (el.closest && el.closest("[data-fs-interest], [data-fs-lead-name], [data-fs-lead-social]")) continue;
       if (el.disabled || el.type === "password" || el.getAttribute("aria-hidden") === "true") continue;
       if (!fieldVisible(el)) continue;
       var t = String(el.type || "text").toLowerCase();
@@ -126,7 +126,15 @@
       else if (!name && looksName(n, t, v, el)) name = v;
     }
     if (last && name && name.toLowerCase() !== last.toLowerCase()) name = name + " " + last;
-    return { name: name, email: email, phone: phone };
+    var socialEl = (scope || document).querySelector("[name=social_platform]");
+    var handleEl = (scope || document).querySelector("[name=social_handle], #fs-lead-social");
+    return {
+      name: name,
+      email: email,
+      phone: phone,
+      social: socialEl ? trim(socialEl.value) : "",
+      handle: handleEl ? trim(handleEl.value) : ""
+    };
   }
 
   function visibleNameFieldExists(scope) {
@@ -169,6 +177,27 @@
     var picker = (scope || document).querySelector("[data-fs-interest]");
     if (!picker) return true;
     return !!readInterest(scope);
+  }
+
+  function bindSocialTips(scope) {
+    var box = scope || document;
+    var sel = box.querySelector("[name=social_platform]");
+    var inp = box.querySelector("[name=social_handle], #fs-lead-social");
+    if (!sel || !inp || sel.getAttribute("data-bound") === "1") return;
+    sel.setAttribute("data-bound", "1");
+    var tips = {
+      instagram: { ph: "@yourhandle (optional)", max: 40 },
+      tiktok: { ph: "TikTok handle (optional)", max: 30 },
+      facebook: { ph: "Facebook name or URL (optional)", max: 80 }
+    };
+    function sync() {
+      var tip = tips[sel.value] || tips.instagram;
+      inp.placeholder = tip.ph;
+      inp.setAttribute("aria-label", tip.ph);
+      inp.maxLength = tip.max;
+    }
+    sel.addEventListener("change", sync);
+    sync();
   }
 
   function bindInterestPicker(scope) {
@@ -244,18 +273,55 @@
     parent.insertBefore(picker, host || null);
   }
 
+  function vendorFieldWrap(el) {
+    return el.closest && el.closest('[class*="__field"]:not([class*="__fields"]):not([class*="__footer"])');
+  }
+
+  /* Flodesk hides decoy fields (misspelled "Finrst name", off-screen email).
+     Filling those makes Flodesk drop the subscriber, so the list email never sends.
+     Fields we hide ourselves are tagged and still receive the real name. */
+  function isSpamTrap(el) {
+    if (!el || (el.dataset && el.dataset.fsOwnHide === "1")) return false;
+    var wrap = vendorFieldWrap(el);
+    if (wrap && wrap.dataset && wrap.dataset.fsOwnHide === "1") return false;
+    var node = wrap || el;
+    var style = node.getAttribute ? (node.getAttribute("style") || "") : "";
+    if (/left\s*:\s*-|right\s*:\s*-/i.test(style)) return true;
+    try {
+      if (getComputedStyle(node).display === "none") return true;
+    } catch (err) {}
+    return false;
+  }
+
+  function clearSpamTraps(box) {
+    var nodes = (box || document).querySelectorAll("input, textarea");
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      var t = String(el.type || "text").toLowerCase();
+      if (t === "hidden" || t === "submit" || t === "button") continue;
+      if (!isSpamTrap(el)) continue;
+      if (el.value) el.value = "";
+    }
+  }
+
   function hideVendorNameFields(box) {
     if (!ourNameInput(box)) return;
     var nodes = box.querySelectorAll("input, textarea");
     for (var i = 0; i < nodes.length; i++) {
       var el = nodes[i];
-      if (el.closest && el.closest("[data-fs-interest], [data-fs-lead-name]")) continue;
+      if (el.closest && el.closest("[data-fs-interest], [data-fs-lead-name], [data-fs-lead-social]")) continue;
       var t = String(el.type || "text").toLowerCase();
       if (t === "hidden" || t === "email" || t === "submit" || t === "button") continue;
       if (!looksName(fieldHint(el), t, trim(el.value), el)) continue;
-      var wrap = el.closest && el.closest('[class*="__field"]:not([class*="__fields"]):not([class*="__footer"])');
-      if (wrap && /__field(\s|$)/.test(wrap.className || "")) wrap.style.display = "none";
-      else if (!wrap) el.style.display = "none";
+      if (isSpamTrap(el)) continue;
+      var wrap = vendorFieldWrap(el);
+      if (wrap && /__field(\s|$)/.test(wrap.className || "")) {
+        wrap.dataset.fsOwnHide = "1";
+        wrap.style.display = "none";
+      } else if (!wrap) {
+        el.dataset.fsOwnHide = "1";
+        el.style.display = "none";
+      }
     }
   }
 
@@ -277,21 +343,29 @@
     btn.style.display = "block";
     btn.style.visibility = "visible";
     btn.style.width = "100%";
+    var label = "Send me the details";
+    var now = String(btn.textContent || btn.value || "").replace(/\s+/g, " ").trim();
+    if (now !== label) {
+      if (String(btn.tagName).toLowerCase() === "input") btn.value = label;
+      else btn.textContent = label;
+    }
     try {
       btn.scrollIntoView({ block: "nearest", inline: "nearest" });
     } catch (err) {}
   }
 
   function syncNameIntoForm(box) {
+    clearSpamTraps(box);
     var ours = readOwnName(box);
     if (!ours) return;
     var nodes = box.querySelectorAll("input, textarea");
     for (var i = 0; i < nodes.length; i++) {
       var el = nodes[i];
-      if (el.closest && el.closest("[data-fs-interest], [data-fs-lead-name]")) continue;
+      if (el.closest && el.closest("[data-fs-interest], [data-fs-lead-name], [data-fs-lead-social]")) continue;
       if (el.disabled || el.type === "password") continue;
       var t = String(el.type || "text").toLowerCase();
       if (t === "hidden") continue;
+      if (isSpamTrap(el)) continue;
       if (looksName(fieldHint(el), t, trim(el.value), el)) el.value = ours;
     }
   }
@@ -335,6 +409,14 @@
     return prettyFirstFromEmail(n.indexOf("@") >= 0 ? n : fields.email) || "Friend";
   }
 
+  function nameWithHandle(fields) {
+    var n = fallbackName(fields);
+    var handle = trim(fields.handle).replace(/^@+/, "");
+    if (!handle) return n;
+    var social = trim(fields.social) || "instagram";
+    return (n + " (@" + handle + " / " + social + ")").slice(0, 80);
+  }
+
   function send(opts, fields, interest) {
     if (!opts || !opts.slug) return;
     if (!fields.email && !fields.phone) return;
@@ -342,7 +424,7 @@
     if (INTERESTS.indexOf(picked) < 0) picked = "both";
     var payload = {
       p_slug: String(opts.slug).toLowerCase(),
-      p_name: fallbackName(fields),
+      p_name: nameWithHandle(fields),
       p_email: trim(fields.email).slice(0, 120),
       p_phone: trim(fields.phone).slice(0, 40),
       p_interest: picked,
@@ -400,6 +482,7 @@
     function tickArms() {
       keepInterestPickerOutsideForm(root);
       bindInterestPicker(root);
+      bindSocialTips(root);
       hideVendorNameFields(root);
       syncNameIntoForm(root);
       armFormGates(root);

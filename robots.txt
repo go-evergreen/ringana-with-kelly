@@ -1,0 +1,5 @@
+# https://thefreshgrove.team/ringana-with-kelly/
+User-agent: *
+Allow: /
+
+Sitemap: https://thefreshgrove.team/ringana-with-kelly/sitemap.xml

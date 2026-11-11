@@ -335,10 +335,10 @@
       html:
         '<p class="demo-kicker">Current guidance</p>' +
         '<h2 class="demo-h1">U.S. launch snapshot</h2>' +
-        '<div class="demo-fact"><b>Pre-registration</b><p>Starts <strong>October 1</strong>. $0 to reserve your spot.</p></div>' +
-        '<div class="demo-fact"><b>Founder packs</b><p>Current guidance: about $220. Details can refine closer to launch.</p></div>' +
+        '<div class="demo-fact"><b>Pre-registration</b><p>The shop is open. The Business Booster is <strong>$39</strong>.</p></div>' +
+        '<div class="demo-fact"><b>Founder packs</b><p>A Founder Bonus Set chosen in step 2 includes a free FRESH Date Set.</p></div>' +
         '<div class="demo-fact"><b>Staying active</b><p>A personal order or a customer order once every 12 months.</p></div>' +
-        '<p class="demo-lock">Preview of the accordion in Learn. Full cards and Miami details are in the hub.</p>'
+        '<p class="demo-lock">Preview of the accordion in Learn. The rest of the cards are in the hub.</p>'
     },
     "why-now": {
       tab: "learn",
@@ -560,13 +560,10 @@
   }
 
   function setCountdown() {
-    function daysUntil(y, m, d) {
-      return Math.max(0, Math.ceil((Date.UTC(y, m, d) - Date.now()) / 86400000));
-    }
     var pre = byId("demoCdPre");
     var launch = byId("demoCdLaunch");
-    if (pre) pre.textContent = String(daysUntil(2026, 9, 1));
-    if (launch) launch.textContent = String(daysUntil(2026, 10, 2));
+    if (pre) pre.textContent = "";
+    if (launch) launch.textContent = "";
   }
 
   function setCaption(tab) {

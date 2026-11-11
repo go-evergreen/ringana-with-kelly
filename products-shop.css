@@ -1,0 +1,307 @@
+/* Live shop — Kelly's catalog, her palette */
+
+.shop{
+  background:var(--linen);
+  padding-top:3.2rem;
+  padding-bottom:3.4rem;
+}
+.shop-head{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:1.15rem 2.2rem;
+  margin-bottom:1.35rem;
+}
+.shop-head .section-title{margin-bottom:.45rem;max-width:16ch}
+.shop-head .lede{margin:0;max-width:46ch}
+.shop-code{
+  flex:1 1 28rem;
+  max-width:36rem;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:flex-end;
+  gap:.2rem .75rem;
+  text-align:left;
+  border:1px solid rgba(179,137,60,.45);
+  padding:.85rem 1.15rem;
+}
+.shop-code span{
+  font-size:.62rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-weight:600;
+}
+.shop-code b{
+  font-family:"Fraunces",Georgia,serif;
+  font-weight:400;
+  font-size:1.45rem;
+  letter-spacing:-.02em;
+  color:var(--pine);
+  line-height:1;
+}
+.shop-code small{
+  font-size:.92rem;
+  line-height:1.3;
+  letter-spacing:0;
+  text-transform:none;
+  font-weight:400;
+  color:rgba(28,50,39,.72);
+  white-space:nowrap;
+}
+.shop-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1.15rem;
+  border-bottom:1px solid rgba(28,50,39,.12);
+}
+.shop-filters{display:flex;flex-wrap:wrap;gap:.15rem 1.15rem}
+.shop-filters button{
+  font-family:inherit;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:rgba(68,90,72,.62);
+  background:none;
+  border:0;
+  border-bottom:2px solid transparent;
+  padding:.55rem 0 .7rem;
+  cursor:pointer;
+}
+.shop-filters button.is-on,
+.shop-filters button:hover{color:var(--pine);border-bottom-color:var(--brass)}
+.shop-count{
+  margin:0;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(68,90,72,.55);
+}
+.shop-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.85rem;
+  align-items:start;
+}
+.shop-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-self:start;
+  min-height:0;
+  background:#fffcf8;
+  color:inherit;
+  border:1px solid rgba(28,50,39,.08);
+  cursor:pointer;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.shop-hit{
+  position:absolute;
+  inset:0;
+  z-index:1;
+}
+.shop-card a{color:inherit;text-decoration:none}
+.shop-soon,.shop-fav{
+  position:absolute;top:.7rem;left:.7rem;
+  font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  padding:.28rem .45rem;
+}
+.shop-soon{color:var(--pine);background:var(--linen);border:1px solid rgba(179,137,60,.55)}
+.shop-fav{color:var(--linen);background:var(--pine)}
+.shop-soon+.shop-fav,.shop-fav+.shop-soon{top:2.15rem}
+.shop-thoughts{position:relative;z-index:2;margin-top:.35rem}
+.shop-thoughts:not([open]) > :not(summary){display:none}
+.shop-thoughts summary{
+  cursor:pointer;list-style:none;
+  font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--brass);
+}
+.shop-thoughts summary::-webkit-details-marker{display:none}
+.shop-thoughts summary::after{content:" +";letter-spacing:0}
+.shop-thoughts[open] summary::after{content:" –"}
+.shop-thoughts p{margin:.55rem 0 0;font-size:.92rem;line-height:1.45;color:rgba(28,50,39,.78)}
+.shop-thoughts .verdict{font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--pine);font-size:1.02rem}
+
+.shop,.horizon,#system,#standard,#freshness{scroll-margin-top:8.5rem}
+.horizon{background:var(--linen-warm,#efe8db);padding:3rem 0 3.4rem}
+.horizon-head{margin-bottom:1.1rem}
+.horizon-head .section-title{margin-bottom:.4rem}
+.horizon-run{
+  display:flex;gap:.85rem;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:.4rem;-webkit-overflow-scrolling:touch;
+}
+.horizon-card{
+  flex:0 0 min(18.5rem,78vw);scroll-snap-align:start;
+  background:#fffcf8;border:1px solid rgba(28,50,39,.08);
+  display:flex;flex-direction:column;
+}
+.horizon-card figure{
+  margin:0;height:12.5rem;background:linear-gradient(180deg,#f7f3eb,#efe6d6);
+  display:grid;place-items:center;position:relative;overflow:hidden;
+}
+.horizon-card figure a{display:grid;place-items:center;width:100%;height:100%}
+.horizon-card img{width:auto;max-width:68%;max-height:10rem;height:auto;object-fit:contain}
+.horizon-card .shop-body{padding:1rem 1rem 1.1rem}
+.horizon-card h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:1.35rem;margin:.2rem 0 .35rem;color:var(--pine-deep,#445a48)}
+.horizon-card .shop-go{display:inline-block;margin-top:.75rem}
+.shop-card[hidden]{display:none}
+.shop-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(179,137,60,.45);
+  box-shadow:0 16px 36px rgba(28,50,39,.08);
+}
+.shop-card figure{
+  margin:0;
+  aspect-ratio:1/1.05;
+  background:linear-gradient(180deg,#ebe3d4 0%,#e3d7c4 100%);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.shop-card figure > a{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+}
+.shop-card img{
+  width:auto;
+  height:90%;
+  max-width:78%;
+  object-fit:contain;
+  object-position:center center;
+  filter:drop-shadow(0 14px 12px rgba(68,74,58,.16));
+  transition:transform .5s ease;
+}
+.shop-switch figure{position:relative}
+.switch-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:4;
+  width:2rem;
+  height:2rem;
+  border-radius:50%;
+  border:0;
+  background:var(--brass);
+  color:#fff;
+  font-size:1.35rem;
+  line-height:1;
+  cursor:pointer;
+}
+.switch-prev{left:.55rem}
+.switch-next{right:.55rem}
+.switch-arrow:hover{background:var(--pine)}
+.shop-card:hover img{transform:translateY(-8px) scale(1.04)}
+.shop-tried{
+  position:absolute;
+  top:.7rem;
+  left:.7rem;
+  font-size:.58rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--linen);
+  background:var(--pine);
+  padding:.28rem .45rem;
+}
+.shop-body{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  padding:.95rem 1rem 1rem;
+  flex:1;
+}
+.shop-kicker{
+  margin:0;
+  font-size:.62rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-weight:600;
+}
+.shop-body h3{
+  margin:0;
+  font-family:"Fraunces",Georgia,serif;
+  font-weight:400;
+  font-size:1.28rem;
+  letter-spacing:-.02em;
+  line-height:1.15;
+  color:var(--pine-deep,#445a48);
+}
+.shop-line{
+  margin:0;
+  font-size:.9rem;
+  line-height:1.4;
+  color:rgba(28,50,39,.72);
+}
+.shop-foot{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:.6rem;
+  margin-top:auto;
+  padding-top:.7rem;
+}
+.shop-price{
+  font-family:"Fraunces",Georgia,serif;
+  font-size:1.05rem;
+  color:var(--pine);
+}
+.shop-price:empty{display:none}
+.shop-go{
+  position:relative;
+  z-index:3;
+  font-size:.64rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--brass);
+}
+.shop-card:hover .shop-go{color:var(--pine)}
+@media (max-width:1100px){
+  .shop-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:780px){
+  .shop-head{flex-direction:column;align-items:flex-start}
+  .shop-code{text-align:left;justify-content:flex-start;flex-basis:100%}
+  .shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shop-bar{flex-direction:column;align-items:flex-start;gap:.2rem}
+}
+@media (max-width:460px){
+  .shop-code small{white-space:normal}
+  .shop-grid{grid-template-columns:1fr 1fr;gap:.55rem}
+  .shop-body{padding:.75rem .7rem .85rem}
+  .shop-body h3{font-size:1.08rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .shop-card,.shop-card img{transition:none}
+  .shop-card:hover,.shop-card:hover img,
+  .shop-card.is-lit,.shop-card.is-lit img{transform:none}
+}
+
+/* Phones keep the lift, but a tap selects one card and can move or clear it.
+   Sticky :hover was holding the last card open and swallowing the next tap. */
+@media (hover:none),(pointer:coarse){
+  .shop-card:hover{
+    transform:none;
+    border-color:rgba(28,50,39,.08);
+    box-shadow:none;
+  }
+  .shop-card:hover img{transform:none}
+  .shop-card:hover .shop-go{color:var(--brass)}
+  .shop-card.is-lit{
+    position:relative;
+    z-index:2;
+    transform:translateY(-3px);
+    border-color:rgba(179,137,60,.45);
+    box-shadow:0 16px 36px rgba(28,50,39,.08);
+  }
+  .shop-card.is-lit img{transform:translateY(-8px) scale(1.04)}
+  .shop-card.is-lit .shop-go{color:var(--pine)}
+}

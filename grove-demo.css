@@ -1,4 +1,4 @@
-/* First Seeds phone walkthrough — extracted for Taylor's business page */
+/* First Seeds phone walkthrough — extracted for Kelly's business page */
 :root{--ease:cubic-bezier(.22,1,.36,1);}
 
 @keyframes glowPulse{
@@ -40,10 +40,6 @@
   z-index:3
 }
 .phone-wrap{display:flex;flex-direction:column;align-items:center;position:relative;max-width:100%}
-@media (min-width:901px){
-  .phone-wrap{transform:none}
-  .phone-hint{transform:none}
-}
 .phone-glow{
   position:absolute;width:120%;height:70%;top:18%;left:-10%;
   background:radial-gradient(circle,rgba(207,169,94,.32),transparent 62%);
