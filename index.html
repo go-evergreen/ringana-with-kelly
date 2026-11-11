@@ -50,7 +50,7 @@
       "name": "Kelly Amorose",
       "alternateName": ["Kelly", "Kelly Amorose"],
       "url": "https://thefreshgrove.team/ringana-with-kelly/",
-      "image": "https://thefreshgrove.team/ringana-with-kelly/kelly-portrait.webp",
+      "image": "https://thefreshgrove.team/ringana-with-kelly/kelly-smile.webp",
       "jobTitle": "Independent Ringana Partner",
       "description": "WAHM, chiropractor, and wife to Lucas, gathering a founding community for Ringana in the US.",
       "sameAs": [
@@ -776,18 +776,21 @@ section{padding:6rem 2rem;}
 .about-photo-wrap{position:relative;max-width:280px;}
 .about-photo{
   position:relative;
+  display:block;
   aspect-ratio:4/5;
   max-height:340px;
   border-radius:2px;
   overflow:hidden;
   background:var(--linen-warm);
   box-shadow:0 8px 24px rgba(68,90,72,.08);
+  text-decoration:none;
 }
+.about-photo:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
 .about-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:50% 28%;
+  object-position:50% 22%;
   display:block;
 }
 .about-text p{margin-bottom:1.2rem;max-width:54ch;}
@@ -1584,9 +1587,9 @@ html.is-inapp .site-nav{flex-wrap:nowrap;}
   <div class="container">
     <div class="about-grid">
       <div class="about-photo-wrap reveal">
-        <div class="about-photo">
-          <img src="kelly-portrait.webp" alt="Dr. Kelly Amorose" loading="lazy" decoding="async" width="1200" height="1600">
-        </div>
+        <a class="about-photo" href="about.html" aria-label="Read more of Kelly's story">
+          <img src="kelly-smile.webp" alt="Kelly Amorose smiling" loading="lazy" decoding="async" width="1067" height="1600">
+        </a>
       </div>
       <div class="about-text reveal">
         <p class="eyebrow">WAHM · Chiropractor · Wife</p>
