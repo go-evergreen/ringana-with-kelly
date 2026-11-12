@@ -612,6 +612,14 @@ section{padding:6rem 2rem;}
   font-size:1.02rem;
   margin-bottom:.4rem !important;
 }
+.carousel-copy .shop-this{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  color:var(--brass);
+  text-decoration:none;
+  border-bottom:1px solid rgba(179,137,60,.4);
+}
+.carousel-copy .shop-this:hover{color:var(--pine);border-bottom-color:var(--pine);}
 .carousel-btn{
   position:absolute;
   top:50%;
@@ -1476,14 +1484,14 @@ html.is-inapp .site-nav{flex-wrap:nowrap;}
 
 <!-- ================= PRODUCTS I'VE TRIED ================= -->
 <!-- CLIENT:START tried-teaser -->
-<section class="tried" id="tried" aria-label="Products on my radar">
+<section class="tried" id="tried" aria-label="Shop my favorites">
   <div class="container">
     <div class="reveal" style="text-align:center;">
-      <p class="eyebrow">On My Radar</p>
-      <h2 class="section-title">So many products — so much I'm excited about.</h2>
-      <p class="lede tried-note">These are the ones I want in my hands first. I'll share an honest take as I use them — a starting point, not the whole catalog.</p>
+      <p class="eyebrow">Shop my favorites</p>
+      <h2 class="section-title">Three to start with.</h2>
+      <p class="lede tried-note">Toner calm, intensive hand cream, and deodorant.</p>
     </div>
-    <div class="radar-carousel product-carousel reveal" id="triedCarousel" aria-roledescription="carousel" aria-label="Products on my radar">
+    <div class="radar-carousel product-carousel reveal" id="triedCarousel" aria-roledescription="carousel" aria-label="Shop my favorites">
       <button type="button" class="carousel-btn prev" aria-label="Previous product">&#8249;</button>
       <div class="carousel-viewport">
         <div class="carousel-track">
@@ -1493,7 +1501,8 @@ html.is-inapp .site-nav{flex-wrap:nowrap;}
             </div>
             <div class="carousel-copy">
               <p class="radar-kicker">FRESH · Toner</p>
-              <p><strong><a href="https://amorose.ringana.us/produkt/fresh-toner-calm/?lang=en" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">FRESH toner calm</a></strong> is high on my list — a mild plant tonic for dry, normal, or sensitive skin that soothes after cleansing and leaves real hydration so the next steps can actually absorb.</p>
+              <p><strong><a href="https://amorose.ringana.us/produkt/fresh-toner-calm/?lang=en" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">FRESH toner calm</a></strong> is a mild plant tonic for dry, normal, or sensitive skin. It soothes after cleansing and leaves hydration so the next steps can absorb.</p>
+              <p><a class="shop-this" href="https://amorose.ringana.us/produkt/fresh-toner-calm/?lang=en" target="_blank" rel="noopener">Shop this</a></p>
             </div>
           </div>
           <div class="carousel-slide" data-slide="1">
@@ -1501,8 +1510,9 @@ html.is-inapp .site-nav{flex-wrap:nowrap;}
               <a href="https://amorose.ringana.us/?lang=en" target="_blank" rel="noopener" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;"><img src="fresh-intensive-hand-cream.png?v=6" alt="RINGANA FRESH intensive hand cream" loading="lazy" decoding="async" width="400" height="900"></a>
             </div>
             <div class="carousel-copy">
-              <p class="radar-kicker">FRESH · Hand Balm</p>
-              <p><strong><a href="https://amorose.ringana.us/?lang=en" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">FRESH intensive hand cream</a></strong> is the hand balm I'm most eager to try — rich yet fast-absorbing care for dryness, without a greasy film.</p>
+              <p class="radar-kicker">FRESH · Hands</p>
+              <p><strong><a href="https://amorose.ringana.us/?lang=en" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">FRESH intensive hand cream</a></strong> is rich, fast-absorbing care for dry hands, without a greasy film.</p>
+              <p><a class="shop-this" href="https://amorose.ringana.us/?lang=en" target="_blank" rel="noopener">Shop this</a></p>
             </div>
           </div>
           <div class="carousel-slide" data-slide="2">
@@ -1511,19 +1521,20 @@ html.is-inapp .site-nav{flex-wrap:nowrap;}
             </div>
             <div class="carousel-copy">
               <p class="radar-kicker">FRESH · Deodorant</p>
-              <p><strong><a href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">FRESH deodorant</a></strong> is a creamy emulsion that protects against odor without aluminium salts, while nourishing underarm skin. An everyday essential I'm eager to put through real life.</p>
+              <p><strong><a href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">FRESH deodorant</a></strong> is a creamy emulsion that protects against odor without aluminium salts, while nourishing underarm skin.</p>
+              <p><a class="shop-this" href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener">Shop this</a></p>
             </div>
           </div>
         </div>
       </div>
       <button type="button" class="carousel-btn next" aria-label="Next product">&#8250;</button>
       <div class="carousel-footer">
-        <div class="carousel-dots" role="tablist" aria-label="Choose a product on my radar"></div>
+        <div class="carousel-dots" role="tablist" aria-label="Choose a favorite"></div>
         <span class="carousel-counter" aria-live="polite">1 / 3</span>
       </div>
     </div>
     <div class="tried-cta reveal">
-      <a href="products.html#shop" class="btn btn-brass">See the lineup →</a>
+      <a href="products.html#shop" class="btn btn-brass">Shop the lineup</a>
     </div>
   </div>
 </section>
