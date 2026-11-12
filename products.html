@@ -969,7 +969,7 @@ html.is-inapp .page-subnav a{word-spacing:normal !important;}
 }
 /* CORE:END css */
 </style>
-<link rel="stylesheet" href="site-extra.css?v=36">
+<link rel="stylesheet" href="site-extra.css?v=37">
 <link rel="stylesheet" href="products-shop.css?v=14">
 <script src="products-shop.js?v=12" defer></script>
 <script src="grove-nav.js?v=2" defer></script>
@@ -984,6 +984,7 @@ html.is-inapp .page-subnav a{word-spacing:normal !important;}
     <nav class="site-nav" id="navLinks" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="products.html" class="active">Products</a>
+      <a class="nav-quiz" id="quizNav" href="https://quiz.thefreshgrove.team/?shop=amorose.ringana.us&code=drkelly&with=kelly-amorose&who=Kelly&look=grove&fonts=fraunces&corners=sharp" target="_blank" rel="noopener">Fresh Match</a>
       <div class="nav-drop">
         <button type="button" class="nav-plan" aria-expanded="false" aria-haspopup="true">The Grove</button>
         <div class="nav-menu">
@@ -1306,18 +1307,16 @@ html.is-inapp .page-subnav a{word-spacing:normal !important;}
             <div class="shop-foot"><span class="shop-price">$38.40</span><a class="shop-go" href="https://amorose.ringana.us/produkt/fresh-cooling-leg-spray/?lang=en" target="_blank" rel="noopener">Shop this</a></div>
           </div>
         </article>
-                <article class="shop-card shop-switch" data-cat="Body" data-switch="deodorants">
+        <article class="shop-card" data-cat="Body">
           <figure>
-            <span class="shop-soon" hidden>Coming soon</span>
-            <button type="button" class="switch-arrow switch-prev" aria-label="Previous product">‹</button>
-            <a class="switch-shot" href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener"><img src="packs/fresh-deodorant.png?v=5" alt="deodorant"></a>
-            <button type="button" class="switch-arrow switch-next" aria-label="Next product">›</button>
+            <span class="shop-soon">Coming soon</span>
+            <a href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener"><img src="packs/fresh-deodorant.png?v=5" alt="deodorant" loading="lazy" decoding="async"></a>
           </figure>
           <div class="shop-body">
             <p class="shop-kicker">Body</p>
-            <h3 class="switch-name">deodorant</h3>
-            <p class="shop-line switch-line">Held up through a full day.</p>
-            <div class="shop-foot"><span class="shop-price switch-price">$36.30</span><a class="shop-go switch-go" href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener">Shop this</a></div>
+            <h3>deodorant</h3>
+            <p class="shop-line">Creamy, with no aluminum.</p>
+            <div class="shop-foot"><span class="shop-price"></span><a class="shop-go" href="https://amorose.ringana.us/produkt/fresh-deodorant/?lang=en" target="_blank" rel="noopener">Shop this</a></div>
           </div>
         </article>
         <article class="shop-card shop-switch" data-cat="Hair" data-switch="shampoos">
@@ -1335,6 +1334,7 @@ html.is-inapp .page-subnav a{word-spacing:normal !important;}
         </article>
         <article class="shop-card" data-cat="Hair">
           <figure>
+            <span class="shop-soon">Coming soon</span>
             <a href="https://amorose.ringana.us/produkt/fresh-conditioner-leave-in/?lang=en" target="_blank" rel="noopener"><img src="packs/fresh-hair-treatment.png?v=5" alt="hair treatment" loading="lazy" decoding="async"></a>
           </figure>
           <div class="shop-body">
@@ -1883,5 +1883,18 @@ window.FS_SITE_LEAD={slug:"kelly-amorose",root:"#kit-form-modal"};
 /* CLIENT:END js-optin */
 
 </script>
+<div class="quiz-prompt" id="quizPrompt" hidden>
+  <button type="button" class="quiz-prompt-back" id="quizPromptDismiss" aria-label="Not now"></button>
+  <div class="quiz-prompt-card" role="dialog" aria-modal="true" aria-labelledby="quizPromptTitle">
+    <p class="quiz-prompt-kicker">The Fresh Match</p>
+    <h2 id="quizPromptTitle">Not sure where to start?</h2>
+    <p>A few questions, then a short list that opens on this shop.</p>
+    <div class="quiz-prompt-actions">
+      <a class="btn btn-brass" id="quizPromptGo" href="https://quiz.thefreshgrove.team/?shop=amorose.ringana.us&code=drkelly&with=kelly-amorose&who=Kelly&look=grove&fonts=fraunces&corners=sharp" target="_blank" rel="noopener">Get your Fresh Match</a>
+      <button type="button" class="btn btn-ghost" id="quizPromptLater">Not now</button>
+    </div>
+  </div>
+</div>
+<script src="quiz-door.js?v=1" defer></script>
 </body>
 </html>

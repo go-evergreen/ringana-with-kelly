@@ -780,7 +780,7 @@ html.is-inapp .hero h1,html.is-inapp .page-hero h1,html.is-inapp h1{padding-top:
 html.is-inapp .site-nav{flex-wrap:nowrap;}
 /* CORE:END css */
 </style>
-<link rel="stylesheet" href="site-extra.css?v=36">
+<link rel="stylesheet" href="site-extra.css?v=37">
 <script src="grove-nav.js?v=2" defer></script>
 <link rel="stylesheet" href="business-extra.css?v=11">
 <link rel="stylesheet" href="grove-demo.css?v=5">
@@ -795,6 +795,7 @@ html.is-inapp .site-nav{flex-wrap:nowrap;}
     <nav class="site-nav" id="navLinks" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
+      <a class="nav-quiz" id="quizNav" href="https://quiz.thefreshgrove.team/?shop=amorose.ringana.us&code=drkelly&with=kelly-amorose&who=Kelly&look=grove&fonts=fraunces&corners=sharp" target="_blank" rel="noopener">Fresh Match</a>
       <div class="nav-drop">
         <button type="button" class="nav-plan active" aria-expanded="false" aria-haspopup="true">The Grove</button>
         <div class="nav-menu">
@@ -1927,5 +1928,18 @@ window.FS_SITE_LEAD={slug:"kelly-amorose",root:"#kit-form-modal"};
 })();
 </script>
 <script src="grove-page.js"></script>
+<div class="quiz-prompt" id="quizPrompt" hidden>
+  <button type="button" class="quiz-prompt-back" id="quizPromptDismiss" aria-label="Not now"></button>
+  <div class="quiz-prompt-card" role="dialog" aria-modal="true" aria-labelledby="quizPromptTitle">
+    <p class="quiz-prompt-kicker">The Fresh Match</p>
+    <h2 id="quizPromptTitle">Not sure where to start?</h2>
+    <p>A few questions, then a short list that opens on this shop.</p>
+    <div class="quiz-prompt-actions">
+      <a class="btn btn-brass" id="quizPromptGo" href="https://quiz.thefreshgrove.team/?shop=amorose.ringana.us&code=drkelly&with=kelly-amorose&who=Kelly&look=grove&fonts=fraunces&corners=sharp" target="_blank" rel="noopener">Get your Fresh Match</a>
+      <button type="button" class="btn btn-ghost" id="quizPromptLater">Not now</button>
+    </div>
+  </div>
+</div>
+<script src="quiz-door.js?v=1" defer></script>
 </body>
 </html>

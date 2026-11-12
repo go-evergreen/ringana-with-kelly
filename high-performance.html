@@ -29,7 +29,7 @@ footer{background:var(--pine-deep);color:var(--linen);padding:2.4rem 1.4rem;text
 .foot-brand span{color:var(--brass-light);}
 footer p{font-size:.8rem;opacity:.7;max-width:62ch;margin:.45rem auto 0;}
 </style>
-<link rel="stylesheet" href="site-extra.css?v=36">
+<link rel="stylesheet" href="site-extra.css?v=37">
 <link rel="stylesheet" href="why-now.css?v=14">
 <script src="grove-nav.js?v=2" defer></script>
 </head>
@@ -41,6 +41,7 @@ footer p{font-size:.8rem;opacity:.7;max-width:62ch;margin:.45rem auto 0;}
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
+      <a class="nav-quiz" id="quizNav" href="https://quiz.thefreshgrove.team/?shop=amorose.ringana.us&code=drkelly&with=kelly-amorose&who=Kelly&look=grove&fonts=fraunces&corners=sharp" target="_blank" rel="noopener">Fresh Match</a>
       <div class="nav-drop">
         <button type="button" class="nav-plan" aria-expanded="false" aria-haspopup="true">The Grove</button>
         <div class="nav-menu">
@@ -119,5 +120,18 @@ footer p{font-size:.8rem;opacity:.7;max-width:62ch;margin:.45rem auto 0;}
   });
 })();
 </script>
+<div class="quiz-prompt" id="quizPrompt" hidden>
+  <button type="button" class="quiz-prompt-back" id="quizPromptDismiss" aria-label="Not now"></button>
+  <div class="quiz-prompt-card" role="dialog" aria-modal="true" aria-labelledby="quizPromptTitle">
+    <p class="quiz-prompt-kicker">The Fresh Match</p>
+    <h2 id="quizPromptTitle">Not sure where to start?</h2>
+    <p>A few questions, then a short list that opens on this shop.</p>
+    <div class="quiz-prompt-actions">
+      <a class="btn btn-brass" id="quizPromptGo" href="https://quiz.thefreshgrove.team/?shop=amorose.ringana.us&code=drkelly&with=kelly-amorose&who=Kelly&look=grove&fonts=fraunces&corners=sharp" target="_blank" rel="noopener">Get your Fresh Match</a>
+      <button type="button" class="btn btn-ghost" id="quizPromptLater">Not now</button>
+    </div>
+  </div>
+</div>
+<script src="quiz-door.js?v=1" defer></script>
 </body>
 </html>
